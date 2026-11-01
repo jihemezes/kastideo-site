@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-title-fr="Mentions légales, Kastideo" data-title-en="Legal notice, Kastideo">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -22,7 +22,7 @@
 </div>
 
 <div class="wrap">
-  <header class="top">
+  <header class="top" id="haut">
     <a class="brand" href="index.html">
       <img src="icon-192.png" alt="Icône de Kastideo" width="56" height="56">
       <div>
@@ -30,12 +30,15 @@
         <span data-fr="Vos chaînes, vos films et vos séries au même endroit" data-en="Your channels, films and series in one place">Vos chaînes, vos films et vos séries au même endroit</span>
       </div>
     </a>
-    <nav class="subnav" aria-label="Navigation">
-      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-      <a href="index.html#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="index.html#fonctions" data-fr="Fonctions" data-en="Features">Fonctions</a>
+      <a href="index.html#versions" data-fr="Versions" data-en="Versions">Versions</a>
+      <a href="telecharger.html" data-fr="Télécharger" data-en="Download">Télécharger</a>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-fr="Offrir un café" data-en="Buy me a coffee">Offrir un café</span></a>
       <button class="lang" id="lang" type="button" aria-label="Changer de langue">English</button>
     </nav>
   </header>
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</span></nav>
 
   <main class="doc" data-lang="fr">
     <h1>Mentions légales</h1>
@@ -76,7 +79,6 @@
 
     <h2>Liens externes</h2>
     <p>Le site contient des liens vers des services tiers (GitHub, Ko-fi, TMDB, YouTube). L'éditeur n'est pas responsable de leur contenu.</p>
-
   </main>
   <main class="doc" data-lang="en" hidden>
     <h1>Legal notice</h1>
@@ -117,23 +119,64 @@
 
     <h2>External links</h2>
     <p>The site contains links to third-party services (GitHub, Ko-fi, TMDB, YouTube). The publisher is not responsible for their content.</p>
-
   </main>
 
   <footer>
     <div class="legal">
+      <h2 class="small-title" data-fr="Avertissement" data-en="Disclaimer">Avertissement</h2>
+      <p data-fr="Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales." data-en="Kastideo is a media player. It does not provide, host or sell any channel, movie, playlist or subscription. You must supply your own sources and check that they are legal.">Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales.</p>
+      <p data-fr="Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires." data-en="Kastideo is not affiliated with any IPTV provider, nor with YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple or Microsoft. Trademarks belong to their respective owners.">Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires.</p>
+      <p data-fr="Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays." data-en="Recordings, downloads and casting to a TV are for private use only, within the limits of the law in your country.">Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
+
+      <div class="attrib">
+        <img class="tmdb-logo" src="TMDB-blue_square_1.svg" alt="Logo TMDB" width="150" height="64">
+        <p style="margin:0" data-fr="Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB." data-en="This product uses the TMDB API but is not endorsed or certified by TMDB.">Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.</p>
+      </div>
+
+      <p class="credits" data-fr="Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube." data-en="Free software: VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, GPL license), Nunito and Inter fonts (OFL). YouTube's terms apply to the YouTube section.">Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube.</p>
+
       <div class="contact">
         <span data-fr="Contact :" data-en="Contact:">Contact :</span>
         <code>contact@kastideo.com</code>
         <button class="copy" type="button" data-copy="contact@kastideo.com" data-fr="Copier" data-en="Copy">Copier</button>
       </div>
+      <!--sitemap--><nav class="sitemap" aria-label="Plan du site">
+      <div><p class="small-title" data-fr="Fonctions" data-en="Features">Fonctions</p>
+      <ul>
+        <li><a href="direct.html" data-fr="Regarder le direct" data-en="Watching live TV">Regarder le direct</a></li>
+        <li><a href="guide-tv.html" data-fr="Guide TV et thèmes" data-en="TV guide and themes">Guide TV et thèmes</a></li>
+        <li><a href="interfaces.html" data-fr="Interfaces et personnalisation" data-en="Interfaces and personalisation">Interfaces et personnalisation</a></li>
+        <li><a href="multivue.html" data-fr="MultiVue" data-en="MultiView">MultiVue</a></li>
+        <li><a href="enregistrer.html" data-fr="Enregistrer et télécharger" data-en="Recording and downloading">Enregistrer et télécharger</a></li>
+        <li><a href="cast.html" data-fr="Envoyer à la télévision" data-en="Casting to a TV">Envoyer à la télévision</a></li>
+        <li><a href="replay.html" data-fr="Replay des programmes" data-en="Programme replay">Replay des programmes</a></li>
+        <li><a href="films-series.html" data-fr="Films et séries" data-en="Movies and series">Films et séries</a></li>
+        <li><a href="sources.html" data-fr="Vos sources" data-en="Your sources">Vos sources</a></li>
+        <li><a href="fiabilite.html" data-fr="Rapide, stable et sobre" data-en="Fast, stable and frugal">Rapide, stable et sobre</a></li>
+      </ul></div>
+      <div><p class="small-title" data-fr="Versions" data-en="Versions">Versions</p>
+      <ul>
+        <li><a href="mac.html" data-fr="Kastideo pour Mac" data-en="Kastideo for Mac">Kastideo pour Mac</a></li>
+        <li><a href="windows.html" data-fr="Kastideo pour Windows" data-en="Kastideo for Windows">Kastideo pour Windows</a></li>
+        <li><a href="linux.html" data-fr="Kastideo pour Linux" data-en="Kastideo for Linux">Kastideo pour Linux</a></li>
+        <li><a href="android.html" data-fr="Kastideo pour Android et Android TV" data-en="Kastideo for Android and Android TV">Kastideo pour Android et Android TV</a></li>
+        <li><a href="telecharger.html" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
+      </ul></div>
+      <div><p class="small-title" data-fr="Projet" data-en="Project">Projet</p>
+      <ul>
+        <li><a href="soutenir.html" data-fr="Soutenir le projet" data-en="Support the project">Soutenir le projet</a></li>
+        <li><a href="confidentialite.html" data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
+        <li><a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
+      </ul></div>
+    </nav><!--/sitemap-->
       <p class="fine">
         <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a> ·
         <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a> ·
-        <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        Kastideo <span data-ver="mac">1.9.1</span>
       </p>
     </div>
   </footer>
+  <a class="to-top" href="#haut" aria-label="Remonter en haut de la page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 <script src="site.js"></script>
 </body>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr" data-title-fr="Regarder le direct, Kastideo" data-title-en="Watching live TV, Kastideo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Regarder le direct, Kastideo</title>
+<meta name="description" content="Le direct dans Kastideo : démarrage rapide, santé du flux, direct en différé et gestion des versions de chaînes.">
+<meta name="theme-color" content="#0F0524">
+<link rel="canonical" href="https://kastideo.com/direct.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regarder le direct, Kastideo">
+<meta property="og:description" content="Le direct dans Kastideo : démarrage rapide, santé du flux, direct en différé et gestion des versions de chaînes.">
+<meta property="og:image" content="https://kastideo.com/icon-512.png">
+<link rel="preload" href="fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true">
+  <img src="icon-512.png" alt="" width="512" height="512">
+</div>
+
+<div class="wrap">
+  <header class="top" id="haut">
+    <a class="brand" href="index.html">
+      <img src="icon-192.png" alt="Icône de Kastideo" width="56" height="56">
+      <div>
+        <strong>Kastideo</strong>
+        <span data-fr="Vos chaînes, vos films et vos séries au même endroit" data-en="Your channels, films and series in one place">Vos chaînes, vos films et vos séries au même endroit</span>
+      </div>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="index.html#fonctions" data-fr="Fonctions" data-en="Features">Fonctions</a>
+      <a href="index.html#versions" data-fr="Versions" data-en="Versions">Versions</a>
+      <a href="telecharger.html" data-fr="Télécharger" data-en="Download">Télécharger</a>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-fr="Offrir un café" data-en="Buy me a coffee">Offrir un café</span></a>
+      <button class="lang" id="lang" type="button" aria-label="Changer de langue">English</button>
+    </nav>
+  </header>
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a> <span aria-hidden="true">›</span> <a href="index.html#fonctions" data-fr="Fonctions" data-en="Features">Fonctions</a> <span aria-hidden="true">›</span> <span aria-current="page" data-fr="Regarder le direct" data-en="Watching live TV">Regarder le direct</span></nav>
+
+  <main class="doc" data-lang="fr">
+    <h1>Regarder le direct</h1>
+    <p class="page-lead">Choisissez une chaîne et elle démarre, en moins d'une seconde en général. Kastideo garde ensuite la main : santé du flux, différé, version adaptée à votre connexion.</p>
+
+    <h2 id="lancer">Lancer une chaîne</h2>
+    <p>La lecture démarre dès que vous sélectionnez une chaîne. Pendant l'ouverture, le logo et le nom de la chaîne s'affichent, puis un badge « Prête en x s » indique le temps de démarrage. Les commandes apparaissent au survol : pause, volume, mode cinéma.</p>
+    <p>Un double-clic passe en mode cinéma : la fenêtre se met en plein écran et seule la vidéo reste affichée. Échap en sort.</p>
+
+    <h2 id="sante">Savoir si le flux est bon</h2>
+    <p>Une pastille de santé indique la qualité de réception : verte (Excellent), orange (Correct) ou rouge (Instable), avec la définition de l'image (SD, HD, Full HD ou 4K). Au survol, vous voyez le débit, les images par seconde, les images perdues et les coupures de la dernière minute.</p>
+    <p>Sur Mac, un panneau Informations affiche le programme en cours et à venir, le choix de la piste audio (langue, audiodescription) et des sous-titres.</p>
+
+    <h2 id="differe">Direct en différé</h2>
+    <p>Mettez une chaîne en pause : Kastideo continue de recevoir le flux et le garde en réserve. À la reprise, vous regardez en différé, signalé par un indicateur jaune (par exemple « DIFFÉRÉ −2:34 »).</p>
+    <ul>
+      <li>Une timeline va du moment de la pause (à gauche) jusqu'au direct (à droite). Glissez le curseur vers la droite : la lecture accélère jusqu'au point choisi, puis revient à vitesse normale.</li>
+      <li>Les vitesses ×1,25, ×1,5 et ×2 permettent de grignoter le retard. Le bouton Rattraper accélère jusqu'au direct sans rien sauter.</li>
+      <li>Retour au direct revient tout de suite à l'antenne.</li>
+      <li>La durée maximale du différé se règle dans les réglages de lecture.</li>
+    </ul>
+    <div class="callout"><b class="label">À savoir</b><p>Le différé est stocké dans un dossier temporaire de l'application, effacé au changement de chaîne. Comptez 1 à 4 Go par heure selon la qualité du flux.</p></div>
+
+    <h2 id="une-connexion">Une seule connexion à la fois</h2>
+    <p>La plupart des abonnements IPTV n'autorisent qu'un flux simultané. Kastideo ferme toujours le flux en cours avant d'ouvrir le suivant : vous pouvez zapper sans risquer de dépasser votre limite. Avant d'interrompre un enregistrement, il vous demande votre accord.</p>
+    <p>Si une chaîne ne démarre pas, vérifiez qu'aucun autre appareil (téléviseur, téléphone) n'utilise le même abonnement, et coupez un éventuel VPN.</p>
+
+    <h2 id="versions-chaine">Plusieurs versions d'une même chaîne</h2>
+    <p>Beaucoup de fournisseurs proposent une chaîne en plusieurs versions (4K, FHD, HD, SD). Dans la vue par thèmes, Kastideo n'en affiche qu'une et choisit la plus adaptée à votre connexion : il descend d'un cran après une lecture instable et remonte après trois lectures fluides. Un clic droit sur la chaîne permet de choisir une autre version.</p>
+
+    <h2 id="retrouver">Retrouver et corriger vos chaînes</h2>
+    <ul>
+      <li><b>Favoris et récents</b> : une étoile ou un clic droit ajoute un favori. Les récents gardent les 60 derniers contenus regardés, avec suppression multiple et bouton Annuler.</li>
+      <li><b>Recherche</b> : un seul champ cherche dans les chaînes, les films et les séries.</li>
+      <li><b>Catégories</b> : réordonnez, masquez ou renommez celles de votre fournisseur, ou masquez par mot-clé. Fini les catégories de pays que vous ne regardez jamais.</li>
+      <li><b>Corriger une chaîne</b> : un clic droit permet de changer son nom, son numéro, son logo et la chaîne du guide TV qui lui correspond.</li>
+    </ul>
+  </main>
+  <main class="doc" data-lang="en" hidden>
+    <h1>Watching live TV</h1>
+    <p class="page-lead">Pick a channel and it starts, usually in under a second. Kastideo then keeps you in control: stream health, timeshift, a version matched to your connection.</p>
+
+    <h2 id="lancer">Starting a channel</h2>
+    <p>Playback starts as soon as you select a channel. While it opens, the channel logo and name are shown, then a “Ready in x s” badge tells you the start time. Controls appear on hover: pause, volume, cinema mode.</p>
+    <p>A double-click switches to cinema mode: the window goes full screen and only the video stays. Esc leaves it.</p>
+
+    <h2 id="sante">Knowing if the stream is good</h2>
+    <p>A health pill shows reception quality: green (Excellent), orange (Fair) or red (Unstable), with the picture definition (SD, HD, Full HD or 4K). On hover you see the bitrate, frames per second, dropped frames and interruptions from the last minute.</p>
+    <p>On Mac, an Information panel shows the current and upcoming programme, the audio track (language, audio description) and subtitles.</p>
+
+    <h2 id="differe">Live timeshift</h2>
+    <p>Pause a channel: Kastideo keeps receiving the stream and stores it. When you resume, you watch time-shifted, shown by a yellow indicator (for example “DELAYED −2:34”).</p>
+    <ul>
+      <li>A timeline runs from the moment you paused (left) to live (right). Drag the cursor right: playback speeds up to the chosen point, then returns to normal speed.</li>
+      <li>Speeds ×1.25, ×1.5 and ×2 let you eat into the delay. The Catch up button speeds up to live without skipping anything.</li>
+      <li>Back to live returns to the broadcast immediately.</li>
+      <li>The maximum timeshift length is set in the playback settings.</li>
+    </ul>
+    <div class="callout"><b class="label">Good to know</b><p>Timeshift is stored in a temporary folder of the app, cleared when you change channel. Allow 1 to 4 GB per hour depending on stream quality.</p></div>
+
+    <h2 id="une-connexion">One connection at a time</h2>
+    <p>Most IPTV subscriptions allow only one simultaneous stream. Kastideo always closes the current stream before opening the next: you can zap without risk of exceeding your limit. Before interrupting a recording, it asks for your approval.</p>
+    <p>If a channel does not start, check that no other device (TV, phone) is using the same subscription, and turn off any VPN.</p>
+
+    <h2 id="versions-chaine">Several versions of one channel</h2>
+    <p>Many providers offer a channel in several versions (4K, FHD, HD, SD). In the themes view, Kastideo shows only one and picks the best fit for your connection: it steps down after an unstable playback and steps up after three smooth ones. A right-click on the channel lets you choose another version.</p>
+
+    <h2 id="retrouver">Finding and fixing your channels</h2>
+    <ul>
+      <li><b>Favourites and recents</b>: a star or a right-click adds a favourite. Recents keep the last 60 items watched, with multiple deletion and an Undo button.</li>
+      <li><b>Search</b>: one field searches channels, movies and series.</li>
+      <li><b>Categories</b>: reorder, hide or rename your provider's categories, or hide by keyword. No more country categories you never watch.</li>
+      <li><b>Fix a channel</b>: a right-click lets you change its name, number, logo and the TV guide channel it matches.</li>
+    </ul>
+  </main>
+
+  <section class="related" aria-labelledby="t-related">
+    <h2 id="t-related" class="sec" data-fr="Voir aussi" data-en="See also">Voir aussi</h2>
+    <div class="cards">
+      <a class="card link" href="guide-tv.html">
+        <h3 data-fr="Guide TV et thèmes" data-en="TV guide and themes">Guide TV et thèmes</h3>
+        <p data-fr="Guide en grille, chaînes classées par thème, « Ce soir », alertes avant vos émissions." data-en="Grid guide, channels sorted by theme, “Tonight”, alerts before your shows.">Guide en grille, chaînes classées par thème, « Ce soir », alertes avant vos émissions.</p>
+      </a>
+      <a class="card link" href="interfaces.html">
+        <h3 data-fr="Interfaces et personnalisation" data-en="Interfaces and personalisation">Interfaces et personnalisation</h3>
+        <p data-fr="Classique, Cinéma ou TV, au choix pour chaque type de contenu, et tout ce qui se règle." data-en="Classic, Cinema or TV, chosen per content type, and everything you can adjust.">Classique, Cinéma ou TV, au choix pour chaque type de contenu, et tout ce qui se règle.</p>
+      </a>
+      <a class="card link" href="multivue.html">
+        <h3 data-fr="MultiVue" data-en="MultiView">MultiVue</h3>
+        <p data-fr="Jusqu'à quatre chaînes à l'écran, avec le son sur la vignette active." data-en="Up to four channels on screen, with sound on the active tile.">Jusqu'à quatre chaînes à l'écran, avec le son sur la vignette active.</p>
+      </a>
+    </div>
+  </section>
+  <aside class="cta-band" aria-label="Télécharger">
+    <div><strong data-fr="Prêt à essayer ?" data-en="Ready to try?">Prêt à essayer ?</strong><span data-fr="Kastideo est gratuit et sans compte." data-en="Kastideo is free and needs no account.">Kastideo est gratuit et sans compte.</span></div>
+    <div class="actions"><a class="btn primary" href="telecharger.html" data-fr="Télécharger Kastideo" data-en="Download Kastideo">Télécharger Kastideo</a><a class="btn ghost" href="soutenir.html" data-fr="Soutenir le projet" data-en="Support the project">Soutenir le projet</a></div>
+  </aside>
+  <footer>
+    <div class="legal">
+      <h2 class="small-title" data-fr="Avertissement" data-en="Disclaimer">Avertissement</h2>
+      <p data-fr="Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales." data-en="Kastideo is a media player. It does not provide, host or sell any channel, movie, playlist or subscription. You must supply your own sources and check that they are legal.">Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales.</p>
+      <p data-fr="Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires." data-en="Kastideo is not affiliated with any IPTV provider, nor with YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple or Microsoft. Trademarks belong to their respective owners.">Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires.</p>
+      <p data-fr="Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays." data-en="Recordings, downloads and casting to a TV are for private use only, within the limits of the law in your country.">Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
+
+      <div class="attrib">
+        <img class="tmdb-logo" src="TMDB-blue_square_1.svg" alt="Logo TMDB" width="150" height="64">
+        <p style="margin:0" data-fr="Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB." data-en="This product uses the TMDB API but is not endorsed or certified by TMDB.">Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.</p>
+      </div>
+
+      <p class="credits" data-fr="Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube." data-en="Free software: VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, GPL license), Nunito and Inter fonts (OFL). YouTube's terms apply to the YouTube section.">Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube.</p>
+
+      <div class="contact">
+        <span data-fr="Contact :" data-en="Contact:">Contact :</span>
+        <code>contact@kastideo.com</code>
+        <button class="copy" type="button" data-copy="contact@kastideo.com" data-fr="Copier" data-en="Copy">Copier</button>
+      </div>
+      <!--sitemap--><nav class="sitemap" aria-label="Plan du site">
+      <div><p class="small-title" data-fr="Fonctions" data-en="Features">Fonctions</p>
+      <ul>
+        <li><a href="direct.html" data-fr="Regarder le direct" data-en="Watching live TV">Regarder le direct</a></li>
+        <li><a href="guide-tv.html" data-fr="Guide TV et thèmes" data-en="TV guide and themes">Guide TV et thèmes</a></li>
+        <li><a href="interfaces.html" data-fr="Interfaces et personnalisation" data-en="Interfaces and personalisation">Interfaces et personnalisation</a></li>
+        <li><a href="multivue.html" data-fr="MultiVue" data-en="MultiView">MultiVue</a></li>
+        <li><a href="enregistrer.html" data-fr="Enregistrer et télécharger" data-en="Recording and downloading">Enregistrer et télécharger</a></li>
+        <li><a href="cast.html" data-fr="Envoyer à la télévision" data-en="Casting to a TV">Envoyer à la télévision</a></li>
+        <li><a href="replay.html" data-fr="Replay des programmes" data-en="Programme replay">Replay des programmes</a></li>
+        <li><a href="films-series.html" data-fr="Films et séries" data-en="Movies and series">Films et séries</a></li>
+        <li><a href="sources.html" data-fr="Vos sources" data-en="Your sources">Vos sources</a></li>
+        <li><a href="fiabilite.html" data-fr="Rapide, stable et sobre" data-en="Fast, stable and frugal">Rapide, stable et sobre</a></li>
+      </ul></div>
+      <div><p class="small-title" data-fr="Versions" data-en="Versions">Versions</p>
+      <ul>
+        <li><a href="mac.html" data-fr="Kastideo pour Mac" data-en="Kastideo for Mac">Kastideo pour Mac</a></li>
+        <li><a href="windows.html" data-fr="Kastideo pour Windows" data-en="Kastideo for Windows">Kastideo pour Windows</a></li>
+        <li><a href="linux.html" data-fr="Kastideo pour Linux" data-en="Kastideo for Linux">Kastideo pour Linux</a></li>
+        <li><a href="android.html" data-fr="Kastideo pour Android et Android TV" data-en="Kastideo for Android and Android TV">Kastideo pour Android et Android TV</a></li>
+        <li><a href="telecharger.html" data-fr="Télécharger" data-en="Download">Télécharger</a></li>
+      </ul></div>
+      <div><p class="small-title" data-fr="Projet" data-en="Project">Projet</p>
+      <ul>
+        <li><a href="soutenir.html" data-fr="Soutenir le projet" data-en="Support the project">Soutenir le projet</a></li>
+        <li><a href="confidentialite.html" data-fr="Politique de confidentialité" data-en="Privacy policy">Politique de confidentialité</a></li>
+        <li><a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a></li>
+      </ul></div>
+    </nav><!--/sitemap-->
+      <p class="fine">
+        <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a> ·
+        <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a> ·
+        Kastideo <span data-ver="mac">1.9.1</span>
+      </p>
+    </div>
+  </footer>
+  <a class="to-top" href="#haut" aria-label="Remonter en haut de la page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<script src="site.js"></script>
+</body>
+</html>
