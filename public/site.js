@@ -12,29 +12,9 @@
   }
 
   var lang = 'fr';
-  try { lang = localStorage.getItem('kastideo.lang') === 'en' ? 'en' : 'fr'; } catch (e) {}
 
-  // ---------- Langue ----------
-  function apply(l) {
-    lang = l;
-    document.documentElement.lang = l;
-    document.querySelectorAll('[data-' + l + ']').forEach(function (el) {
-      el.innerHTML = el.getAttribute('data-' + l);
-    });
-    document.querySelectorAll('[data-lang]').forEach(function (el) {
-      el.hidden = el.getAttribute('data-lang') !== l;
-    });
-    var btn = document.getElementById('lang');
-    if (btn) btn.textContent = l === 'fr' ? 'English' : 'Français';
-    var t = document.documentElement.getAttribute('data-title-' + l);
-    if (t) document.title = t;
-    var toTop = document.querySelector('.to-top');
-    if (toTop) toTop.setAttribute('aria-label', l === 'fr' ? 'Remonter en haut de la page' : 'Back to top of the page');
-    renderReleases();
-    try { localStorage.setItem('kastideo.lang', l); } catch (e) {}
-  }
-  var langBtn = document.getElementById('lang');
-  if (langBtn) langBtn.addEventListener('click', function () { apply(lang === 'fr' ? 'en' : 'fr'); });
+  // La langue est portée par l'adresse de la page (/ pour le français, /en/ pour l'anglais).
+  lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
 
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -152,6 +132,5 @@
       });
   }
 
-  apply(lang);
   loadReleases();
 })();

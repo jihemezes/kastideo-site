@@ -25,12 +25,18 @@ Cloudflare Web Analytics (gratuit, sans cookie). Si l'activation automatique de 
 
 Les boutons pointent vers la page des versions de github.com/jihemezes/kastideo : `releases/latest` pour le Mac, `releases` pour Windows, Linux et Android.
 
-## Pages générées
+## Pages générées (français à la racine, anglais sous /en/)
 
-Les pages de détail (`direct.html`, `guide-tv.html`, `mac.html`, `telecharger.html`, etc.), les pages légales et `sitemap.xml`
-sont **générées** par `python3 tools/build_pages.py` à partir des textes de `tools/pages_*.py`.
-Ne les modifiez pas à la main : changez le texte dans `tools/`, relancez le script, puis committez le résultat.
-`public/index.html` reste écrit à la main ; le script n'y régénère que le plan du site (entre `<!--sitemap-->` et `<!--/sitemap-->`) et s'en sert pour le pied de page commun.
+Toutes les pages HTML sont **générées** par `python3 tools/build_pages.py` : une page par langue, avec balises `hreflang`, adresses canoniques, Open Graph, données structurées JSON-LD et `sitemap.xml`.
+Ne modifiez pas les `.html` de `public/` à la main. Les sources sont :
+
+- `tools/src/index.body.html` : corps de l'accueil, bilingue (attributs `data-fr` / `data-en`) ;
+- `tools/pages_features.py`, `pages_versions.py`, `pages_other.py`, `pages_seo.py`, `pages_legal.py` : textes FR et EN des autres pages ;
+- `tools/seo.py` : titre et description de référencement de chaque page, dans les deux langues ;
+- `tools/illustrations.py` : schémas SVG des pages de fonctions.
+
+Les images de partage `public/og-fr.png` et `og-en.png` se régénèrent avec `python3 tools/make_og.py` (Playwright).
+Cloudflare sert les pages sans `.html` (`/direct`, `/en/direct`) : les adresses canoniques et le plan du site utilisent ces formes.
 
 ## Liens de téléchargement
 

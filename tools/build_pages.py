@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
-"""Génère les pages secondaires de kastideo.com dans public/.
+"""Génère le site statique (FR à la racine, EN sous /en/) dans public/.
 
 Usage : python3 tools/build_pages.py   (depuis la racine du dépôt)
 
-Source unique :
-  - public/index.html (écrit à la main) fournit le pied de page commun ;
-    le bloc entre <!--sitemap--> et <!--/sitemap--> y est régénéré ici.
-  - tools/pages_*.py contiennent les textes FR/EN des pages générées.
-Ne modifiez pas à la main les pages générées : relancez ce script.
+Sources :
+  - tools/src/index.body.html : corps de l'accueil, bilingue (attributs data-fr / data-en) ;
+  - tools/pages_*.py : textes FR et EN des autres pages ;
+  - tools/seo.py : titres et descriptions de référencement.
+Chaque langue a ses propres pages (adresses séparées, balises hreflang). Cloudflare sert
+les pages sans « .html » : les adresses canoniques sont donc /direct et /en/direct.
+Ne modifiez pas à la main les .html générés : relancez ce script.
 """
+import html as htmllib
+import json
 import os
 import re
 import sys
@@ -19,21 +23,35 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 from pages_features import FEATURES  # noqa: E402
 from pages_versions import VERSIONS  # noqa: E402
 from pages_other import OTHER, kofi_button  # noqa: E402
+from pages_seo import COMPARE  # noqa: E402
+from seo import META  # noqa: E402
 import pages_legal as L  # noqa: E402
 import illustrations  # noqa: E402
 
 PUB = os.path.join(ROOT, "public")
 SITE = "https://kastideo.com"
-TODAY = "2026-11-01"
+LASTMOD = "2026-11-01"
+LANGS = ("fr", "en")
 
 LEGAL = [
     {"slug": "confidentialite", "title_fr": "Politique de confidentialité", "title_en": "Privacy policy",
-     "desc": "Données traitées par le site et par l'application Kastideo, et vos droits.",
      "fr": L.PRIV_FR, "en": L.PRIV_EN},
     {"slug": "mentions-legales", "title_fr": "Mentions légales", "title_en": "Legal notice",
-     "desc": "Éditeur, hébergeur, avertissement et crédits de Kastideo.",
      "fr": L.LEGAL_FR, "en": L.LEGAL_EN},
 ]
+
+ARIA_EN = {
+    "Remonter en haut de la page": "Back to top of the page",
+    "Fil d'Ariane": "Breadcrumb",
+    "Navigation principale": "Main navigation",
+    "Plan du site": "Site map",
+    "Icône de Kastideo": "Kastideo icon",
+    "Quel fichier télécharger": "Which file to download",
+    "Accès principaux": "Main access",
+    "Logo TMDB": "TMDB logo",
+    "Changer de langue": "Change language",
+    "Comparaison": "Comparison",
+}
 
 
 def esc(s):
@@ -41,36 +59,140 @@ def esc(s):
 
 
 def bi(fr, en, tag="span", extra=""):
-    """Élément bilingue (data-fr / data-en), contenu FR par défaut."""
+    """Élément bilingue source (data-fr / data-en), résolu par localize()."""
     return f'<{tag}{extra} data-fr="{esc(fr)}" data-en="{esc(en)}">{fr}</{tag}>'
 
 
-def head(title_fr, title_en, desc, slug):
-    url = f"{SITE}/{slug}.html"
-    t = f"{title_fr}, Kastideo"
-    return f"""<!doctype html>
-<html lang="fr" data-title-fr="{esc(t)}" data-title-en="{esc(title_en + ', Kastideo')}">
+# --------------------------------------------------------------------------- adresses
+def url_path(slug, lang):
+    """Adresse canonique sans domaine."""
+    if slug == "index":
+        return "/" if lang == "fr" else "/en/"
+    return f"/{slug}" if lang == "fr" else f"/en/{slug}"
+
+
+def url_abs(slug, lang):
+    return SITE + url_path(slug, lang)
+
+
+# --------------------------------------------------------------------------- langue
+BI = re.compile(
+    r'<(?P<tag>[a-z0-9]+)(?P<a>[^<>]*?)\sdata-fr="(?P<fr>[^"]*)"\sdata-en="(?P<en>[^"]*)"(?P<b>[^<>]*)>(?P<inner>.*?)</(?P=tag)>',
+    re.S,
+)
+HREF = re.compile(r'(?P<attr>href|src)="(?P<v>[^"]*)"')
+
+
+def _fix_link(attr, v, lang):
+    if re.match(r"^(https?:|mailto:|#|/|data:)", v):
+        return v
+    m = re.match(r"^([a-z0-9-]+)\.html(#.*)?$", v)
+    if m:
+        slug, frag = m.group(1), m.group(2) or ""
+        return url_path(slug, lang) + frag
+    if re.search(r"\.(css|js|png|svg|woff2|xml|txt)$", v):
+        return "/" + v
+    return v
+
+
+def localize(doc, lang):
+    """Résout les éléments bilingues, les libellés ARIA et les adresses pour une langue."""
+    def rep(m):
+        txt = htmllib.unescape(m.group(lang))
+        return f'<{m.group("tag")}{m.group("a")}{m.group("b")}>{txt}</{m.group("tag")}>'
+    doc = BI.sub(rep, doc)
+    if lang == "en":
+        def aria(m):
+            return f'{m.group(1)}="{ARIA_EN.get(htmllib.unescape(m.group(2)), m.group(2))}"'
+        doc = re.sub(r'(aria-label|alt)="([^"]*)"', aria, doc)
+    doc = HREF.sub(lambda m: f'{m.group("attr")}="{_fix_link(m.group("attr"), m.group("v"), lang)}"', doc)
+    return doc
+
+
+# --------------------------------------------------------------------------- JSON-LD
+def jsonld(slug, lang, title, desc, crumbs_list):
+    url = url_abs(slug, lang)
+    data = []
+    if slug == "index":
+        data.append({"@type": "WebSite", "@id": SITE + "/#site", "url": url_abs("index", lang), "name": "Kastideo",
+                     "inLanguage": lang})
+        data.append({
+            "@type": "SoftwareApplication", "name": "Kastideo",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "macOS, Windows, Linux, Android",
+            "description": desc, "url": url, "image": SITE + "/icon-512.png",
+            "inLanguage": lang,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+            "downloadUrl": url_abs("telecharger", lang),
+        })
+    else:
+        data.append({"@type": "WebPage", "@id": url + "#page", "url": url, "name": title, "description": desc,
+                     "inLanguage": lang, "isPartOf": {"@id": SITE + "/#site"}})
+        if crumbs_list:
+            items = []
+            for i, (name, path) in enumerate(crumbs_list, 1):
+                it = {"@type": "ListItem", "position": i, "name": name}
+                if path:
+                    it["item"] = SITE + path
+                items.append(it)
+            data.append({"@type": "BreadcrumbList", "itemListElement": items})
+    return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": data},
+                                                                 ensure_ascii=False, separators=(",", ":")) + "</script>\n"
+
+
+# --------------------------------------------------------------------------- éléments communs
+def head(slug, lang):
+    t, d = META[slug][lang]
+    full = t if slug == "index" else f"{t} | Kastideo"
+    other = "en" if lang == "fr" else "fr"
+    img = f"{SITE}/og-{lang}.png"
+    alt = ("Kastideo, lecteur IPTV pour Mac, Windows, Linux et Android" if lang == "fr"
+           else "Kastideo, IPTV player for Mac, Windows, Linux and Android")
+    loc, loc2 = ("fr_FR", "en_US") if lang == "fr" else ("en_US", "fr_FR")
+    return t, d, f"""<!doctype html>
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{t}</title>
-<meta name="description" content="{esc(desc)}">
+<title>{esc(full)}</title>
+<meta name="description" content="{esc(d)}">
 <meta name="theme-color" content="#0F0524">
-<link rel="canonical" href="{url}">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="canonical" href="{url_abs(slug, lang)}">
+<link rel="alternate" hreflang="fr" href="{url_abs(slug, 'fr')}">
+<link rel="alternate" hreflang="en" href="{url_abs(slug, 'en')}">
+<link rel="alternate" hreflang="x-default" href="{url_abs(slug, 'fr')}">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{esc(t)}">
-<meta property="og:description" content="{esc(desc)}">
-<meta property="og:image" content="{SITE}/icon-512.png">
-<link rel="preload" href="fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="site.css">
+<meta property="og:site_name" content="Kastideo">
+<meta property="og:locale" content="{loc}">
+<meta property="og:locale:alternate" content="{loc2}">
+<meta property="og:url" content="{url_abs(slug, lang)}">
+<meta property="og:title" content="{esc(full)}">
+<meta property="og:description" content="{esc(d)}">
+<meta property="og:image" content="{img}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(alt)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(full)}">
+<meta name="twitter:description" content="{esc(d)}">
+<meta name="twitter:image" content="{img}">
+<link rel="preload" href="/fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
 </head>
 """
 
 
-def header():
+def lang_link(slug, lang):
+    if lang == "fr":
+        return f'<a class="lang" id="lang" href="{url_path(slug, "en")}" hreflang="en" lang="en" aria-label="Changer de langue : English">English</a>'
+    return f'<a class="lang" id="lang" href="{url_path(slug, "fr")}" hreflang="fr" lang="fr" aria-label="Change language: Français">Français</a>'
+
+
+def header(slug):
     return f"""<body>
+<a class="skip" href="#contenu" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
 <div class="backdrop" aria-hidden="true">
   <img src="icon-512.png" alt="" width="512" height="512">
 </div>
@@ -89,28 +211,36 @@ def header():
       {bi("Versions", "Versions", "a", ' href="index.html#versions"')}
       {bi("Télécharger", "Download", "a", ' href="telecharger.html"')}
       {kofi_button("Offrir un café", False, "Buy me a coffee")}
-      <button class="lang" id="lang" type="button" aria-label="Changer de langue">English</button>
+      @@LANG@@
     </nav>
   </header>
 """
 
 
-def crumbs(group, cur_fr, cur_en):
+def crumb_data(group, p):
+    """Liste (nom FR, nom EN, chemin) du fil d'Ariane."""
+    items = [("Accueil", "Home", "index")]
     if group == "features":
-        mid = bi("Fonctions", "Features", "a", ' href="index.html#fonctions"')
+        items.append(("Fonctions", "Features", "index#fonctions"))
     elif group == "versions":
-        mid = bi("Versions", "Versions", "a", ' href="index.html#versions"')
-    else:
-        mid = None
-    parts = [bi("Accueil", "Home", "a", ' href="index.html"')]
-    if mid:
-        parts.append(mid)
-    parts.append(bi(cur_fr, cur_en, "span", ' aria-current="page"'))
+        items.append(("Versions", "Versions", "index#versions"))
+    items.append((p["title_fr"], p["title_en"], None))
+    return items
+
+
+def crumbs_html(items):
+    parts = []
+    for fr, en, target in items:
+        if target:
+            slug, _, frag = target.partition("#")
+            href = "index.html" + ("#" + frag if frag else "") if slug == "index" else slug + ".html"
+            parts.append(bi(fr, en, "a", f' href="{href}"'))
+        else:
+            parts.append(bi(fr, en, "span", ' aria-current="page"'))
     return '  <nav class="crumbs" aria-label="Fil d\'Ariane">' + ' <span aria-hidden="true">›</span> '.join(parts) + "</nav>\n"
 
 
 def related(pages, me):
-    """Trois pages voisines dans le même groupe (suivantes, en boucle)."""
     i = [p["slug"] for p in pages].index(me)
     pick = [pages[(i + k) % len(pages)] for k in (1, 2, 3)]
     pick = [p for p in pick if p["slug"] != me][:3]
@@ -154,25 +284,10 @@ def sitemap_block():
         '<nav class="sitemap" aria-label="Plan du site">\n'
         + col("Fonctions", "Features", FEATURES) + "\n"
         + col("Versions", "Versions", VERSIONS + [OTHER[0]]) + "\n"
+        + col("Comparer", "Compare", COMPARE) + "\n"
         + col("Projet", "Project", [OTHER[1]] + LEGAL) + "\n"
         "    </nav>"
     )
-
-
-def update_index_sitemap(idx):
-    new = "<!--sitemap-->" + sitemap_block() + "<!--/sitemap-->"
-    if "<!--sitemap-->" in idx:
-        return re.sub(r"<!--sitemap-->.*?<!--/sitemap-->", lambda m: new, idx, flags=re.S)
-    raise SystemExit("index.html : marqueur <!--sitemap--> manquant")
-
-
-def footer_from_index(idx):
-    m = re.search(r"  <footer>.*?</footer>", idx, flags=re.S)
-    if not m:
-        raise SystemExit("index.html : pied de page introuvable")
-    f = m.group(0)
-    # Sur les pages secondaires les liens internes de la page d'accueil restent valables.
-    return f + "\n"
 
 
 TO_TOP = (
@@ -182,7 +297,6 @@ TO_TOP = (
 
 
 def with_figure(p, lang):
-    """Insère le schéma de la page (s'il existe) juste après le paragraphe d'introduction."""
     html = p[lang]
     fig = illustrations.svg(p["slug"], lang)
     if not fig:
@@ -191,57 +305,88 @@ def with_figure(p, lang):
     return html[:m.end()] + "    " + fig + "\n" + html[m.end():]
 
 
-def page(p, group, siblings, footer):
-    p = dict(p, fr=with_figure(p, "fr"), en=with_figure(p, "en"))
-    out = head(p["title_fr"], p["title_en"], p["desc"], p["slug"])
-    out += header()
-    out += crumbs(group, p["title_fr"], p["title_en"])
-    out += f'\n  <main class="doc" data-lang="fr">\n{p["fr"]}  </main>\n'
-    out += f'  <main class="doc" data-lang="en" hidden>\n{p["en"]}  </main>\n\n'
+def index_source():
+    src = open(os.path.join(ROOT, "tools", "src", "index.body.html"), encoding="utf-8").read()
+    return re.sub(r"<!--sitemap-->.*?<!--/sitemap-->", lambda m: sitemap_block(), src, flags=re.S)
+
+
+def footer_of(idx):
+    m = re.search(r"  <footer>.*?</footer>", idx, flags=re.S)
+    if not m:
+        raise SystemExit("index.body.html : pied de page introuvable")
+    return m.group(0) + "\n"
+
+
+def subpage(p, group, siblings, footer, lang):
+    slug = p["slug"]
+    title, desc, h = head(slug, lang)
+    items = crumb_data(group, p)
+    crumbs_ld = []
+    for fr, en, target in items:
+        name = fr if lang == "fr" else en
+        if target:
+            s, _, frag = target.partition("#")
+            crumbs_ld.append((name, url_path(s, lang) + ("#" + frag if frag else "")))
+        else:
+            crumbs_ld.append((name, None))
+    out = h + header(slug).replace("@@LANG@@", lang_link(slug, lang))
+    out += crumbs_html(items)
+    out += f'\n  <main class="doc" id="contenu">\n{with_figure(p, lang)}  </main>\n\n'
     if siblings:
-        out += related(siblings, p["slug"])
-    if group in ("features", "versions"):
+        out += related(siblings, slug)
+    if group in ("features", "versions", "compare"):
         out += cta()
-    out += footer
-    out += TO_TOP
-    out += '</div>\n<script src="site.js"></script>\n</body>\n</html>\n'
-    return out
+    out += footer + TO_TOP + "</div>\n"
+    out += jsonld(slug, lang, title, desc, crumbs_ld)
+    out += '<script src="site.js"></script>\n</body>\n</html>\n'
+    return localize(out, lang)
+
+
+def index_page(idx, lang):
+    title, desc, h = head("index", lang)
+    body = re.sub(r'<button class="lang"[^>]*>[^<]*</button>', lang_link("index", lang), idx)
+    body = re.sub(r'<script src="site.js"></script>\n?', "", body)
+    out = h + "<body>\n<a class=\"skip\" href=\"#contenu\" data-fr=\"Aller au contenu\" data-en=\"Skip to content\">Aller au contenu</a>\n" + body
+    out += jsonld("index", lang, title, desc, None)
+    out += '<script src="site.js"></script>\n</body>\n</html>\n'
+    return localize(out, lang)
+
+
+def write(path, text):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, "w", encoding="utf-8").write(text)
 
 
 def main():
-    idx_path = os.path.join(PUB, "index.html")
-    idx = update_index_sitemap(open(idx_path, encoding="utf-8").read())
-    open(idx_path, "w", encoding="utf-8").write(idx)
-    footer = footer_from_index(idx)
+    idx = index_source()
+    footer = footer_of(idx)
+    pages = []  # (slug)
+    for lang in LANGS:
+        base = PUB if lang == "fr" else os.path.join(PUB, "en")
+        write(os.path.join(base, "index.html"), index_page(idx, lang))
+        for plist, group in ((FEATURES, "features"), (VERSIONS, "versions"), (COMPARE, "compare"),
+                             (OTHER, "other"), (LEGAL, "legal")):
+            for p in plist:
+                write(os.path.join(base, p["slug"] + ".html"),
+                      subpage(p, group, plist if group in ("features", "versions", "compare") else None, footer, lang))
+    slugs = ["index"] + [p["slug"] for pl in (FEATURES, VERSIONS, COMPARE, OTHER, LEGAL) for p in pl]
 
-    written = []
-
-    def w(slug, html):
-        open(os.path.join(PUB, slug + ".html"), "w", encoding="utf-8").write(html)
-        written.append(slug)
-
-    for p in FEATURES:
-        w(p["slug"], page(p, "features", FEATURES, footer))
-    for p in VERSIONS:
-        w(p["slug"], page(p, "versions", VERSIONS, footer))
-    for p in OTHER:
-        w(p["slug"], page(p, "other", None, footer))
-    for p in LEGAL:
-        w(p["slug"], page(p, "legal", None, footer))
-
-    urls = [""] + [s + ".html" for s in written]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
-          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in urls:
-        sm.append(f"  <url><loc>{SITE}/{u}</loc><lastmod>{TODAY}</lastmod></url>")
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for s in slugs:
+        for lang in LANGS:
+            sm.append("  <url>")
+            sm.append(f"    <loc>{url_abs(s, lang)}</loc>")
+            sm.append(f"    <lastmod>{LASTMOD}</lastmod>")
+            for l2 in LANGS:
+                sm.append(f'    <xhtml:link rel="alternate" hreflang="{l2}" href="{url_abs(s, l2)}"/>')
+            sm.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url_abs(s, "fr")}"/>')
+            sm.append("  </url>")
     sm.append("</urlset>")
-    open(os.path.join(PUB, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm) + "\n")
+    write(os.path.join(PUB, "sitemap.xml"), "\n".join(sm) + "\n")
 
-    rb = os.path.join(PUB, "robots.txt")
-    txt = open(rb).read()
-    if "Sitemap:" not in txt:
-        open(rb, "w").write(txt.rstrip("\n") + f"\nSitemap: {SITE}/sitemap.xml\n")
-    print("Pages générées :", len(written))
+    write(os.path.join(PUB, "robots.txt"), f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
+    print("Pages générées :", len(slugs) * 2)
 
 
 if __name__ == "__main__":
