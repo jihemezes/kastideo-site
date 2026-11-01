@@ -269,3 +269,35 @@ nav.main a.kofi-btn:hover { color: var(--night); background: linear-gradient(100
 .doc a.dl { color: var(--muted); }
 .doc a.btn.primary { color: #fff; }
 .doc a.btn.ghost { color: var(--fg); }
+
+/* ---- Silhouettes d'écrans (SVG inline) ---- */
+.shot { margin: 0 0 26px; }
+.shot svg { display: block; width: 100%; height: auto; max-width: 640px; border-radius: 18px; border: 1px solid var(--line); }
+.shot figcaption { color: var(--faint); font-size: 13px; margin-top: 8px; }
+.shot text { font-family: "Inter", sans-serif; font-size: 14px; }
+.shot .bg { fill: #1a0d3a; }
+.shot .pn { fill: rgba(255,255,255,.07); }
+.shot .pn2 { fill: rgba(255,255,255,.07); }
+.shot .pn3 { fill: rgba(255,255,255,.16); }
+.shot .vid { fill: #0F0524; }
+.shot .ac { fill: var(--orange); }
+.shot .mg { fill: var(--magenta); }
+.shot .pop { fill: #2a1a5a; stroke: rgba(255,255,255,.2); }
+.shot .ok { fill: rgba(40,160,90,.28); }
+.shot .okdot { fill: #3ad07a; }
+.shot .badge { fill: rgba(255,255,255,.14); }
+.shot .warnbg { fill: rgba(255,200,40,.2); }
+.shot .warn { fill: #ffc828; }
+.shot .rec { fill: #ff4455; }
+.shot .recbg { fill: rgba(255,68,85,.3); }
+.shot .redline { fill: #ff4455; }
+.shot .outl { fill: none; stroke: var(--orange); stroke-width: 3; }
+.shot .arrow { stroke: var(--orange); stroke-width: 4; fill: none; stroke-linecap: round; }
+.shot .arrowhead { fill: var(--orange); }
+.shot .wave { stroke: var(--orange); stroke-width: 3; fill: none; stroke-linecap: round; }
+.shot .link { stroke: rgba(255,255,255,.28); stroke-width: 2; stroke-dasharray: 5 5; }
+.shot .tt { fill: #fff; font-weight: 600; }
+.shot .tx { fill: #b9aed6; }
+.shot .night { fill: var(--night); font-weight: 700; }
+.shot .warntx { fill: #ffc828; font-weight: 700; }
+.shot .solid { fill: #2a1a5a; }

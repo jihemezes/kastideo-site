@@ -20,6 +20,7 @@ from pages_features import FEATURES  # noqa: E402
 from pages_versions import VERSIONS  # noqa: E402
 from pages_other import OTHER, kofi_button  # noqa: E402
 import pages_legal as L  # noqa: E402
+import illustrations  # noqa: E402
 
 PUB = os.path.join(ROOT, "public")
 SITE = "https://kastideo.com"
@@ -180,7 +181,18 @@ TO_TOP = (
 )
 
 
+def with_figure(p, lang):
+    """Insère le schéma de la page (s'il existe) juste après le paragraphe d'introduction."""
+    html = p[lang]
+    fig = illustrations.svg(p["slug"], lang)
+    if not fig:
+        return html
+    m = re.search(r'<p class="page-lead">.*?</p>\n', html, flags=re.S)
+    return html[:m.end()] + "    " + fig + "\n" + html[m.end():]
+
+
 def page(p, group, siblings, footer):
+    p = dict(p, fr=with_figure(p, "fr"), en=with_figure(p, "en"))
     out = head(p["title_fr"], p["title_en"], p["desc"], p["slug"])
     out += header()
     out += crumbs(group, p["title_fr"], p["title_en"])
