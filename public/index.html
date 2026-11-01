@@ -1,0 +1,446 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Kastideo, site d'accueil</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Mode nuit uniquement, par choix : la palette de l'application (nuit, violet, magenta, orange).
+   Titres en Nunito comme dans l'application, texte courant en Inter. */
+:root {
+  --night: #0F0524;
+  --indigo: #2B2194;
+  --violet: #571A8C;
+  --magenta: #CC2985;
+  --orange: #FF9933;
+  --bg: var(--night);
+  --fg: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.74);
+  --faint: rgba(255, 255, 255, 0.48);
+  --line: rgba(255, 255, 255, 0.14);
+  --card: rgba(255, 255, 255, 0.08);
+  --focus: var(--orange);
+  color-scheme: dark;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+.backdrop { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.backdrop::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 50% at 100% 100%, rgba(204, 41, 133, 0.45), transparent 70%),
+    radial-gradient(40% 35% at 100% 0%, rgba(255, 153, 51, 0.18), transparent 70%),
+    linear-gradient(160deg, var(--night) 0%, var(--violet) 90%, var(--night) 100%);
+  opacity: 0.9;
+}
+.backdrop img {
+  position: absolute;
+  width: min(820px, 90vw);
+  right: -18%;
+  top: 6%;
+  filter: blur(46px) saturate(1.15);
+  opacity: 0.55;
+  transform: rotate(-8deg);
+}
+.wrap {
+  position: relative; z-index: 1;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-width: 1120px;
+  margin-inline: auto;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+
+/* En-tête */
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 10px 30px rgba(204, 41, 133, 0.45); }
+.brand strong { font-family: "Nunito", sans-serif; font-weight: 900; font-size: 26px; letter-spacing: -0.01em; display: block; line-height: 1; }
+.brand span { color: var(--muted); font-size: 14px; }
+nav.main { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+nav.main a { text-decoration: none; font-size: 14px; color: var(--muted); padding: 8px 12px; border-radius: 999px; }
+nav.main a:hover { color: var(--fg); background: var(--card); }
+.lang {
+  font: inherit; font-size: 13px; color: var(--fg);
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer;
+}
+
+/* Accueil */
+.hero { margin-top: clamp(36px, 8vh, 80px); max-width: 740px; }
+.eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); font-weight: 600; margin: 0 0 14px; }
+h1 {
+  font-family: "Nunito", sans-serif; font-weight: 900;
+  font-size: clamp(38px, 7vw, 68px); line-height: 1.02; letter-spacing: -0.02em;
+  margin: 0 0 18px; text-wrap: balance;
+}
+h1 em { font-style: normal; background: linear-gradient(90deg, var(--orange), var(--magenta)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 60ch; margin: 0 0 28px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 700 15px "Nunito", sans-serif; text-decoration: none;
+  padding: 13px 22px; border-radius: 999px; border: 1px solid transparent;
+}
+.btn.primary { background: linear-gradient(90deg, var(--magenta), var(--orange)); color: #fff; box-shadow: 0 12px 30px rgba(204, 41, 133, 0.4); }
+.btn.ghost { background: var(--card); border-color: var(--line); color: var(--fg); }
+.btn:hover { filter: brightness(1.08); }
+.btn.small { font-size: 14px; padding: 10px 18px; }
+
+/* Tuiles */
+.tiles { margin-top: clamp(40px, 9vh, 76px); display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.tile {
+  position: relative; overflow: hidden; text-decoration: none;
+  min-height: 190px; padding: 22px; border-radius: 22px;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(15, 5, 36, 0.45)); pointer-events: none; }
+.tile svg { position: absolute; right: -10px; top: -6px; width: 150px; height: 150px; opacity: 0.16; }
+.tile h2 { font: 900 30px "Nunito", sans-serif; margin: 0; position: relative; z-index: 1; }
+.tile p { margin: 0; font-size: 14px; color: rgba(255, 255, 255, 0.88); position: relative; z-index: 1; }
+.t-live { background: linear-gradient(135deg, var(--magenta) 0%, var(--orange) 110%); }
+.t-films { background: linear-gradient(135deg, var(--violet) 0%, var(--magenta) 120%); }
+.t-series { background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 120%); }
+.t-videos { background: linear-gradient(135deg, var(--orange) 0%, var(--violet) 130%); }
+
+/* Sections */
+section { margin-top: clamp(56px, 10vh, 100px); }
+h3.sec { font: 900 clamp(26px, 4vw, 38px) "Nunito", sans-serif; letter-spacing: -0.01em; line-height: 1.1; margin: 0 0 12px; text-wrap: balance; }
+.sec-lead { color: var(--muted); max-width: 64ch; margin: 0 0 26px; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h4 { font: 800 19px "Nunito", sans-serif; margin: 0; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; display: grid; gap: 6px; }
+.card .btn { margin-top: auto; align-self: flex-start; }
+.tag { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: rgba(255, 153, 51, 0.16); color: var(--orange); }
+.tag.stable { background: rgba(255, 255, 255, 0.14); color: var(--fg); }
+
+/* Replay : mise en avant */
+.replay { display: grid; gap: 22px; grid-template-columns: 1fr; padding: 26px; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(120deg, rgba(87, 26, 140, 0.6), rgba(204, 41, 133, 0.3)); }
+@media (min-width: 760px) { .replay { grid-template-columns: 1.05fr 1fr; align-items: start; padding: 34px; } }
+.replay ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.replay li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; color: var(--muted); font-size: 15px; min-width: 0; }
+.replay li b { color: var(--fg); font-weight: 600; }
+.step-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--orange); color: var(--night); font: 900 15px "Nunito", sans-serif; }
+.arrow { color: var(--orange); font-weight: 900; }
+.note { font-size: 14px; color: var(--muted); margin: 0; padding-top: 6px; border-top: 1px solid var(--line); }
+
+/* Versions */
+.versions { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.ver-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+.ver-table th, .ver-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.ver-table th { color: var(--faint); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+.ver-table td code { font-size: 13px; background: var(--card); padding: 2px 6px; border-radius: 6px; word-break: break-word; }
+.table-wrap { overflow-x: auto; margin-top: 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+.steps { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: grid; gap: 6px; }
+
+/* Footer et mentions */
+footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line); padding-top: 28px; }
+.legal { font-size: 14px; color: var(--muted); max-width: 78ch; }
+.legal h5 { font: 800 16px "Nunito", sans-serif; color: var(--fg); margin: 18px 0 6px; }
+.legal p { margin: 0 0 8px; }
+.attrib { display: grid; gap: 18px; margin-top: 22px; align-items: center; grid-template-columns: auto 1fr; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+.logo-slot { width: 150px; max-width: 100%; aspect-ratio: 3 / 2; border-radius: 10px; border: 1px dashed var(--faint); display: grid; place-items: center; font-size: 12px; color: var(--faint); text-align: center; padding: 8px; }
+.credits { font-size: 13px; color: var(--faint); margin-top: 18px; }
+.contact { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 18px; font-size: 14px; }
+.contact code { background: var(--card); padding: 6px 10px; border-radius: 8px; user-select: all; }
+.copy { font: inherit; font-size: 13px; color: var(--fg); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.fine { font-size: 13px; color: var(--faint); margin: 22px 0 0; }
+
+@media (max-width: 520px) {
+  .attrib { grid-template-columns: 1fr; }
+  .brand img { width: 46px; height: 46px; }
+  .tile { min-height: 160px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="backdrop" aria-hidden="true">
+  <img src="kastideo-icon.png" alt="">
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#accueil">
+      <img src="kastideo-icon.png" alt="Icône de Kastideo">
+      <div>
+        <strong>Kastideo</strong>
+        <span data-fr="Vos chaînes, vos films et vos séries au même endroit" data-en="Your channels, films and series in one place">Vos chaînes, vos films et vos séries au même endroit</span>
+      </div>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="#replay" data-fr="Replay" data-en="Replay">Replay</a>
+      <a href="#fonctions" data-fr="Fonctions" data-en="Features">Fonctions</a>
+      <a href="#versions" data-fr="Versions" data-en="Versions">Versions</a>
+      <a href="#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a>
+      <a href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener" data-fr="Offrir un café" data-en="Buy me a coffee">Offrir un café</a>
+      <button class="lang" id="lang" type="button" aria-label="Changer de langue">English</button>
+    </nav>
+  </header>
+
+  <div class="hero" id="accueil">
+    <p class="eyebrow" data-fr="Lecteur IPTV pour Mac, Windows, Linux et Android" data-en="IPTV player for Mac, Windows, Linux and Android">Lecteur IPTV pour Mac, Windows, Linux et Android</p>
+    <h1 data-fr="Un seul lecteur pour <em>tout</em> ce que vous regardez" data-en="One player for <em>everything</em> you watch">Un seul lecteur pour <em>tout</em> ce que vous regardez</h1>
+    <p class="lead" data-fr="Kastideo réunit votre abonnement IPTV, vos films, vos séries et vos serveurs personnels dans une seule application. Le direct démarre vite, le guide TV se parcourt comme un programme de télévision, et vous pouvez revoir ce qui a déjà été diffusé. Vous apportez vos sources, Kastideo se charge de les lire." data-en="Kastideo brings your IPTV subscription, your films, your series and your personal servers into one app. Live channels start quickly, the TV guide works like a real programme guide, and you can watch what already aired. You bring your own sources, Kastideo plays them.">Kastideo réunit votre abonnement IPTV, vos films, vos séries et vos serveurs personnels dans une seule application. Le direct démarre vite, le guide TV se parcourt comme un programme de télévision, et vous pouvez revoir ce qui a déjà été diffusé. Vous apportez vos sources, Kastideo se charge de les lire.</p>
+    <div class="actions">
+      <a class="btn primary" href="#telecharger" data-fr="Télécharger Kastideo" data-en="Download Kastideo">Télécharger Kastideo</a>
+      <a class="btn ghost" href="#replay" data-fr="Découvrir le replay" data-en="Discover replay">Découvrir le replay</a>
+    </div>
+  </div>
+
+  <div class="tiles" aria-label="Accès principaux">
+    <a class="tile t-live" href="#fonctions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0M8 12a4 4 0 0 1 8 0M12 12h.01M2.5 12a9.5 9.5 0 0 1 19 0"/></svg>
+      <h2 data-fr="Direct" data-en="Live">Direct</h2>
+      <p data-fr="Chaînes, guide TV, thèmes, différé, enregistrement" data-en="Channels, TV guide, themes, timeshift, recording">Chaînes, guide TV, thèmes, différé, enregistrement</p>
+    </a>
+    <a class="tile t-films" href="#fonctions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
+      <h2 data-fr="Films" data-en="Movies">Films</h2>
+      <p data-fr="Affiches, fiches TMDB, reprise de lecture" data-en="Posters, TMDB details, resume playback">Affiches, fiches TMDB, reprise de lecture</p>
+    </a>
+    <a class="tile t-series" href="#fonctions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V5h8v3"/></svg>
+      <h2 data-fr="Séries" data-en="Series">Séries</h2>
+      <p data-fr="Saisons, épisodes, suivi de visionnage" data-en="Seasons, episodes, watch tracking">Saisons, épisodes, suivi de visionnage</p>
+    </a>
+    <a class="tile t-videos" href="#fonctions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+      <h2 data-fr="Mes vidéos" data-en="My videos">Mes vidéos</h2>
+      <p data-fr="Vos disques, votre NAS, Jellyfin, Emby, Plex" data-en="Your drives, NAS, Jellyfin, Emby, Plex">Vos disques, votre NAS, Jellyfin, Emby, Plex</p>
+    </a>
+  </div>
+
+  <section id="replay" aria-labelledby="t-replay">
+    <div class="replay">
+      <div>
+        <h3 class="sec" id="t-replay" data-fr="Revoir ce qui a déjà été diffusé" data-en="Watch what already aired">Revoir ce qui a déjà été diffusé</h3>
+        <p class="sec-lead" style="margin-bottom:14px" data-fr="Beaucoup de fournisseurs IPTV conservent les programmes des jours passés. Kastideo place cette archive directement dans le guide TV : vous retrouvez l'émission manquée, vous la lancez, sans chercher ni changer de réglage." data-en="Many IPTV providers keep the programmes of past days. Kastideo puts that archive directly into the TV guide: you find the programme you missed and play it, without searching or changing settings.">Beaucoup de fournisseurs IPTV conservent les programmes des jours passés. Kastideo place cette archive directement dans le guide TV : vous retrouvez l'émission manquée, vous la lancez, sans chercher ni changer de réglage.</p>
+        <p class="note" data-fr="Le replay dépend de votre abonnement : il faut que votre fournisseur propose une archive. Pour savoir si c'est le cas, un petit ↺ apparaît à côté des chaînes concernées." data-en="Replay depends on your subscription: your provider must offer an archive. When it does, a small ↺ appears next to the channels concerned.">Le replay dépend de votre abonnement : il faut que votre fournisseur propose une archive. Pour savoir si c'est le cas, un petit ↺ apparaît à côté des chaînes concernées.</p>
+      </div>
+      <ol>
+        <li><span class="step-num">1</span><span><b>Le guide TV affiche les programmes passés</b>, marqués ↺, sur les chaînes qui ont une archive. Le menu de date permet de remonter aux jours précédents.</span></li>
+        <li><span class="step-num">2</span><span><b>Un clic sur « Revoir »</b> lance le programme depuis l'archive. La barre du lecteur permet la pause et le déplacement dans l'émission.</span></li>
+        <li><span class="step-num">3</span><span><b>« Revoir depuis le début »</b> relit l'émission en cours depuis son commencement, même si vous avez manqué le début.</span></li>
+        <li><span class="step-num">4</span><span><b>« Enregistrer ce replay »</b> télécharge l'émission depuis l'archive dans votre dossier d'enregistrements, pour la garder.</span></li>
+        <li><span class="step-num">5</span><span><b>Retour automatique au direct</b> à la fin du programme, ou quand vous le décidez. Un réglage permet de le désactiver.</span></li>
+        <li><span class="step-num">6</span><span><b>Décalage d'heure corrigeable</b> : si l'archive de votre fournisseur est décalée de quelques minutes ou d'une heure, vous la réglez une fois pour toutes. Le fuseau horaire du serveur est lu automatiquement.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="fonctions" aria-labelledby="t-fonctions">
+    <h3 class="sec" id="t-fonctions" data-fr="Rapide, stable et sobre" data-en="Fast, stable and frugal">Rapide, stable et sobre</h3>
+    <p class="sec-lead" data-fr="Une application d'écoute doit démarrer sans attendre et tenir pendant toute une soirée. Kastideo est conçue pour cela, plateforme par plateforme." data-en="A playback app must start without delay and keep going all evening. Kastideo is built for that, on every platform.">Une application d'écoute doit démarrer sans attendre et tenir pendant toute une soirée. Kastideo est conçue pour cela, plateforme par plateforme.</p>
+    <div class="cards">
+      <div class="card">
+        <h4 data-fr="Rapide" data-en="Fast">Rapide</h4>
+        <p data-fr="Les chaînes démarrent en moins d'une seconde en général. Le zapping est immédiat, et la connexion au serveur est fermée proprement avant chaque nouvelle chaîne." data-en="Channels usually start in under a second. Zapping is immediate, and the connection to the server is closed cleanly before each new channel.">Les chaînes démarrent en moins d'une seconde en général. Le zapping est immédiat, et la connexion au serveur est fermée proprement avant chaque nouvelle chaîne.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Stable" data-en="Stable">Stable</h4>
+        <p data-fr="Un indicateur de santé du flux affiche la qualité de réception. Si une image reste figée, Kastideo bascule automatiquement vers un décodage logiciel. Le journal de lecture explique tout problème." data-en="A stream health indicator shows reception quality. If a picture freezes, Kastideo automatically switches to software decoding. The playback log explains any problem.">Un indicateur de santé du flux affiche la qualité de réception. Si une image reste figée, Kastideo bascule automatiquement vers un décodage logiciel. Le journal de lecture explique tout problème.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Sobre" data-en="Frugal">Sobre</h4>
+        <p data-fr="Pas de compte à créer chez nous. Vos identifiants restent sur votre appareil, rangés dans le coffre sécurisé du système, et ne sont envoyés qu'à votre fournisseur." data-en="No account to create with us. Your credentials stay on your device, in the system's secure store, and are sent only to your provider.">Pas de compte à créer chez nous. Vos identifiants restent sur votre appareil, rangés dans le coffre sécurisé du système, et ne sont envoyés qu'à votre fournisseur.</p>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-top:14px">
+      <div class="card">
+        <h4 data-fr="Interfaces au choix" data-en="Choose your interface">Interfaces au choix</h4>
+        <p data-fr="Classique (listes), Cinéma (affiches et carrousel) ou TV (zapping par numéro). Le choix se règle séparément pour le direct, les films et les séries." data-en="Classic (lists), Cinema (posters and carousel) or TV (zapping by number). The choice is set separately for live, movies and series.">Classique (listes), Cinéma (affiches et carrousel) ou TV (zapping par numéro). Le choix se règle séparément pour le direct, les films et les séries.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Guide TV et thèmes" data-en="TV guide and themes">Guide TV et thèmes</h4>
+        <p data-fr="Un guide en grille avec faux départs et recherche, les chaînes classées par thème (sport, info, films, jeunesse, documentaires), et des alertes avant le début de vos émissions." data-en="A grid guide with search, channels sorted by theme (sport, news, movies, kids, documentaries), and alerts before your programmes start.">Un guide en grille avec recherche, les chaînes classées par thème (sport, info, films, jeunesse, documentaires), et des alertes avant le début de vos émissions.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="MultiVue" data-en="MultiView">MultiVue</h4>
+        <p data-fr="Suivez jusqu'à quatre chaînes à l'écran, si votre abonnement autorise plusieurs connexions simultanées." data-en="Watch up to four channels on screen, if your subscription allows several simultaneous connections.">Suivez jusqu'à quatre chaînes à l'écran, si votre abonnement autorise plusieurs connexions simultanées.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Enregistrer" data-en="Record">Enregistrer</h4>
+        <p data-fr="Enregistrez le direct tout de suite ou à une heure programmée, avec une conversion en MP4. Les films et les séries se téléchargent en file d'attente, même la nuit." data-en="Record live TV right away or at a scheduled time, converted to MP4. Movies and series download in a queue, even overnight.">Enregistrez le direct tout de suite ou à une heure programmée, avec une conversion en MP4. Les films et les séries se téléchargent en file d'attente, même la nuit.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Envoyer à la télévision" data-en="Cast to a TV">Envoyer à la télévision</h4>
+        <p data-fr="Chromecast, Google TV, Android TV et AirPlay selon vos appareils. Sur Android TV, la télécommande pilote directement l'application." data-en="Chromecast, Google TV, Android TV and AirPlay, depending on your devices. On Android TV, the remote controls the app directly.">Chromecast, Google TV, Android TV et AirPlay selon vos appareils. Sur Android TV, la télécommande pilote directement l'application.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Vos sources" data-en="Your sources">Vos sources</h4>
+        <p data-fr="Abonnement Xtream Codes, playlist M3U, serveurs Jellyfin, Emby ou Plex, vidéos de vos disques et du NAS, et YouTube avec votre clé Google gratuite." data-en="Xtream Codes subscription, M3U playlist, Jellyfin, Emby or Plex servers, videos on your drives and NAS, and YouTube with your free Google key.">Abonnement Xtream Codes, playlist M3U, serveurs Jellyfin, Emby ou Plex, vidéos de vos disques et du NAS, et YouTube avec votre clé Google gratuite.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="versions" aria-labelledby="t-versions">
+    <h3 class="sec" id="t-versions" data-fr="Les versions de Kastideo" data-en="Kastideo versions">Les versions de Kastideo</h3>
+    <p class="sec-lead" data-fr="Kastideo existe sur quatre familles de matériel. La version Mac est la version stable. Les versions Windows, Linux et Android sont en aperçu : elles fonctionnent bien, mais les retours des utilisateurs restent précieux." data-en="Kastideo runs on four families of devices. The Mac version is the stable one. Windows, Linux and Android versions are in preview: they work well, but user feedback still matters.">Kastideo existe sur quatre familles de matériel. La version Mac est la version stable. Les versions Windows, Linux et Android sont en aperçu : elles fonctionnent bien, mais les retours des utilisateurs restent précieux.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="tag stable" data-fr="Version stable" data-en="Stable version">Version stable</span>
+        <h4>Mac</h4>
+        <ul>
+          <li data-fr="macOS 14 Sonoma ou plus récent, processeur Apple (M1 à M4) ou Intel." data-en="macOS 14 Sonoma or later, Apple processor (M1 to M4) or Intel.">macOS 14 Sonoma ou plus récent, processeur Apple (M1 à M4) ou Intel.</li>
+          <li data-fr="Fichier à télécharger : Kastideo-X.Y.Z.dmg. Glissez l'application dans Applications." data-en="File to download: Kastideo-X.Y.Z.dmg. Drag the app into Applications.">Fichier à télécharger : Kastideo-X.Y.Z.dmg. Glissez l'application dans Applications.</li>
+          <li data-fr="Signée et vérifiée par Apple, mises à jour automatiques." data-en="Signed and checked by Apple, updates are automatic.">Signée et vérifiée par Apple, mises à jour automatiques.</li>
+        </ul>
+        <a class="btn primary small" href="https://github.com/jihemezes/kastideo/releases/latest" target="_blank" rel="noopener" data-fr="Télécharger pour Mac" data-en="Download for Mac">Télécharger pour Mac</a>
+      </div>
+      <div class="card">
+        <span class="tag" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <h4>Windows</h4>
+        <ul>
+          <li data-fr="Windows 10 ou 11, 64 bits." data-en="Windows 10 or 11, 64-bit.">Windows 10 ou 11, 64 bits.</li>
+          <li data-fr="Installateur Setup.exe (recommandé, sans droits administrateur), ou version portable en archive .zip." data-en="Setup.exe installer (recommended, no administrator rights), or portable version as a .zip archive.">Installateur Setup.exe (recommandé, sans droits administrateur), ou version portable en archive .zip.</li>
+          <li data-fr="Pas encore signée : Windows affiche « Windows a protégé votre ordinateur ». Cliquez sur Informations complémentaires, puis Exécuter quand même." data-en="Not signed yet: Windows shows “Windows protected your PC”. Click More info, then Run anyway.">Pas encore signée : Windows affiche « Windows a protégé votre ordinateur ». Cliquez sur Informations complémentaires, puis Exécuter quand même.</li>
+        </ul>
+        <a class="btn ghost small" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener" data-fr="Voir les versions Windows" data-en="See Windows versions">Voir les versions Windows</a>
+      </div>
+      <div class="card">
+        <span class="tag" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <h4>Linux</h4>
+        <ul>
+          <li data-fr="Zorin OS 17 ou Ubuntu 22.04 : paquet .deb (ubuntu22.04_amd64)." data-en="Zorin OS 17 or Ubuntu 22.04: .deb package (ubuntu22.04_amd64).">Zorin OS 17 ou Ubuntu 22.04 : paquet .deb (ubuntu22.04_amd64).</li>
+          <li data-fr="Zorin OS 18 ou Ubuntu 24.04 : paquet .deb (ubuntu24.04_amd64)." data-en="Zorin OS 18 or Ubuntu 24.04: .deb package (ubuntu24.04_amd64).">Zorin OS 18 ou Ubuntu 24.04 : paquet .deb (ubuntu24.04_amd64).</li>
+          <li data-fr="Raspberry Pi 4 ou 5 (système 64 bits) : AppImage aarch64. Autre PC 64 bits : AppImage x86_64." data-en="Raspberry Pi 4 or 5 (64-bit system): aarch64 AppImage. Other 64-bit PC: x86_64 AppImage.">Raspberry Pi 4 ou 5 (système 64 bits) : AppImage aarch64. Autre PC 64 bits : AppImage x86_64.</li>
+        </ul>
+        <ol class="steps" style="margin-top:4px">
+          <li data-fr="Le .deb s'installe par double-clic, ou par sudo apt install ./fichier.deb." data-en="The .deb installs with a double-click, or with sudo apt install ./file.deb.">Le .deb s'installe par double-clic, ou par sudo apt install ./fichier.deb.</li>
+          <li data-fr="L'AppImage s'ouvre après l'avoir rendu exécutable. S'il ne démarre pas, installez libfuse2 (libfuse2t64 sur Ubuntu 24.04 et Zorin OS 18)." data-en="The AppImage opens once made executable. If it does not start, install libfuse2 (libfuse2t64 on Ubuntu 24.04 and Zorin OS 18).">L'AppImage s'ouvre après l'avoir rendu exécutable. S'il ne démarre pas, installez libfuse2 (libfuse2t64 sur Ubuntu 24.04 et Zorin OS 18).</li>
+        </ol>
+        <a class="btn ghost small" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener" data-fr="Voir les versions Linux" data-en="See Linux versions">Voir les versions Linux</a>
+      </div>
+      <div class="card">
+        <span class="tag" data-fr="Aperçu" data-en="Preview">Aperçu</span>
+        <h4>Android et Android TV</h4>
+        <ul>
+          <li data-fr="Téléphone, tablette et téléviseur Android TV (Google TV, Chromecast avec Google TV, Nvidia Shield, TV Philips, Sony, TCL)." data-en="Phone, tablet and Android TV set (Google TV, Chromecast with Google TV, Nvidia Shield, Philips, Sony, TCL TVs).">Téléphone, tablette et téléviseur Android TV (Google TV, Chromecast avec Google TV, Nvidia Shield, TV Philips, Sony, TCL).</li>
+          <li data-fr="APK arm64-v8a pour un appareil récent, armeabi-v7a pour un ancien appareil ou un boîtier 32 bits, universal si vous hésitez." data-en="arm64-v8a APK for a recent device, armeabi-v7a for an older device or 32-bit box, universal if unsure.">APK arm64-v8a pour un appareil récent, armeabi-v7a pour un ancien appareil ou un boîtier 32 bits, universal si vous hésitez.</li>
+          <li data-fr="Pas sur Google Play : ouvrez l'APK, autorisez l'application qui l'ouvre à installer, puis confirmez. Sur Android TV, l'application Downloader ou une clé USB suffisent." data-en="Not on Google Play: open the APK, allow the app that opens it to install, then confirm. On Android TV, the Downloader app or a USB stick is enough.">Pas sur Google Play : ouvrez l'APK, autorisez l'application qui l'ouvre à installer, puis confirmez. Sur Android TV, l'application Downloader ou une clé USB suffisent.</li>
+        </ul>
+        <a class="btn ghost small" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener" data-fr="Voir les versions Android" data-en="See Android versions">Voir les versions Android</a>
+      </div>
+    </div>
+
+    <div class="table-wrap" role="region" aria-label="Quel fichier télécharger" tabindex="0">
+      <table class="ver-table">
+        <thead>
+          <tr><th data-fr="Votre appareil" data-en="Your device">Votre appareil</th><th data-fr="Fichier" data-en="File">Fichier</th><th data-fr="État" data-en="Status">État</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mac (Apple, Intel)</td><td><code>Kastideo-X.Y.Z.dmg</code></td><td data-fr="Stable" data-en="Stable">Stable</td></tr>
+          <tr><td>Windows 10/11, 64 bits</td><td><code>…-windows-x64-setup.exe</code> <span data-fr="ou" data-en="or">ou</span> <code>…-windows-x64.zip</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td>Zorin OS 17, Ubuntu 22.04</td><td><code>kastideo_…_ubuntu22.04_amd64.deb</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td>Zorin OS 18, Ubuntu 24.04</td><td><code>kastideo_…_ubuntu24.04_amd64.deb</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td>Raspberry Pi 4 ou 5 (64 bits)</td><td><code>Kastideo-…-linux-aarch64.AppImage</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td data-fr="Autre PC Linux 64 bits" data-en="Other 64-bit Linux PC">Autre PC Linux 64 bits</td><td><code>Kastideo-…-linux-x86_64.AppImage</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td data-fr="Téléphone ou TV récent" data-en="Recent phone or TV">Téléphone ou TV récent</td><td><code>Kastideo-…-android-arm64-v8a.apk</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td data-fr="Ancien appareil, boîtier 32 bits" data-en="Older device, 32-bit box">Ancien appareil, boîtier 32 bits</td><td><code>Kastideo-…-android-armeabi-v7a.apk</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+          <tr><td data-fr="Vous hésitez" data-en="Not sure">Vous hésitez</td><td><code>Kastideo-…-android-universal.apk</code></td><td data-fr="Aperçu" data-en="Preview">Aperçu</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:14px" data-fr="Les aperçus Windows, Linux et Android sont publiés en pré-version sur la page Releases de GitHub, avec des numéros se terminant par -desktop ou -android. Le numéro exact du fichier change à chaque version : la liste complète se trouve sur la page des versions." data-en="Preview builds for Windows, Linux and Android are published as pre-releases on the GitHub Releases page, with version numbers ending in -desktop or -android. The exact file name changes with each version: the full list is on the releases page.">Les aperçus Windows, Linux et Android sont publiés en pré-version sur la page Releases de GitHub, avec des numéros se terminant par -desktop ou -android. Le numéro exact du fichier change à chaque version : la liste complète se trouve sur la page des versions.</p>
+  </section>
+
+  <section id="telecharger" aria-labelledby="t-telecharger">
+    <div class="free">
+      <div>
+        <h3 class="sec" id="t-telecharger" style="margin-bottom:6px" data-fr="Télécharger" data-en="Download">Télécharger</h3>
+        <p data-fr="Le bouton Mac mène toujours à la dernière version publiée. Pour les autres systèmes, la page Releases liste tous les fichiers." data-en="The Mac button always leads to the latest published version. For other systems, the Releases page lists every file.">Le bouton Mac mène toujours à la dernière version publiée. Pour les autres systèmes, la page Releases liste tous les fichiers.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/jihemezes/kastideo/releases/latest" target="_blank" rel="noopener" data-fr="Télécharger pour Mac" data-en="Download for Mac">Télécharger pour Mac</a>
+        <a class="btn ghost" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener" data-fr="Toutes les versions" data-en="All versions">Toutes les versions</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="soutien" aria-labelledby="t-soutien">
+    <div class="free">
+      <div>
+        <h3 class="sec" id="t-soutien" style="margin-bottom:6px" data-fr="Soutenir le projet" data-en="Support the project">Soutenir le projet</h3>
+        <p data-fr="Kastideo est gratuit. Si l'application vous rend service, vous pouvez encourager son développement. C'est entièrement facultatif." data-en="Kastideo is free. If the app serves you well, you can support its development. It is entirely optional.">Kastideo est gratuit. Si l'application vous rend service, vous pouvez encourager son développement. C'est entièrement facultatif.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener" data-fr="Offrir un café" data-en="Buy me a coffee">Offrir un café</a>
+        <a class="btn ghost" href="https://github.com/jihemezes/kastideo/issues" target="_blank" rel="noopener" data-fr="Signaler un problème" data-en="Report an issue">Signaler un problème</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="legal">
+      <h5 data-fr="Avertissement" data-en="Disclaimer">Avertissement</h5>
+      <p data-fr="Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales." data-en="Kastideo is a media player. It does not provide, host or sell any channel, movie, playlist or subscription. You must supply your own sources and check that they are legal.">Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales.</p>
+      <p data-fr="Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires." data-en="Kastideo is not affiliated with any IPTV provider, nor with YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple or Microsoft. Trademarks belong to their respective owners.">Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires.</p>
+      <p data-fr="Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays." data-en="Recordings, downloads and casting to a TV are for private use only, within the limits of the law in your country.">Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
+
+      <div class="attrib">
+        <div class="logo-slot" data-fr="Logo TMDB (à déposer)" data-en="TMDB logo (to be added)">Logo TMDB (à déposer)</div>
+        <p style="margin:0" data-fr="Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB." data-en="This product uses the TMDB API but is not endorsed or certified by TMDB.">Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.</p>
+      </div>
+
+      <p class="credits" data-fr="Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube." data-en="Free software: VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, GPL license), Nunito and Inter fonts (OFL). YouTube's terms apply to the YouTube section.">Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube.</p>
+
+      <div class="contact">
+        <span data-fr="Contact :" data-en="Contact:">Contact :</span>
+        <code>contact@kastideo.com</code>
+        <button class="copy" type="button" data-copy="contact@kastideo.com" data-fr="Copier" data-en="Copy">Copier</button>
+      </div>
+      <p class="fine">
+        <a href="#" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a> ·
+        <a href="#" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a> ·
+        Kastideo 1.9.1
+      </p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var lang = 'fr';
+  try { lang = localStorage.getItem('kastideo.lang') === 'en' ? 'en' : 'fr'; } catch (e) {}
+  function apply(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-' + l + ']').forEach(function (el) {
+      el.innerHTML = el.getAttribute('data-' + l);
+    });
+    var btn = document.getElementById('lang');
+    if (btn) btn.textContent = l === 'fr' ? 'English' : 'Français';
+    try { localStorage.setItem('kastideo.lang', l); } catch (e) {}
+  }
+  document.getElementById('lang').addEventListener('click', function () { apply(lang === 'fr' ? 'en' : 'fr'); });
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = lang === 'en' ? 'Copied' : 'Copié';
+        }, function () {});
+      }
+    });
+  });
+  apply(lang);
+})();
+</script>
