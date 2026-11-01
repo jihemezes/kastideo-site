@@ -2,7 +2,7 @@
   // Site statique : Cloudflare Workers Builds publie le dossier public/ tel quel.
   // Aucune étape de compilation n'est nécessaire.
   "name": "kastideo-site",
-  "compatibility_date": "2026-11-01",
+  "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./public"
   }
