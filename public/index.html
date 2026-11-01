@@ -130,14 +130,6 @@ h3.sec { font: 900 clamp(26px, 4vw, 38px) "Nunito", sans-serif; letter-spacing: 
 .tag { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: rgba(255, 153, 51, 0.16); color: var(--orange); }
 .tag.stable { background: rgba(255, 255, 255, 0.14); color: var(--fg); }
 
-/* Replay : mise en avant */
-.replay { display: grid; gap: 22px; grid-template-columns: 1fr; padding: 26px; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(120deg, rgba(87, 26, 140, 0.6), rgba(204, 41, 133, 0.3)); }
-@media (min-width: 760px) { .replay { grid-template-columns: 1.05fr 1fr; align-items: start; padding: 34px; } }
-.replay ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-.replay li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; color: var(--muted); font-size: 15px; min-width: 0; }
-.replay li b { color: var(--fg); font-weight: 600; }
-.step-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--orange); color: var(--night); font: 900 15px "Nunito", sans-serif; }
-.arrow { color: var(--orange); font-weight: 900; }
 .note { font-size: 14px; color: var(--muted); margin: 0; padding-top: 6px; border-top: 1px solid var(--line); }
 
 /* Versions */
@@ -184,7 +176,6 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
       </div>
     </a>
     <nav class="main" aria-label="Navigation principale">
-      <a href="#replay" data-fr="Replay" data-en="Replay">Replay</a>
       <a href="#fonctions" data-fr="Fonctions" data-en="Features">Fonctions</a>
       <a href="#versions" data-fr="Versions" data-en="Versions">Versions</a>
       <a href="#telecharger" data-fr="Télécharger" data-en="Download">Télécharger</a>
@@ -199,7 +190,7 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
     <p class="lead" data-fr="Kastideo réunit votre abonnement IPTV, vos films, vos séries et vos serveurs personnels dans une seule application. Le direct démarre vite, le guide TV se parcourt comme un programme de télévision, et vous pouvez revoir ce qui a déjà été diffusé. Vous apportez vos sources, Kastideo se charge de les lire." data-en="Kastideo brings your IPTV subscription, your films, your series and your personal servers into one app. Live channels start quickly, the TV guide works like a real programme guide, and you can watch what already aired. You bring your own sources, Kastideo plays them.">Kastideo réunit votre abonnement IPTV, vos films, vos séries et vos serveurs personnels dans une seule application. Le direct démarre vite, le guide TV se parcourt comme un programme de télévision, et vous pouvez revoir ce qui a déjà été diffusé. Vous apportez vos sources, Kastideo se charge de les lire.</p>
     <div class="actions">
       <a class="btn primary" href="#telecharger" data-fr="Télécharger Kastideo" data-en="Download Kastideo">Télécharger Kastideo</a>
-      <a class="btn ghost" href="#replay" data-fr="Découvrir le replay" data-en="Discover replay">Découvrir le replay</a>
+      <a class="btn ghost" href="#fonctions" data-fr="Découvrir les fonctions" data-en="Discover features">Découvrir les fonctions</a>
     </div>
   </div>
 
@@ -226,23 +217,6 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
     </a>
   </div>
 
-  <section id="replay" aria-labelledby="t-replay">
-    <div class="replay">
-      <div>
-        <h3 class="sec" id="t-replay" data-fr="Revoir ce qui a déjà été diffusé" data-en="Watch what already aired">Revoir ce qui a déjà été diffusé</h3>
-        <p class="sec-lead" style="margin-bottom:14px" data-fr="Beaucoup de fournisseurs IPTV conservent les programmes des jours passés. Kastideo place cette archive directement dans le guide TV : vous retrouvez l'émission manquée, vous la lancez, sans chercher ni changer de réglage." data-en="Many IPTV providers keep the programmes of past days. Kastideo puts that archive directly into the TV guide: you find the programme you missed and play it, without searching or changing settings.">Beaucoup de fournisseurs IPTV conservent les programmes des jours passés. Kastideo place cette archive directement dans le guide TV : vous retrouvez l'émission manquée, vous la lancez, sans chercher ni changer de réglage.</p>
-        <p class="note" data-fr="Le replay dépend de votre abonnement : il faut que votre fournisseur propose une archive. Pour savoir si c'est le cas, un petit ↺ apparaît à côté des chaînes concernées." data-en="Replay depends on your subscription: your provider must offer an archive. When it does, a small ↺ appears next to the channels concerned.">Le replay dépend de votre abonnement : il faut que votre fournisseur propose une archive. Pour savoir si c'est le cas, un petit ↺ apparaît à côté des chaînes concernées.</p>
-      </div>
-      <ol>
-        <li><span class="step-num">1</span><span><b>Le guide TV affiche les programmes passés</b>, marqués ↺, sur les chaînes qui ont une archive. Le menu de date permet de remonter aux jours précédents.</span></li>
-        <li><span class="step-num">2</span><span><b>Un clic sur « Revoir »</b> lance le programme depuis l'archive. La barre du lecteur permet la pause et le déplacement dans l'émission.</span></li>
-        <li><span class="step-num">3</span><span><b>« Revoir depuis le début »</b> relit l'émission en cours depuis son commencement, même si vous avez manqué le début.</span></li>
-        <li><span class="step-num">4</span><span><b>« Enregistrer ce replay »</b> télécharge l'émission depuis l'archive dans votre dossier d'enregistrements, pour la garder.</span></li>
-        <li><span class="step-num">5</span><span><b>Retour automatique au direct</b> à la fin du programme, ou quand vous le décidez. Un réglage permet de le désactiver.</span></li>
-        <li><span class="step-num">6</span><span><b>Décalage d'heure corrigeable</b> : si l'archive de votre fournisseur est décalée de quelques minutes ou d'une heure, vous la réglez une fois pour toutes. Le fuseau horaire du serveur est lu automatiquement.</span></li>
-      </ol>
-    </div>
-  </section>
 
   <section id="fonctions" aria-labelledby="t-fonctions">
     <h3 class="sec" id="t-fonctions" data-fr="Rapide, stable et sobre" data-en="Fast, stable and frugal">Rapide, stable et sobre</h3>
@@ -282,6 +256,14 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
       <div class="card">
         <h4 data-fr="Envoyer à la télévision" data-en="Cast to a TV">Envoyer à la télévision</h4>
         <p data-fr="Chromecast, Google TV, Android TV et AirPlay selon vos appareils. Sur Android TV, la télécommande pilote directement l'application." data-en="Chromecast, Google TV, Android TV and AirPlay, depending on your devices. On Android TV, the remote controls the app directly.">Chromecast, Google TV, Android TV et AirPlay selon vos appareils. Sur Android TV, la télécommande pilote directement l'application.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Revoir un programme passé" data-en="Watch a past programme">Revoir un programme passé</h4>
+        <p data-fr="Si votre fournisseur conserve une archive, les programmes passés apparaissent dans le guide TV, marqués ↺. Un clic sur « Revoir » les relance, avec pause et déplacement dans l'émission. Le replay dépend de votre abonnement." data-en="If your provider keeps an archive, past programmes appear in the TV guide, marked ↺. One click on “Watch” plays them, with pause and seeking. Replay depends on your subscription.">Si votre fournisseur conserve une archive, les programmes passés apparaissent dans le guide TV, marqués ↺. Un clic sur « Revoir » les relance, avec pause et déplacement dans l'émission. Le replay dépend de votre abonnement.</p>
+      </div>
+      <div class="card">
+        <h4 data-fr="Films et séries" data-en="Movies and series">Films et séries</h4>
+        <p data-fr="Fiches détaillées avec affiche, résumé, distribution, note et bande-annonce (via TMDB). Reprise de lecture là où vous vous êtes arrêté, pour les films comme pour les épisodes." data-en="Detailed pages with poster, plot, cast, rating and trailer (via TMDB). Resume playback where you left off, for movies and episodes alike.">Fiches détaillées avec affiche, résumé, distribution, note et bande-annonce (via TMDB). Reprise de lecture là où vous vous êtes arrêté, pour les films comme pour les épisodes.</p>
       </div>
       <div class="card">
         <h4 data-fr="Vos sources" data-en="Your sources">Vos sources</h4>
