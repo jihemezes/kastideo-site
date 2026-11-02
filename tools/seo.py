@@ -115,23 +115,23 @@ META = {
         "fr": ("Mentions légales", "Éditeur, hébergeur, avertissement et crédits de Kastideo."),
         "en": ("Legal notice", "Publisher, host, disclaimer and credits of Kastideo."),
     },
-    "alternative-vlc": {
-        "fr": ("Alternative à VLC pour regarder l'IPTV : Kastideo",
-               "Kastideo ou VLC pour l'IPTV ? Guide TV en grille, replay, enregistrement programmé et reprise de lecture : ce qui change au quotidien."),
-        "en": ("VLC alternative for watching IPTV: Kastideo",
-               "Kastideo or VLC for IPTV? Grid TV guide, replay, scheduled recording and resume playback: what changes day to day."),
+    "lecteur-video-ou-lecteur-iptv": {
+        "fr": ("Lecteur vidéo généraliste ou lecteur IPTV : que choisir ?",
+               "Un lecteur IPTV apporte un guide TV en grille, le replay, l'enregistrement programmé et la reprise de lecture : ce qui change au quotidien."),
+        "en": ("General video player or IPTV player: which to choose?",
+               "An IPTV player adds a grid TV guide, replay, scheduled recording and resume playback: what changes day to day."),
     },
-    "alternative-tivimate": {
-        "fr": ("Alternative à TiviMate sur Mac, Windows, Linux : Kastideo",
-               "Kastideo ou TiviMate ? Un lecteur IPTV gratuit qui existe aussi sur ordinateur, avec guide TV, replay, MultiVue et enregistrement."),
-        "en": ("TiviMate alternative on Mac, Windows, Linux: Kastideo",
-               "Kastideo or TiviMate? A free IPTV player that also runs on computers, with TV guide, replay, MultiView and recording."),
+    "application-tv-ou-multi-appareils": {
+        "fr": ("Application IPTV pour boîtier TV ou lecteur multi-appareils",
+               "Un lecteur IPTV gratuit qui existe aussi sur ordinateur : guide TV, replay, MultiVue et enregistrement sur Mac, Windows, Linux et Android."),
+        "en": ("IPTV app for a TV box or multi-device player",
+               "A free IPTV player that also runs on computers: TV guide, replay, MultiView and recording on Mac, Windows, Linux and Android."),
     },
-    "alternative-iptv-smarters": {
-        "fr": ("Alternative à IPTV Smarters Pro : Kastideo",
-               "Kastideo ou IPTV Smarters Pro ? Un lecteur indépendant, sans marque de fournisseur, pour Mac, Windows, Linux et Android."),
-        "en": ("IPTV Smarters Pro alternative: Kastideo",
-               "Kastideo or IPTV Smarters Pro? An independent player, with no provider branding, for Mac, Windows, Linux and Android."),
+    "application-fournisseur-ou-independant": {
+        "fr": ("Application du fournisseur IPTV ou lecteur indépendant ?",
+               "Un lecteur indépendant, sans marque de fournisseur, pour Mac, Windows, Linux et Android : ce qui diffère d'une application fournie par l'abonnement."),
+        "en": ("IPTV provider app or independent player?",
+               "An independent player, with no provider branding, for Mac, Windows, Linux and Android: how it differs from an app supplied with a subscription."),
     },
     "faq": {
         "fr": ("Questions fréquentes sur Kastideo, lecteur IPTV",
