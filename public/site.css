@@ -319,3 +319,9 @@ nav.main a.lang:hover, .subnav a.lang:hover { background: rgba(255, 255, 255, 0.
 .release-notes ul{margin:4px 0 8px;padding-left:1.2em}
 .release-notes p{margin:4px 0}
 .release .btn{margin-top:10px}
+
+/* Captures réelles */
+.app-shot { margin: 8px 0 30px; }
+.app-shot img { display: block; width: 100%; height: auto; max-width: 980px; border-radius: 12px; box-shadow: 0 18px 50px rgba(0,0,0,.45), 0 0 0 1px var(--line); }
+.doc .app-shot img { max-width: 860px; }
+.app-shot figcaption { color: var(--faint); font-size: 13px; margin-top: 10px; }

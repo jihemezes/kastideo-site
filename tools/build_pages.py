@@ -298,9 +298,46 @@ TO_TOP = (
 )
 
 
+# Captures réelles de l'application (démo : playlist publique), interface en français.
+SHOTS = {
+    "index": ("app-home", 1600, 956,
+              "Accueil de Kastideo : Direct, Films, Séries, Mes vidéos, Guide TV, YouTube et Enregistrements",
+              "Kastideo home screen: Live, Movies, Series, My videos, TV guide, YouTube and Recordings",
+              "L'accueil de Kastideo.", "The Kastideo home screen."),
+    "direct": ("app-direct", 1600, 1017,
+               "Interface Classique de Kastideo : liste des chaînes, lecteur et catégories",
+               "Kastideo Classic interface: channel list, player and categories",
+               "L'interface Classique : catégories, chaînes et lecteur.", "The Classic interface: categories, channels and player."),
+    "guide-tv": ("app-guide-tv", 1600, 957,
+                 "Guide TV de Kastideo en grille sur 6 heures",
+                 "Kastideo grid TV guide over 6 hours",
+                 "Le guide TV en grille, ici sur 6 heures.", "The grid TV guide, here over 6 hours."),
+    "interfaces": ("app-interfaces", 900, 848,
+                   "Réglages d'apparence : couleur d'accent et choix de l'interface Classique, Cinéma ou TV",
+                   "Appearance settings: accent colour and choice of Classic, Cinema or TV interface",
+                   "Réglages > Apparence : une interface par type de contenu.", "Settings > Appearance: one interface per content type."),
+    "guide-m3u-mac": ("app-welcome", 1400, 834,
+                      "Écran de bienvenue de Kastideo avec le bouton Ajouter une source",
+                      "Kastideo welcome screen with the Add a source button",
+                      "Au premier lancement : Ajouter une source.", "At first launch: Add a source."),
+}
+
+
+def real_figure(slug, lang, lazy=True):
+    if slug not in SHOTS:
+        return None
+    f, w, h, afr, aen, cfr, cen = SHOTS[slug]
+    alt, cap = (afr, cfr) if lang == "fr" else (aen, cen)
+    if lang == "en":
+        cap += " Screenshot of the French interface."
+    return (f'<figure class="app-shot"><img src="/img/{f}.webp" width="{w}" height="{h}" alt="{esc(alt)}"'
+            f'{" loading=" + chr(34) + "lazy" + chr(34) + " decoding=" + chr(34) + "async" + chr(34) if lazy else ""}>'
+            f'<figcaption>{cap}</figcaption></figure>')
+
+
 def with_figure(p, lang):
     html = p[lang]
-    fig = illustrations.svg(p["slug"], lang)
+    fig = real_figure(p["slug"], lang) or illustrations.svg(p["slug"], lang)
     if not fig:
         return html
     m = re.search(r'<p class="page-lead">.*?</p>\n', html, flags=re.S)
@@ -347,6 +384,7 @@ def subpage(p, group, siblings, footer, lang):
 def index_page(idx, lang):
     title, desc, h = head("index", lang)
     body = re.sub(r'<button class="lang"[^>]*>[^<]*</button>', lang_link("index", lang), idx)
+    body = body.replace("<!--shot:index-->", real_figure("index", lang))
     body = re.sub(r'<script src="site.js"></script>\n?', "", body)
     out = h + "<body>\n<a class=\"skip\" href=\"#contenu\" data-fr=\"Aller au contenu\" data-en=\"Skip to content\">Aller au contenu</a>\n" + body
     out += jsonld("index", lang, title, desc, None)
