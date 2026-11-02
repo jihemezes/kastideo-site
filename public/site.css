@@ -195,17 +195,18 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
 
 /* ---- Bouton Ko-fi ---- */
 .kofi-btn {
-  --kofi-a: #d98f80; --kofi-b: #e2b886;
+  --kofi-a: #8a3fb0; --kofi-b: #b83d93;
   display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
-  font: 800 14px "Nunito", sans-serif; color: var(--night);
+  font: 800 14px "Nunito", sans-serif; color: #fff;
   background: linear-gradient(100deg, var(--kofi-a), var(--kofi-b));
+  border: 1px solid rgba(255, 255, 255, 0.28);
   padding: 9px 16px 9px 12px; border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(255, 94, 91, 0.4);
+  box-shadow: 0 6px 18px rgba(184, 61, 147, 0.35);
   transition: transform .15s, box-shadow .15s;
 }
 .kofi-btn svg { width: 22px; height: 22px; fill: currentColor; flex: none; }
 .kofi-btn .steam { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; opacity: .75; }
-.kofi-btn:hover { transform: translateY(-2px) rotate(-1.5deg); box-shadow: 0 10px 24px rgba(217, 143, 128, 0.35); }
+.kofi-btn:hover { transform: translateY(-2px) rotate(-1.5deg); box-shadow: 0 10px 24px rgba(184, 61, 147, 0.4); }
 .kofi-btn:focus-visible, .to-top:focus-visible, .top-link:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 @media (prefers-reduced-motion: no-preference) {
   .kofi-btn .steam { animation: steam 2.4s ease-in-out infinite; }
@@ -213,7 +214,7 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
   @keyframes steam { 0%, 100% { transform: translateY(1px); opacity: .2; } 50% { transform: translateY(-1.5px); opacity: .85; } }
 }
 @media (prefers-reduced-motion: reduce) { .kofi-btn, .card.link { transition: none; } }
-.kofi-btn.big { font-size: 20px; padding: 15px 26px 15px 20px; box-shadow: 0 14px 34px rgba(217, 143, 128, 0.3); }
+.kofi-btn.big { font-size: 20px; padding: 15px 26px 15px 20px; box-shadow: 0 14px 34px rgba(184, 61, 147, 0.35); }
 .kofi-btn.big svg { width: 32px; height: 32px; }
 
 /* ---- Retour en haut ---- */
@@ -263,9 +264,9 @@ footer { margin-top: clamp(60px, 12vh, 110px); border-top: 1px solid var(--line)
 .sitemap a { color: var(--muted); font-size: 14px; text-decoration: none; display: inline-block; padding: 4px 0; }
 .sitemap a:hover { color: var(--fg); text-decoration: underline; }
 .crumbs a, .sitemap a { min-height: 24px; }
-nav.main a.kofi-btn, .doc a.kofi-btn { color: var(--night); padding: 9px 16px 9px 12px; background: linear-gradient(100deg, var(--kofi-a), var(--kofi-b)); }
+nav.main a.kofi-btn, .doc a.kofi-btn { color: #fff; padding: 9px 16px 9px 12px; background: linear-gradient(100deg, var(--kofi-a), var(--kofi-b)); }
 nav.main a.kofi-btn.big, .doc a.kofi-btn.big { padding: 15px 26px 15px 20px; }
-nav.main a.kofi-btn:hover { color: var(--night); background: linear-gradient(100deg, var(--kofi-a), var(--kofi-b)); }
+nav.main a.kofi-btn:hover { color: #fff; background: linear-gradient(100deg, var(--kofi-a), var(--kofi-b)); }
 .doc a.dl { color: var(--muted); }
 .doc a.btn.primary { color: #fff; }
 .doc a.btn.ghost { color: var(--fg); }
