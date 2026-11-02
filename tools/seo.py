@@ -175,4 +175,10 @@ META = {
         "en": ("IPTV on Raspberry Pi 4 or 5: install Kastideo (AppImage)",
                "Download the 64-bit ARM AppImage, make it executable, add your source and enjoy the TV interface in the living room."),
     },
+    "guide-fire-tv": {
+        "fr": ("Installer Kastideo sur Fire TV Stick et Fire TV Cube",
+               "Installer le lecteur IPTV Kastideo sur Fire TV : Downloader, autorisation des applications inconnues, APK universal et télécommande."),
+        "en": ("Install Kastideo on Fire TV Stick and Fire TV Cube",
+               "Install the Kastideo IPTV player on Fire TV: Downloader, unknown apps permission, universal APK and remote control."),
+    },
 }

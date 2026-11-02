@@ -201,7 +201,7 @@ FAQ_FR = """    <h1>Questions fréquentes</h1>
     <p>La version Windows n'est pas encore signée. Cliquez sur Informations complémentaires, puis sur Exécuter quand même. Voir <a href="windows.html">Kastideo pour Windows</a>.</p>
 
     <h2 id="android-tv">Comment installer Kastideo sur Android TV ?</h2>
-    <p>Hors Google Play, avec l'application Downloader, une clé USB ou l'envoi depuis un téléphone. Voir <a href="guide-android-tv.html">Installer Kastideo sur Android TV</a>.</p>
+    <p>Hors Google Play, avec l'application Downloader, une clé USB ou l'envoi depuis un téléphone. Voir <a href="guide-android-tv.html">Installer Kastideo sur Android TV</a>, ou <a href="guide-fire-tv.html">sur Fire TV</a>.</p>
 
     <h2 id="donnees">Que devient mon mot de passe ?</h2>
     <p>Vos identifiants restent sur votre appareil, dans le coffre sécurisé du système, et ne sont envoyés qu'aux services que vous configurez. Kastideo ne collecte aucune statistique d'usage. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
@@ -248,7 +248,7 @@ FAQ_EN = """    <h1>Frequently asked questions</h1>
     <p>The Windows version is not signed yet. Click More info, then Run anyway. See <a href="windows.html">Kastideo for Windows</a>.</p>
 
     <h2 id="android-tv">How do I install Kastideo on Android TV?</h2>
-    <p>Outside Google Play, with the Downloader app, a USB stick or by sending it from a phone. See <a href="guide-android-tv.html">Install Kastideo on Android TV</a>.</p>
+    <p>Outside Google Play, with the Downloader app, a USB stick or by sending it from a phone. See <a href="guide-android-tv.html">Install Kastideo on Android TV</a>, or <a href="guide-fire-tv.html">on Fire TV</a>.</p>
 
     <h2 id="donnees">What happens to my password?</h2>
     <p>Your credentials stay on your device, in the system's secure store, and are sent only to the services you configure. Kastideo collects no usage statistics. See the <a href="confidentialite.html">privacy policy</a>.</p>

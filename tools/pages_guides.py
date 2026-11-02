@@ -347,6 +347,106 @@ PI_EN = """    <h1>Watch IPTV on a Raspberry Pi 4 or 5</h1>
     <div class="callout"><b class="label">Good to know</b><p>Performance depends on the Pi model and the stream quality. If a picture freezes, try software decoding channel by channel: see <a href="fiabilite.html#stable">Fast, stable and frugal</a>.</p></div>
 """
 
+FIRE_FR = """    <h1>Installer Kastideo sur Fire TV</h1>
+    <p class="page-lead">Les Fire TV Stick, Fire TV Cube et téléviseurs Fire TV fonctionnent sous Fire OS, un système dérivé d'Android. Kastideo n'est pas sur l'Appstore d'Amazon : on l'installe à partir de son fichier APK, avec l'application gratuite Downloader.</p>
+
+    <div class="callout"><b class="label">Compatibilité</b><p>L'APK Android de Kastideo déclare une entrée pour téléviseur, il doit donc apparaître dans « Vos applications ». Les Fire TV ne font pas encore partie des appareils testés officiellement : cette procédure repose sur la compatibilité avec Android, et vos retours sont les bienvenus à <code>contact@kastideo.com</code>. Un modèle très ancien peut refuser l'installation.</p></div>
+
+    <h2 id="fichier">1. Choisir le bon fichier</h2>
+    <p>Prenez <b>universal</b> : c'est le plus volumineux, mais il fonctionne partout. Plusieurs Fire TV, même récents, fonctionnent avec un système 32 bits : le fichier <b>arm64-v8a</b> peut alors être refusé. Si vous préférez un fichier plus léger, essayez <b>armeabi-v7a</b>. Les fichiers sont sur la page <a href="android.html">Kastideo pour Android et Android TV</a>.</p>
+
+    <h2 id="downloader">2. Installer Downloader</h2>
+    <ol>
+      <li>Sur l'écran d'accueil du Fire TV, ouvrez la recherche et tapez <b>Downloader</b>.</li>
+      <li>Choisissez l'application Downloader (icône orange) puis <b>Obtenir</b> ou <b>Télécharger</b>.</li>
+    </ol>
+
+    <h2 id="autoriser">3. Autoriser Downloader à installer des applications</h2>
+    <ol>
+      <li>Ouvrez <b>Paramètres</b> puis <b>Mon Fire TV</b> puis <b>Options pour les développeurs</b>.</li>
+      <li>Si ce menu n'apparaît pas : <b>Mon Fire TV</b> puis <b>À propos</b>, sélectionnez le nom de l'appareil sept fois de suite, puis revenez en arrière.</li>
+      <li>Ouvrez <b>Installer des applications inconnues</b> et activez <b>Downloader</b>.</li>
+    </ol>
+    <p>Cette autorisation ne concerne que Downloader. Vous n'avez pas besoin de désactiver d'autres protections.</p>
+
+    <h2 id="telecharger">4. Télécharger et installer Kastideo</h2>
+    <ol>
+      <li>Ouvrez Downloader. Dans le champ d'adresse, saisissez <code>github.com/jihemezes/kastideo/releases</code> puis validez.</li>
+      <li>Repérez la version dont le nom se termine par <code>-android</code>, déroulez ses fichiers et choisissez l'APK <b>universal</b>.</li>
+      <li>Quand le téléchargement est terminé, sélectionnez <b>Installer</b>, puis <b>Ouvrir</b>.</li>
+      <li>Downloader propose ensuite de supprimer le fichier : acceptez, vous gagnez de la place.</li>
+    </ol>
+
+    <h2 id="lancer">5. Retrouver et utiliser Kastideo</h2>
+    <ul>
+      <li>Kastideo se trouve dans <b>Vos applications et jeux</b>. Pour le rapprocher de l'accueil : sélectionnez-le, appuyez sur le bouton Menu (trois traits) de la télécommande puis choisissez <b>Déplacer</b>.</li>
+      <li>La télécommande Fire TV fonctionne comme celle d'Android TV : les flèches déplacent la sélection, Sélectionner valide, Retour revient en arrière. Sur le direct, haut et bas changent de chaîne. Toutes les télécommandes n'ont pas de touches Chaîne +/−. Voir <a href="guide-android-tv.html#telecommande">Installer Kastideo sur Android TV</a>.</li>
+    </ul>
+
+    <h2 id="source">6. Ajouter votre source</h2>
+    <p>Saisir un long mot de passe à la télécommande est pénible. Le plus confortable : configurez Kastideo sur un ordinateur, exportez le fichier de sauvegarde, puis importez-le : voir <a href="interfaces.html#sauvegarde">Interfaces et personnalisation</a>. L'application Fire TV pour téléphone propose aussi un clavier pour saisir du texte.</p>
+
+    <h2 id="maj">Mises à jour</h2>
+    <p>Les APK sont tous signés avec la même clé : installez la nouvelle version par-dessus l'ancienne, vos réglages sont conservés. Les nouveautés sont sur la page <a href="nouveautes.html">Nouveautés</a>.</p>
+
+    <h2 id="probleme">Ça ne marche pas ?</h2>
+    <ul>
+      <li><b>« Application non installée » ou « non compatible »</b> : essayez l'APK <b>universal</b>. Si l'erreur persiste, l'appareil est probablement trop ancien.</li>
+      <li><b>Le téléchargement est bloqué</b> : vérifiez que Downloader est bien autorisé à l'étape 3.</li>
+      <li><b>Kastideo n'est pas dans l'accueil</b> : ouvrez <b>Vos applications et jeux</b> et faites défiler jusqu'à la fin de la liste.</li>
+    </ul>
+"""
+
+FIRE_EN = """    <h1>Install Kastideo on Fire TV</h1>
+    <p class="page-lead">Fire TV Stick, Fire TV Cube and Fire TV televisions run Fire OS, a system derived from Android. Kastideo is not on the Amazon Appstore: you install it from its APK file, with the free Downloader app.</p>
+
+    <div class="callout"><b class="label">Compatibility</b><p>Kastideo's Android APK declares a TV entry, so it should appear in “Your Apps & Channels”. Fire TV devices are not yet among the officially tested ones: this procedure relies on compatibility with Android, and your feedback is welcome at <code>contact@kastideo.com</code>. A very old model may refuse the installation.</p></div>
+
+    <h2 id="fichier">1. Choose the right file</h2>
+    <p>Take <b>universal</b>: it is the largest, but it works everywhere. Several Fire TV devices, even recent ones, run a 32-bit system: the <b>arm64-v8a</b> file may then be refused. If you prefer a lighter file, try <b>armeabi-v7a</b>. The files are on the <a href="android.html">Kastideo for Android and Android TV</a> page.</p>
+
+    <h2 id="downloader">2. Install Downloader</h2>
+    <ol>
+      <li>On the Fire TV home screen, open search and type <b>Downloader</b>.</li>
+      <li>Choose the Downloader app (orange icon) then <b>Get</b> or <b>Download</b>.</li>
+    </ol>
+
+    <h2 id="autoriser">3. Allow Downloader to install apps</h2>
+    <ol>
+      <li>Open <b>Settings</b> then <b>My Fire TV</b> then <b>Developer options</b>.</li>
+      <li>If this menu does not appear: <b>My Fire TV</b> then <b>About</b>, select the device name seven times in a row, then go back.</li>
+      <li>Open <b>Install unknown apps</b> and turn on <b>Downloader</b>.</li>
+    </ol>
+    <p>This permission only concerns Downloader. You do not need to disable any other protection.</p>
+
+    <h2 id="telecharger">4. Download and install Kastideo</h2>
+    <ol>
+      <li>Open Downloader. In the address field, type <code>github.com/jihemezes/kastideo/releases</code> and confirm.</li>
+      <li>Find the version whose name ends with <code>-android</code>, expand its files and choose the <b>universal</b> APK.</li>
+      <li>When the download is finished, select <b>Install</b>, then <b>Open</b>.</li>
+      <li>Downloader then offers to delete the file: accept, it saves space.</li>
+    </ol>
+
+    <h2 id="lancer">5. Find and use Kastideo</h2>
+    <ul>
+      <li>Kastideo is in <b>Your Apps & Channels</b>. To bring it closer to the home screen: select it, press the Menu button (three lines) on the remote then choose <b>Move</b>.</li>
+      <li>The Fire TV remote works like an Android TV one: arrows move the selection, Select confirms, Back goes back. In live TV, up and down change channel. Not every remote has Channel +/− keys. See <a href="guide-android-tv.html#telecommande">Install Kastideo on Android TV</a>.</li>
+    </ul>
+
+    <h2 id="source">6. Add your source</h2>
+    <p>Typing a long password with a remote is tedious. The most comfortable way: set Kastideo up on a computer, export the backup file, then import it: see <a href="interfaces.html#sauvegarde">Interfaces and personalisation</a>. The Fire TV phone app also offers a keyboard to type text.</p>
+
+    <h2 id="maj">Updates</h2>
+    <p>All APKs are signed with the same key: install the new version over the old one, your settings are kept. What's new is on the <a href="nouveautes.html">What's new</a> page.</p>
+
+    <h2 id="probleme">Not working?</h2>
+    <ul>
+      <li><b>“App not installed” or “not compatible”</b>: try the <b>universal</b> APK. If the error persists, the device is probably too old.</li>
+      <li><b>The download is blocked</b>: check that Downloader is allowed in step 3.</li>
+      <li><b>Kastideo is not on the home screen</b>: open <b>Your Apps & Channels</b> and scroll to the end of the list.</li>
+    </ul>
+"""
+
 GUIDES = [
     {"slug": "guide-m3u-mac", "title_fr": "Lire une playlist M3U sur Mac", "title_en": "Play an M3U playlist on Mac",
      "blurb_fr": "Ajouter une adresse ou un fichier M3U dans Kastideo, en cinq minutes.",
@@ -360,6 +460,9 @@ GUIDES = [
     {"slug": "guide-android-tv", "title_fr": "Installer Kastideo sur Android TV", "title_en": "Install Kastideo on Android TV",
      "blurb_fr": "APK, Downloader, clé USB et télécommande, sans désactiver la sécurité.",
      "blurb_en": "APK, Downloader, USB stick and remote, without disabling security.", "fr": ATV_FR, "en": ATV_EN},
+    {"slug": "guide-fire-tv", "title_fr": "Installer Kastideo sur Fire TV", "title_en": "Install Kastideo on Fire TV",
+     "blurb_fr": "Downloader, autorisation et APK universal, pas à pas.",
+     "blurb_en": "Downloader, permission and universal APK, step by step.", "fr": FIRE_FR, "en": FIRE_EN},
     {"slug": "guide-raspberry-pi", "title_fr": "L'IPTV sur Raspberry Pi 4 ou 5", "title_en": "IPTV on a Raspberry Pi 4 or 5",
      "blurb_fr": "L'AppImage ARM 64 bits, de l'installation au salon.",
      "blurb_en": "The 64-bit ARM AppImage, from installation to the living room.", "fr": PI_FR, "en": PI_EN},
