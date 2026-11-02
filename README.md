@@ -49,3 +49,4 @@ Cloudflare sert les pages sans `.html` (`/direct`, `/en/direct`) : les adresses 
 - `tools/demo/demo-kastideo.m3u` et `verifier-m3u.sh` : playlist de démonstration (chaînes publiques) pour les captures d'écran ; le script retire les flux hors service.
 - Images : `backdrop.webp` (fond flou), `icon-112.png` (en-tête), `og-fr.jpg` / `og-en.jpg` (partage). Régénérer les images de partage avec `python3 tools/make_og.py`.
 - Captures réelles : `public/img/app-*.webp` (playlist de démo, interface en français), déclarées dans `SHOTS` de `tools/build_pages.py`. Aucune capture ne doit montrer une source personnelle.
+- Historique des versions (`tools/history.py`) : une ligne par version X.Y (les X.Y.n sont regroupées), à compléter à chaque nouvelle version X.Y. La dernière version est lue en direct sur GitHub.

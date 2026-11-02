@@ -193,6 +193,7 @@ FAQ_FR = """    <h1>Questions fréquentes</h1>
       <li><b>L'archive existe pour cette chaîne</b> : certains abonnements conservent les chaînes jusqu'à 14 jours, mais pas toutes.</li>
       <li><b>Le guide contient les programmes passés</b> : augmentez le nombre de jours conservés dans le guide (Réglages &gt; Général &gt; Replay), puis rechargez le guide. Plus de jours demandent plus de mémoire.</li>
       <li><b>Le décalage horaire</b> : réglez-le si le programme lancé ne correspond pas à celui choisi.</li>
+      <li><b>Le délai de 6 heures</b> : au démarrage, Kastideo ne recharge une source que si sa dernière mise à jour date de plus de 6 heures (réglable). Un guide ou une archive récents peuvent donc manquer : actualisez la source (Réglages &gt; Sources, bouton d'actualisation) pour forcer le rechargement. Par défaut, le guide ne garde d'ailleurs qu'environ 6 heures de programmes passés.</li>
       <li><b>Une seule connexion</b> : le replay compte comme une connexion, fermez les autres lectures et appareils.</li>
     </ul>
     <p>Si le programme ne démarre pas, ouvrez le Journal de lecture, sujet « Lecture et relais » : il indique l'adresse d'archive demandée. Voir <a href="replay.html">Replay des programmes</a>.</p>
@@ -240,6 +241,7 @@ FAQ_EN = """    <h1>Frequently asked questions</h1>
       <li><b>The archive exists for this channel</b>: some subscriptions keep channels for up to 14 days, but not all of them.</li>
       <li><b>The guide contains past programmes</b>: increase the number of days kept in the guide (Settings &gt; General &gt; Replay), then reload the guide. More days need more memory.</li>
       <li><b>The time offset</b>: adjust it if the programme that starts is not the one you chose.</li>
+      <li><b>The 6-hour delay</b>: at launch, Kastideo only reloads a source if its last update is more than 6 hours old (adjustable). A recent guide or archive may therefore be missing: refresh the source (Settings &gt; Sources, refresh button) to force a reload. By default, the guide also keeps only about 6 hours of past programmes.</li>
       <li><b>A single connection</b>: replay counts as one connection, close other playbacks and devices.</li>
     </ul>
     <p>If the programme does not start, open the playback log, topic “Playback and relay”: it shows the archive address requested. See <a href="replay.html">Programme replay</a>.</p>

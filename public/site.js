@@ -160,28 +160,41 @@
   function renderNews(root, list) {
     var d = root.dataset, nf = new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
     root.textContent = '';
-    var shown = 0;
-    list.forEach(function (r) {
-      var f = family(r.tag_name);
-      if (r.draft || !f || shown >= 15) return;
-      shown++;
-      var art = document.createElement('article'); art.className = 'release';
-      var head = document.createElement('div'); head.className = 'release-head';
-      var h = document.createElement('h2'); h.textContent = (f === 'mac' ? 'Kastideo ' : 'Kastideo ') + ver(r.tag_name); head.appendChild(h);
+    var seen = {}, previews = [];
+    function head(r, f, big) {
+      var h = document.createElement(big ? 'h3' : 'span'); h.textContent = 'Kastideo ' + ver(r.tag_name);
+      var wrap = document.createElement('div'); wrap.className = 'release-head'; wrap.appendChild(h);
       [d[TYPE[f]], (f === 'mac' && !r.prerelease) ? d.stable : d.preview].forEach(function (t) {
-        var b = document.createElement('span'); b.className = 'badge'; b.textContent = t; head.appendChild(b);
+        var b = document.createElement('span'); b.className = 'badge'; b.textContent = t; wrap.appendChild(b);
       });
       var when = Date.parse(r.published_at || r.created_at);
-      if (when) { var tm = document.createElement('time'); tm.dateTime = new Date(when).toISOString(); tm.textContent = nf.format(new Date(when)); head.appendChild(tm); }
-      art.appendChild(head);
-      var box = document.createElement('div'); box.className = 'release-notes';
-      if (r.body && r.body.trim()) notes(r.body, box); else { var n = document.createElement('p'); n.className = 'note'; n.textContent = d.none; box.appendChild(n); }
-      art.appendChild(box);
+      if (when) { var tm = document.createElement('time'); tm.dateTime = new Date(when).toISOString(); tm.textContent = nf.format(new Date(when)); wrap.appendChild(tm); }
+      return wrap;
+    }
+    function link(r) {
       var a = document.createElement('a'); a.className = 'btn ghost'; a.target = '_blank'; a.rel = 'noopener';
       a.href = 'https://github.com/' + REPO + '/releases/tag/' + encodeURIComponent(r.tag_name); a.textContent = d.download + ' · GitHub';
-      art.appendChild(a);
-      root.appendChild(art);
+      return a;
+    }
+    list.forEach(function (r) {
+      var f = family(r.tag_name);
+      if (r.draft || !f || seen[f]) return;
+      seen[f] = true;
+      if (f === 'mac') {
+        var art = document.createElement('article'); art.className = 'release';
+        art.appendChild(head(r, f, true));
+        var box = document.createElement('div'); box.className = 'release-notes';
+        if (r.body && r.body.trim()) notes(r.body, box); else { var n = document.createElement('p'); n.className = 'note'; n.textContent = d.none; box.appendChild(n); }
+        art.appendChild(box); art.appendChild(link(r)); root.appendChild(art);
+      } else previews.push([r, f]);
     });
+    if (previews.length) {
+      var t = document.createElement('p'); t.className = 'note'; t.textContent = d.previews + ' :'; root.appendChild(t);
+      previews.forEach(function (x) {
+        var row = document.createElement('div'); row.className = 'release compact';
+        row.appendChild(head(x[0], x[1], false)); row.appendChild(link(x[0])); root.appendChild(row);
+      });
+    }
     var more = document.createElement('p');
     var ma = document.createElement('a'); ma.href = 'https://github.com/' + REPO + '/releases'; ma.target = '_blank'; ma.rel = 'noopener'; ma.textContent = d.more;
     more.appendChild(ma); root.appendChild(more);

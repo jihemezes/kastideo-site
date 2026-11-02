@@ -312,7 +312,7 @@ nav.main a.lang:hover, .subnav a.lang:hover { background: rgba(255, 255, 255, 0.
 .releases{display:grid;gap:18px;margin:22px 0 34px}
 .release{background:var(--card,rgba(255,255,255,.04));border:1px solid var(--line,rgba(255,255,255,.1));border-radius:14px;padding:18px 20px}
 .release-head{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:10px}
-.release-head h2{margin:0;font-size:1.25rem;margin-right:6px}
+
 .release-head .badge{font-size:.78rem;padding:2px 9px;border-radius:99px;border:1px solid currentColor;opacity:.85}
 .release-head time{margin-left:auto;font-size:.88rem;opacity:.75}
 .release-notes h4{margin:12px 0 4px;font-size:1rem}
@@ -325,3 +325,12 @@ nav.main a.lang:hover, .subnav a.lang:hover { background: rgba(255, 255, 255, 0.
 .app-shot img { display: block; width: 100%; height: auto; max-width: 980px; border-radius: 12px; box-shadow: 0 18px 50px rgba(0,0,0,.45), 0 0 0 1px var(--line); }
 .doc .app-shot img { max-width: 860px; }
 .app-shot figcaption { color: var(--faint); font-size: 13px; margin-top: 10px; }
+.release-head h3 { margin: 0 6px 0 0; font-size: 1.25rem; }
+.release.compact { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; }
+.release.compact .release-head { margin: 0; }
+.release.compact .btn { margin: 0 0 0 auto; }
+.history { list-style: none; margin: 16px 0 34px; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.history li { display: grid; grid-template-columns: 4.2rem 9.5rem 1fr; gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.history .hv { font-weight: 800; font-family: "Nunito", sans-serif; font-size: 1.1rem; }
+.history time { color: var(--faint); font-size: .88rem; }
+@media (max-width: 640px) { .history li { grid-template-columns: 3.4rem 1fr; } .history .ht { grid-column: 1 / -1; } }

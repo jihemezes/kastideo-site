@@ -469,37 +469,47 @@ GUIDES = [
 ]
 
 # ------------------------------------------------------------------- Nouveautés
-NEWS_FR = """    <h1>Nouveautés de Kastideo</h1>
-    <p class="page-lead">Les dernières versions de Kastideo et ce qu'elles apportent, lues directement sur la page des versions GitHub.</p>
+from history import history_html  # noqa: E402
 
-    <div id="releases" class="releases" aria-live="polite" data-loading="Chargement des versions…" data-error="Impossible de charger les versions pour le moment. Elles restent consultables sur la page des versions de GitHub." data-more="Toutes les versions sur GitHub" data-download="Télécharger" data-notes="Notes de version" data-none="Pas de notes pour cette version." data-stable="Stable" data-preview="Aperçu" data-mac="Mac" data-desktop="Windows et Linux" data-android="Android">
-      <p class="note">Chargement des versions…</p>
-      <noscript><p class="note">Activez JavaScript pour voir la liste, ou ouvrez la <a href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">page des versions sur GitHub</a>.</p></noscript>
+NEWS_FR = f"""    <h1>Nouveautés de Kastideo</h1>
+    <p class="page-lead">La dernière version de Kastideo et l'historique des versions, en résumé.</p>
+
+    <h2 id="derniere">Dernière version</h2>
+    <div id="releases" class="releases" aria-live="polite" data-loading="Chargement…" data-error="Impossible de charger la dernière version pour le moment." data-more="Toutes les versions sur GitHub" data-download="Télécharger" data-none="Pas de notes pour cette version." data-stable="Stable" data-preview="Aperçu" data-mac="Mac" data-desktop="Windows et Linux" data-android="Android" data-previews="Versions en aperçu">
+      <p class="note">Chargement…</p>
+      <noscript><p class="note">Activez JavaScript pour voir la dernière version, ou ouvrez la <a href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">page des versions sur GitHub</a>.</p></noscript>
     </div>
 
+    <h2 id="historique">Historique des versions</h2>
+    <p>Les versions de correction (X.Y.n) sont regroupées dans leur version X.Y. Cet historique concerne l'application Mac. Les versions Windows, Linux et Android sont en aperçu.</p>
+{history_html("fr")}
     <h2 id="maj">Comment se passent les mises à jour</h2>
     <ul>
       <li><b>Mac :</b> Kastideo vérifie discrètement les mises à jour au démarrage, puis une fois par jour. Un bandeau l'annonce, jamais pendant un visionnage ni un enregistrement. La mise à jour est facultative et chaque mise à jour est signée.</li>
       <li><b>Windows et Linux :</b> la vérification se fait au démarrage puis toutes les 12 heures. <b>Installer et relancer</b> s'adapte à votre type d'installation.</li>
       <li><b>Android :</b> installez le nouvel APK par-dessus l'ancien, vos réglages sont conservés.</li>
     </ul>
-    <p>Après une mise à jour, la fenêtre « Nouveautés » de l'application résume les changements de la version installée. Pour télécharger : <a href="telecharger.html">Télécharger Kastideo</a>.</p>
+    <p>Pour télécharger : <a href="telecharger.html">Télécharger Kastideo</a>.</p>
 """
-NEWS_EN = """    <h1>What's new in Kastideo</h1>
-    <p class="page-lead">The latest Kastideo versions and what they bring, read straight from the GitHub releases page.</p>
+NEWS_EN = f"""    <h1>What's new in Kastideo</h1>
+    <p class="page-lead">The latest Kastideo version and the version history, in short.</p>
 
-    <div id="releases" class="releases" aria-live="polite" data-loading="Loading versions…" data-error="Unable to load the versions right now. They can still be read on the GitHub releases page." data-more="All versions on GitHub" data-download="Download" data-notes="Release notes" data-none="No notes for this version." data-stable="Stable" data-preview="Preview" data-mac="Mac" data-desktop="Windows and Linux" data-android="Android">
-      <p class="note">Loading versions…</p>
-      <noscript><p class="note">Enable JavaScript to see the list, or open the <a href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">releases page on GitHub</a>.</p></noscript>
+    <h2 id="derniere">Latest version</h2>
+    <div id="releases" class="releases" aria-live="polite" data-loading="Loading…" data-error="Unable to load the latest version right now." data-more="All versions on GitHub" data-download="Download" data-none="No notes for this version." data-stable="Stable" data-preview="Preview" data-mac="Mac" data-desktop="Windows and Linux" data-android="Android" data-previews="Preview versions">
+      <p class="note">Loading…</p>
+      <noscript><p class="note">Enable JavaScript to see the latest version, or open the <a href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">releases page on GitHub</a>.</p></noscript>
     </div>
 
+    <h2 id="historique">Version history</h2>
+    <p>Fix releases (X.Y.n) are grouped into their X.Y version. This history covers the Mac app. Windows, Linux and Android versions are previews.</p>
+{history_html("en")}
     <h2 id="maj">How updates work</h2>
     <ul>
       <li><b>Mac:</b> Kastideo quietly checks for updates at launch, then once a day. A banner announces it, never during viewing or recording. The update is optional and every update is signed.</li>
       <li><b>Windows and Linux:</b> the check happens at launch and then every 12 hours. <b>Install and restart</b> adapts to your installation type.</li>
       <li><b>Android:</b> install the new APK over the old one, your settings are kept.</li>
     </ul>
-    <p>After an update, the app's “What's new” window summarises the changes of the installed version. To download: <a href="telecharger.html">Download Kastideo</a>.</p>
+    <p>To download: <a href="telecharger.html">Download Kastideo</a>.</p>
 """
 
 NEWS = {"slug": "nouveautes", "title_fr": "Nouveautés", "title_en": "What's new", "fr": NEWS_FR, "en": NEWS_EN}

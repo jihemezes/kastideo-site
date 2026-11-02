@@ -140,10 +140,10 @@ META = {
                "Does Kastideo provide channels? Is it free? Which devices, which sources, why one connection only? The answers."),
     },
     "nouveautes": {
-        "fr": ("Nouveautés de Kastideo : les dernières versions",
-               "Les dernières versions de Kastideo pour Mac, Windows, Linux et Android, avec leurs notes de version et leurs téléchargements."),
-        "en": ("What's new in Kastideo: latest versions",
-               "The latest Kastideo versions for Mac, Windows, Linux and Android, with release notes and downloads."),
+        "fr": ("Nouveautés de Kastideo : dernière version et historique",
+               "La dernière version de Kastideo avec ses notes, et l'historique résumé de toutes les versions, de la 0.1 à aujourd'hui."),
+        "en": ("What's new in Kastideo: latest version and history",
+               "The latest Kastideo version with its notes, and a short history of every version, from 0.1 to today."),
     },
     "guide-m3u-mac": {
         "fr": ("Lire une playlist M3U sur Mac, pas à pas : Kastideo",
