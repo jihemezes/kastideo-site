@@ -19,27 +19,27 @@
 <meta property="og:url" content="https://kastideo.com/faq">
 <meta property="og:title" content="Questions fréquentes sur Kastideo, lecteur IPTV | Kastideo">
 <meta property="og:description" content="Kastideo fournit-il des chaînes ? Est-il gratuit ? Quels appareils, quelles sources, pourquoi une seule connexion ? Les réponses.">
-<meta property="og:image" content="https://kastideo.com/og-fr.png">
+<meta property="og:image" content="https://kastideo.com/og-fr.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Kastideo, lecteur IPTV pour Mac, Windows, Linux et Android">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Questions fréquentes sur Kastideo, lecteur IPTV | Kastideo">
 <meta name="twitter:description" content="Kastideo fournit-il des chaînes ? Est-il gratuit ? Quels appareils, quelles sources, pourquoi une seule connexion ? Les réponses.">
-<meta name="twitter:image" content="https://kastideo.com/og-fr.png">
+<meta name="twitter:image" content="https://kastideo.com/og-fr.jpg">
 <link rel="preload" href="/fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
 <div class="backdrop" aria-hidden="true">
-  <img src="/icon-512.png" alt="" width="512" height="512">
+  <img src="/backdrop.webp" alt="" width="256" height="256">
 </div>
 
 <div class="wrap">
   <header class="top" id="haut">
     <a class="brand" href="/">
-      <img src="/icon-192.png" alt="Icône de Kastideo" width="56" height="56">
+      <img src="/icon-112.png" alt="Icône de Kastideo" width="56" height="56">
       <div>
         <strong>Kastideo</strong>
         <span>Vos chaînes, vos films et vos séries au même endroit</span>
@@ -77,11 +77,22 @@
     <h2 id="replay">Comment fonctionne le replay ?</h2>
     <p>Il s'appuie sur l'archive de votre fournisseur : quand elle existe, les programmes passés apparaissent dans le guide TV et se relancent d'un clic. Voir <a href="/replay">Replay des programmes</a>.</p>
 
+    <h2 id="replay-absent">Pourquoi je ne vois pas le replay alors que mon fournisseur le propose ?</h2>
+    <p>Le replay n'apparaît que si Kastideo détecte une archive pour la chaîne : l'icône ↺ s'affiche alors à côté d'elle. Vérifiez dans l'ordre :</p>
+    <ul>
+      <li><b>Le replay est activé</b> : Réglages &gt; Général &gt; Replay.</li>
+      <li><b>L'archive existe pour cette chaîne</b> : certains abonnements conservent les chaînes jusqu'à 14 jours, mais pas toutes.</li>
+      <li><b>Le guide contient les programmes passés</b> : augmentez le nombre de jours conservés dans le guide (Réglages &gt; Général &gt; Replay), puis rechargez le guide. Plus de jours demandent plus de mémoire.</li>
+      <li><b>Le décalage horaire</b> : réglez-le si le programme lancé ne correspond pas à celui choisi.</li>
+      <li><b>Une seule connexion</b> : le replay compte comme une connexion, fermez les autres lectures et appareils.</li>
+    </ul>
+    <p>Si le programme ne démarre pas, ouvrez le Journal de lecture, sujet « Lecture et relais » : il indique l'adresse d'archive demandée. Voir <a href="/replay">Replay des programmes</a>.</p>
+
     <h2 id="windows">Windows affiche « Windows a protégé votre ordinateur », que faire ?</h2>
     <p>La version Windows n'est pas encore signée. Cliquez sur Informations complémentaires, puis sur Exécuter quand même. Voir <a href="/windows">Kastideo pour Windows</a>.</p>
 
     <h2 id="android-tv">Comment installer Kastideo sur Android TV ?</h2>
-    <p>Hors Google Play, avec l'application Downloader, une clé USB ou l'envoi depuis un téléphone. Voir <a href="/android">Kastideo pour Android et Android TV</a>.</p>
+    <p>Hors Google Play, avec l'application Downloader, une clé USB ou l'envoi depuis un téléphone. Voir <a href="/guide-android-tv">Installer Kastideo sur Android TV</a>.</p>
 
     <h2 id="donnees">Que devient mon mot de passe ?</h2>
     <p>Vos identifiants restent sur votre appareil, dans le coffre sécurisé du système, et ne sont envoyés qu'aux services que vous configurez. Kastideo ne collecte aucune statistique d'usage. Voir la <a href="/confidentialite">politique de confidentialité</a>.</p>
@@ -155,6 +166,14 @@
         <li><a href="/android">Kastideo pour Android et Android TV</a></li>
         <li><a href="/telecharger">Télécharger</a></li>
       </ul></div>
+      <div><p class="small-title">Guides</p>
+      <ul>
+        <li><a href="/guide-m3u-mac">Lire une playlist M3U sur Mac</a></li>
+        <li><a href="/guide-m3u-windows">Lire une playlist M3U sur Windows</a></li>
+        <li><a href="/guide-xtream-codes">Ajouter un abonnement Xtream Codes</a></li>
+        <li><a href="/guide-android-tv">Installer Kastideo sur Android TV</a></li>
+        <li><a href="/guide-raspberry-pi">L'IPTV sur Raspberry Pi 4 ou 5</a></li>
+      </ul></div>
       <div><p class="small-title">Comparer</p>
       <ul>
         <li><a href="/alternative-vlc">Alternative à VLC</a></li>
@@ -164,6 +183,7 @@
       </ul></div>
       <div><p class="small-title">Projet</p>
       <ul>
+        <li><a href="/nouveautes">Nouveautés</a></li>
         <li><a href="/soutenir">Soutenir le projet</a></li>
         <li><a href="/confidentialite">Politique de confidentialité</a></li>
         <li><a href="/mentions-legales">Mentions légales</a></li>

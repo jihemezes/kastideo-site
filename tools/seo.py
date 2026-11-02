@@ -139,4 +139,40 @@ META = {
         "en": ("Frequently asked questions about Kastideo, IPTV player",
                "Does Kastideo provide channels? Is it free? Which devices, which sources, why one connection only? The answers."),
     },
+    "nouveautes": {
+        "fr": ("Nouveautés de Kastideo : les dernières versions",
+               "Les dernières versions de Kastideo pour Mac, Windows, Linux et Android, avec leurs notes de version et leurs téléchargements."),
+        "en": ("What's new in Kastideo: latest versions",
+               "The latest Kastideo versions for Mac, Windows, Linux and Android, with release notes and downloads."),
+    },
+    "guide-m3u-mac": {
+        "fr": ("Lire une playlist M3U sur Mac, pas à pas : Kastideo",
+               "Ajoutez une adresse ou un fichier M3U dans Kastideo sur Mac : catégories, logos, guide TV et classement films et séries automatiques."),
+        "en": ("Play an M3U playlist on Mac, step by step: Kastideo",
+               "Add an M3U address or file in Kastideo on Mac: categories, logos, TV guide and automatic movie and series sorting."),
+    },
+    "guide-m3u-windows": {
+        "fr": ("Lire une playlist M3U sur Windows 10 et 11 : Kastideo",
+               "Installez Kastideo sans droits administrateur, ajoutez votre playlist M3U et ouvrez les fichiers .m3u d'un double-clic."),
+        "en": ("Play an M3U playlist on Windows 10 and 11: Kastideo",
+               "Install Kastideo with no administrator rights, add your M3U playlist and open .m3u files with a double-click."),
+    },
+    "guide-xtream-codes": {
+        "fr": ("Ajouter un abonnement Xtream Codes dans un lecteur IPTV",
+               "Serveur, identifiant, mot de passe, test de connexion : ajoutez votre abonnement Xtream Codes à Kastideo et que faire si ça ne marche pas."),
+        "en": ("Add an Xtream Codes subscription to an IPTV player",
+               "Server, username, password, connection test: add your Xtream Codes subscription to Kastideo and what to do if it fails."),
+    },
+    "guide-android-tv": {
+        "fr": ("Installer Kastideo sur Android TV et Google TV (APK)",
+               "Choisir l'APK, l'installer avec Downloader, une clé USB ou un téléphone, utiliser la télécommande, sans désactiver la sécurité."),
+        "en": ("Install Kastideo on Android TV and Google TV (APK)",
+               "Choose the APK, install it with Downloader, a USB stick or a phone, use the remote, without disabling security."),
+    },
+    "guide-raspberry-pi": {
+        "fr": ("IPTV sur Raspberry Pi 4 ou 5 : installer Kastideo (AppImage)",
+               "Télécharger l'AppImage ARM 64 bits, la rendre exécutable, ajouter votre source et profiter de l'interface TV au salon."),
+        "en": ("IPTV on Raspberry Pi 4 or 5: install Kastideo (AppImage)",
+               "Download the 64-bit ARM AppImage, make it executable, add your source and enjoy the TV interface in the living room."),
+    },
 }

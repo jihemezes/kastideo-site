@@ -31,13 +31,20 @@ Toutes les pages HTML sont **générées** par `python3 tools/build_pages.py` : 
 Ne modifiez pas les `.html` de `public/` à la main. Les sources sont :
 
 - `tools/src/index.body.html` : corps de l'accueil, bilingue (attributs `data-fr` / `data-en`) ;
-- `tools/pages_features.py`, `pages_versions.py`, `pages_other.py`, `pages_seo.py`, `pages_legal.py` : textes FR et EN des autres pages ;
+- `tools/pages_features.py`, `pages_versions.py`, `pages_other.py`, `pages_seo.py`, `pages_legal.py`, `pages_guides.py` (guides pratiques et page Nouveautés) : textes FR et EN des autres pages ;
 - `tools/seo.py` : titre et description de référencement de chaque page, dans les deux langues ;
 - `tools/illustrations.py` : schémas SVG des pages de fonctions.
 
-Les images de partage `public/og-fr.png` et `og-en.png` se régénèrent avec `python3 tools/make_og.py` (Playwright).
+Les images de partage `public/og-fr.jpg` et `og-en.jpg` se régénèrent avec `python3 tools/make_og.py` (Playwright).
 Cloudflare sert les pages sans `.html` (`/direct`, `/en/direct`) : les adresses canoniques et le plan du site utilisent ces formes.
 
 ## Liens de téléchargement
 
 `public/site.js` interroge l'API GitHub (`/repos/jihemezes/kastideo/releases`) pour retrouver, par famille (Mac `vX.Y.Z`, Windows et Linux `-desktopN`, Android `-androidN`), la dernière version et le fichier correspondant. En cas d'échec, les liens statiques vers la page des versions restent actifs. Le domaine `api.github.com` est autorisé dans `public/_headers` (`connect-src`).
+
+## Nouveautés, guides et démonstration
+
+- `/nouveautes` : liste des versions lue au chargement sur l'API GitHub (notes rendues sans innerHTML), avec repli vers la page des versions.
+- Guides (`guide-*.html`) : rédigés à partir de l'aide de l'application ; à relire quand l'aide change.
+- `tools/demo/demo-kastideo.m3u` et `verifier-m3u.sh` : playlist de démonstration (chaînes publiques) pour les captures d'écran ; le script retire les flux hors service.
+- Images : `backdrop.webp` (fond flou), `icon-112.png` (en-tête), `og-fr.jpg` / `og-en.jpg` (partage). Régénérer les images de partage avec `python3 tools/make_og.py`.

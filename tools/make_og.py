@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Génère les images de partage 1200x630 (public/og-fr.png, public/og-en.png).
+"""Génère les images de partage 1200x630 (public/og-fr.jpg, public/og-en.jpg).
 
 Usage : python3 tools/make_og.py   (nécessite Playwright et Chromium)
 """
@@ -62,6 +62,10 @@ def main():
             pg.goto(f"http://127.0.0.1:{port}/_og.html")
             pg.wait_for_timeout(600)
             pg.screenshot(path=os.path.join(PUB, f"og-{lang}.png"))
+            from PIL import Image
+            Image.open(os.path.join(PUB, f"og-{lang}.png")).convert("RGB").save(
+                os.path.join(PUB, f"og-{lang}.jpg"), "JPEG", quality=88, optimize=True, progressive=True)
+            os.remove(os.path.join(PUB, f"og-{lang}.png"))
         b.close()
     os.remove(os.path.join(PUB, "_og.html"))
     srv.shutdown()

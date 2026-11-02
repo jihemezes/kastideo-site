@@ -188,11 +188,22 @@ FAQ_FR = """    <h1>Questions fréquentes</h1>
     <h2 id="replay">Comment fonctionne le replay ?</h2>
     <p>Il s'appuie sur l'archive de votre fournisseur : quand elle existe, les programmes passés apparaissent dans le guide TV et se relancent d'un clic. Voir <a href="replay.html">Replay des programmes</a>.</p>
 
+    <h2 id="replay-absent">Pourquoi je ne vois pas le replay alors que mon fournisseur le propose ?</h2>
+    <p>Le replay n'apparaît que si Kastideo détecte une archive pour la chaîne : l'icône ↺ s'affiche alors à côté d'elle. Vérifiez dans l'ordre :</p>
+    <ul>
+      <li><b>Le replay est activé</b> : Réglages &gt; Général &gt; Replay.</li>
+      <li><b>L'archive existe pour cette chaîne</b> : certains abonnements conservent les chaînes jusqu'à 14 jours, mais pas toutes.</li>
+      <li><b>Le guide contient les programmes passés</b> : augmentez le nombre de jours conservés dans le guide (Réglages &gt; Général &gt; Replay), puis rechargez le guide. Plus de jours demandent plus de mémoire.</li>
+      <li><b>Le décalage horaire</b> : réglez-le si le programme lancé ne correspond pas à celui choisi.</li>
+      <li><b>Une seule connexion</b> : le replay compte comme une connexion, fermez les autres lectures et appareils.</li>
+    </ul>
+    <p>Si le programme ne démarre pas, ouvrez le Journal de lecture, sujet « Lecture et relais » : il indique l'adresse d'archive demandée. Voir <a href="replay.html">Replay des programmes</a>.</p>
+
     <h2 id="windows">Windows affiche « Windows a protégé votre ordinateur », que faire ?</h2>
     <p>La version Windows n'est pas encore signée. Cliquez sur Informations complémentaires, puis sur Exécuter quand même. Voir <a href="windows.html">Kastideo pour Windows</a>.</p>
 
     <h2 id="android-tv">Comment installer Kastideo sur Android TV ?</h2>
-    <p>Hors Google Play, avec l'application Downloader, une clé USB ou l'envoi depuis un téléphone. Voir <a href="android.html">Kastideo pour Android et Android TV</a>.</p>
+    <p>Hors Google Play, avec l'application Downloader, une clé USB ou l'envoi depuis un téléphone. Voir <a href="guide-android-tv.html">Installer Kastideo sur Android TV</a>.</p>
 
     <h2 id="donnees">Que devient mon mot de passe ?</h2>
     <p>Vos identifiants restent sur votre appareil, dans le coffre sécurisé du système, et ne sont envoyés qu'aux services que vous configurez. Kastideo ne collecte aucune statistique d'usage. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
@@ -224,11 +235,22 @@ FAQ_EN = """    <h1>Frequently asked questions</h1>
     <h2 id="replay">How does replay work?</h2>
     <p>It relies on your provider's archive: when one exists, past programmes appear in the TV guide and play in one click. See <a href="replay.html">Programme replay</a>.</p>
 
+    <h2 id="replay-absent">Why can't I see replay when my provider offers it?</h2>
+    <p>Replay only appears if Kastideo detects an archive for the channel: the ↺ icon then shows next to it. Check in this order:</p>
+    <ul>
+      <li><b>Replay is enabled</b>: Settings &gt; General &gt; Replay.</li>
+      <li><b>The archive exists for this channel</b>: some subscriptions keep channels for up to 14 days, but not all of them.</li>
+      <li><b>The guide contains past programmes</b>: increase the number of days kept in the guide (Settings &gt; General &gt; Replay), then reload the guide. More days need more memory.</li>
+      <li><b>The time offset</b>: adjust it if the programme that starts is not the one you chose.</li>
+      <li><b>A single connection</b>: replay counts as one connection, close other playbacks and devices.</li>
+    </ul>
+    <p>If the programme does not start, open the playback log, topic “Playback and relay”: it shows the archive address requested. See <a href="replay.html">Programme replay</a>.</p>
+
     <h2 id="windows">Windows shows “Windows protected your PC”, what should I do?</h2>
     <p>The Windows version is not signed yet. Click More info, then Run anyway. See <a href="windows.html">Kastideo for Windows</a>.</p>
 
     <h2 id="android-tv">How do I install Kastideo on Android TV?</h2>
-    <p>Outside Google Play, with the Downloader app, a USB stick or by sending it from a phone. See <a href="android.html">Kastideo for Android and Android TV</a>.</p>
+    <p>Outside Google Play, with the Downloader app, a USB stick or by sending it from a phone. See <a href="guide-android-tv.html">Install Kastideo on Android TV</a>.</p>
 
     <h2 id="donnees">What happens to my password?</h2>
     <p>Your credentials stay on your device, in the system's secure store, and are sent only to the services you configure. Kastideo collects no usage statistics. See the <a href="confidentialite.html">privacy policy</a>.</p>

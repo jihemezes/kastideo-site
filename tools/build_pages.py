@@ -24,6 +24,7 @@ from pages_features import FEATURES  # noqa: E402
 from pages_versions import VERSIONS  # noqa: E402
 from pages_other import OTHER, kofi_button  # noqa: E402
 from pages_seo import COMPARE  # noqa: E402
+from pages_guides import GUIDES, NEWS  # noqa: E402
 from seo import META  # noqa: E402
 import pages_legal as L  # noqa: E402
 import illustrations  # noqa: E402
@@ -90,7 +91,7 @@ def _fix_link(attr, v, lang):
     if m:
         slug, frag = m.group(1), m.group(2) or ""
         return url_path(slug, lang) + frag
-    if re.search(r"\.(css|js|png|svg|woff2|xml|txt)$", v):
+    if re.search(r"\.(css|js|png|webp|jpg|svg|woff2|xml|txt)$", v):
         return "/" + v
     return v
 
@@ -145,7 +146,7 @@ def head(slug, lang):
     t, d = META[slug][lang]
     full = t if slug == "index" else f"{t} | Kastideo"
     other = "en" if lang == "fr" else "fr"
-    img = f"{SITE}/og-{lang}.png"
+    img = f"{SITE}/og-{lang}.jpg"
     alt = ("Kastideo, lecteur IPTV pour Mac, Windows, Linux et Android" if lang == "fr"
            else "Kastideo, IPTV player for Mac, Windows, Linux and Android")
     loc, loc2 = ("fr_FR", "en_US") if lang == "fr" else ("en_US", "fr_FR")
@@ -194,13 +195,13 @@ def header(slug):
     return f"""<body>
 <a class="skip" href="#contenu" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
 <div class="backdrop" aria-hidden="true">
-  <img src="icon-512.png" alt="" width="512" height="512">
+  <img src="backdrop.webp" alt="" width="256" height="256">
 </div>
 
 <div class="wrap">
   <header class="top" id="haut">
     <a class="brand" href="index.html">
-      <img src="icon-192.png" alt="Icône de Kastideo" width="56" height="56">
+      <img src="icon-112.png" alt="Icône de Kastideo" width="56" height="56">
       <div>
         <strong>Kastideo</strong>
         {bi("Vos chaînes, vos films et vos séries au même endroit", "Your channels, films and series in one place")}
@@ -284,8 +285,9 @@ def sitemap_block():
         '<nav class="sitemap" aria-label="Plan du site">\n'
         + col("Fonctions", "Features", FEATURES) + "\n"
         + col("Versions", "Versions", VERSIONS + [OTHER[0]]) + "\n"
+        + col("Guides", "Guides", GUIDES) + "\n"
         + col("Comparer", "Compare", COMPARE) + "\n"
-        + col("Projet", "Project", [OTHER[1]] + LEGAL) + "\n"
+        + col("Projet", "Project", [NEWS, OTHER[1]] + LEGAL) + "\n"
         "    </nav>"
     )
 
@@ -334,7 +336,7 @@ def subpage(p, group, siblings, footer, lang):
     out += f'\n  <main class="doc" id="contenu">\n{with_figure(p, lang)}  </main>\n\n'
     if siblings:
         out += related(siblings, slug)
-    if group in ("features", "versions", "compare"):
+    if group in ("features", "versions", "compare", "guides"):
         out += cta()
     out += footer + TO_TOP + "</div>\n"
     out += jsonld(slug, lang, title, desc, crumbs_ld)
@@ -357,6 +359,9 @@ def write(path, text):
     open(path, "w", encoding="utf-8").write(text)
 
 
+NEWS_L = [NEWS]
+
+
 def main():
     idx = index_source()
     footer = footer_of(idx)
@@ -364,12 +369,12 @@ def main():
     for lang in LANGS:
         base = PUB if lang == "fr" else os.path.join(PUB, "en")
         write(os.path.join(base, "index.html"), index_page(idx, lang))
-        for plist, group in ((FEATURES, "features"), (VERSIONS, "versions"), (COMPARE, "compare"),
+        for plist, group in ((FEATURES, "features"), (VERSIONS, "versions"), (COMPARE, "compare"), (GUIDES, "guides"), (NEWS_L, "news"),
                              (OTHER, "other"), (LEGAL, "legal")):
             for p in plist:
                 write(os.path.join(base, p["slug"] + ".html"),
-                      subpage(p, group, plist if group in ("features", "versions", "compare") else None, footer, lang))
-    slugs = ["index"] + [p["slug"] for pl in (FEATURES, VERSIONS, COMPARE, OTHER, LEGAL) for p in pl]
+                      subpage(p, group, plist if group in ("features", "versions", "compare", "guides") else None, footer, lang))
+    slugs = ["index"] + [p["slug"] for pl in (FEATURES, VERSIONS, COMPARE, GUIDES, NEWS_L, OTHER, LEGAL) for p in pl]
 
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']

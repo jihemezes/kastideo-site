@@ -267,6 +267,90 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/faq"/>
   </url>
   <url>
+    <loc>https://kastideo.com/guide-m3u-mac</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-mac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-mac"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-mac"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/guide-m3u-mac</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-mac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-mac"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-mac"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/guide-m3u-windows</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-windows"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-windows"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-windows"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/guide-m3u-windows</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-windows"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-windows"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-windows"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/guide-xtream-codes</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-xtream-codes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-xtream-codes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-xtream-codes"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/guide-xtream-codes</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-xtream-codes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-xtream-codes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-xtream-codes"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/guide-android-tv</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-android-tv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-android-tv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-android-tv"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/guide-android-tv</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-android-tv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-android-tv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-android-tv"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/guide-raspberry-pi</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-raspberry-pi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-raspberry-pi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-raspberry-pi"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/guide-raspberry-pi</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-raspberry-pi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-raspberry-pi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-raspberry-pi"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/nouveautes</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/nouveautes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/nouveautes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/nouveautes"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/nouveautes</loc>
+    <lastmod>2026-11-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/nouveautes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/nouveautes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/nouveautes"/>
+  </url>
+  <url>
     <loc>https://kastideo.com/telecharger</loc>
     <lastmod>2026-11-01</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/telecharger"/>

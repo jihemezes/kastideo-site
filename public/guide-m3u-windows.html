@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lire une playlist M3U sur Windows 10 et 11 : Kastideo | Kastideo</title>
+<meta name="description" content="Installez Kastideo sans droits administrateur, ajoutez votre playlist M3U et ouvrez les fichiers .m3u d'un double-clic.">
+<meta name="theme-color" content="#0F0524">
+<link rel="canonical" href="https://kastideo.com/guide-m3u-windows">
+<link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-windows">
+<link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-windows">
+<link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-windows">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kastideo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://kastideo.com/guide-m3u-windows">
+<meta property="og:title" content="Lire une playlist M3U sur Windows 10 et 11 : Kastideo | Kastideo">
+<meta property="og:description" content="Installez Kastideo sans droits administrateur, ajoutez votre playlist M3U et ouvrez les fichiers .m3u d'un double-clic.">
+<meta property="og:image" content="https://kastideo.com/og-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kastideo, lecteur IPTV pour Mac, Windows, Linux et Android">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lire une playlist M3U sur Windows 10 et 11 : Kastideo | Kastideo">
+<meta name="twitter:description" content="Installez Kastideo sans droits administrateur, ajoutez votre playlist M3U et ouvrez les fichiers .m3u d'un double-clic.">
+<meta name="twitter:image" content="https://kastideo.com/og-fr.jpg">
+<link rel="preload" href="/fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="backdrop" aria-hidden="true">
+  <img src="/backdrop.webp" alt="" width="256" height="256">
+</div>
+
+<div class="wrap">
+  <header class="top" id="haut">
+    <a class="brand" href="/">
+      <img src="/icon-112.png" alt="Icône de Kastideo" width="56" height="56">
+      <div>
+        <strong>Kastideo</strong>
+        <span>Vos chaînes, vos films et vos séries au même endroit</span>
+      </div>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="/#fonctions">Fonctions</a>
+      <a href="/#versions">Versions</a>
+      <a href="/telecharger">Télécharger</a>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
+      <a class="lang" id="lang" href="/en/guide-m3u-windows" hreflang="en" lang="en" aria-label="Changer de langue : English">English</a>
+    </nav>
+  </header>
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page">Lire une playlist M3U sur Windows</span></nav>
+
+  <main class="doc" id="contenu">
+    <h1>Lire une playlist M3U sur Windows</h1>
+    <p class="page-lead">Kastideo lit une playlist M3U sur Windows 10 et 11 avec un guide TV, des thèmes et le replay si votre fournisseur le propose. Installation sans droits administrateur, ajout de la playlist en quelques clics.</p>
+
+    <h2 id="installer">1. Installer Kastideo</h2>
+    <ol>
+      <li>Téléchargez <code>Kastideo-…-windows-x64-setup.exe</code> depuis la page <a href="/windows">Kastideo pour Windows</a>. Par défaut l'installation se fait pour votre compte seul, dans votre dossier AppData, sans droits administrateur.</li>
+      <li>Ou prenez l'archive <code>windows-x64.zip</code>, décompressez-la où vous voulez et lancez <code>kastideo.exe</code> : rien n'est installé.</li>
+      <li>Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur <b>Informations complémentaires</b> puis sur <b>Exécuter quand même</b>. L'application n'est pas encore signée.</li>
+    </ol>
+
+    <h2 id="ajouter">2. Ajouter la playlist</h2>
+    <ol>
+      <li>Ouvrez les <b>Réglages</b> (la roue dentée de l'accueil, ou Ctrl+,) puis <b>Sources</b> puis <b>Ajouter une source</b>.</li>
+      <li>Choisissez <b>Playlist M3U</b>.</li>
+      <li>Collez l'adresse de la playlist, ou cliquez sur <b>Choisir un fichier…</b> pour un fichier <code>.m3u</code> ou <code>.m3u8</code>.</li>
+      <li>Cliquez sur <b>Ajouter</b>.</li>
+    </ol>
+    <p>Une adresse <code>get.php?username=…&amp;password=…</code> est reconnue et transformée en source Xtream, plus rapide et plus complète : voir <a href="/guide-xtream-codes">Ajouter un abonnement Xtream Codes</a>.</p>
+
+    <h2 id="double-clic">Ouvrir les fichiers .m3u d'un double-clic</h2>
+    <p>Dans <b>Réglages &gt; Général &gt; Démarrage et fichiers</b>, cochez <b>Ouvrir les fichiers .m3u et .m3u8 avec Kastideo</b> : un double-clic sur une playlist propose de l'ajouter comme source. Si Windows ouvre encore un autre programme, faites un clic droit sur le fichier, <b>Ouvrir avec</b>, <b>Choisir une autre application</b>, puis Kastideo.</p>
+
+    <h2 id="enregistrements">Pour les enregistrements programmés</h2>
+    <p>Kastideo doit être ouvert à l'heure prévue. Activez <b>Lancer Kastideo à l'ouverture de session</b> et <b>Démarrer réduit</b> pour qu'il reste discret dans la barre des tâches. Voir <a href="/enregistrer">Enregistrer et télécharger</a>.</p>
+  </main>
+
+  <section class="related" aria-labelledby="t-related">
+    <h2 id="t-related" class="sec">Voir aussi</h2>
+    <div class="cards">
+      <a class="card link" href="/guide-xtream-codes">
+        <h3>Ajouter un abonnement Xtream Codes</h3>
+        <p>Serveur, identifiant, mot de passe : tout ce qu'il faut savoir.</p>
+      </a>
+      <a class="card link" href="/guide-android-tv">
+        <h3>Installer Kastideo sur Android TV</h3>
+        <p>APK, Downloader, clé USB et télécommande, sans désactiver la sécurité.</p>
+      </a>
+      <a class="card link" href="/guide-raspberry-pi">
+        <h3>L'IPTV sur Raspberry Pi 4 ou 5</h3>
+        <p>L'AppImage ARM 64 bits, de l'installation au salon.</p>
+      </a>
+    </div>
+  </section>
+  <aside class="cta-band" aria-label="Télécharger">
+    <div><strong>Prêt à essayer ?</strong><span>Kastideo est gratuit et sans compte.</span></div>
+    <div class="actions"><a class="btn primary" href="/telecharger">Télécharger Kastideo</a><a class="btn ghost" href="/soutenir">Soutenir le projet</a></div>
+  </aside>
+  <footer>
+    <div class="legal">
+      <h2 class="small-title">Avertissement</h2>
+      <p>Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales.</p>
+      <p>Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires.</p>
+      <p>Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
+
+      <div class="attrib">
+        <img class="tmdb-logo" src="/TMDB-blue_square_1.svg" alt="Logo TMDB" width="150" height="64">
+        <p style="margin:0">Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.</p>
+      </div>
+
+      <p class="credits">Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube.</p>
+
+      <div class="contact">
+        <span>Contact :</span>
+        <code>contact@kastideo.com</code>
+        <button class="copy" type="button" data-copy="contact@kastideo.com">Copier</button>
+      </div>
+      <nav class="sitemap" aria-label="Plan du site">
+      <div><p class="small-title">Fonctions</p>
+      <ul>
+        <li><a href="/direct">Regarder le direct</a></li>
+        <li><a href="/guide-tv">Guide TV et thèmes</a></li>
+        <li><a href="/interfaces">Interfaces et personnalisation</a></li>
+        <li><a href="/multivue">MultiVue</a></li>
+        <li><a href="/enregistrer">Enregistrer et télécharger</a></li>
+        <li><a href="/cast">Envoyer à la télévision</a></li>
+        <li><a href="/replay">Replay des programmes</a></li>
+        <li><a href="/films-series">Films et séries</a></li>
+        <li><a href="/sources">Vos sources</a></li>
+        <li><a href="/fiabilite">Rapide, stable et sobre</a></li>
+      </ul></div>
+      <div><p class="small-title">Versions</p>
+      <ul>
+        <li><a href="/mac">Kastideo pour Mac</a></li>
+        <li><a href="/windows">Kastideo pour Windows</a></li>
+        <li><a href="/linux">Kastideo pour Linux</a></li>
+        <li><a href="/android">Kastideo pour Android et Android TV</a></li>
+        <li><a href="/telecharger">Télécharger</a></li>
+      </ul></div>
+      <div><p class="small-title">Guides</p>
+      <ul>
+        <li><a href="/guide-m3u-mac">Lire une playlist M3U sur Mac</a></li>
+        <li><a href="/guide-m3u-windows">Lire une playlist M3U sur Windows</a></li>
+        <li><a href="/guide-xtream-codes">Ajouter un abonnement Xtream Codes</a></li>
+        <li><a href="/guide-android-tv">Installer Kastideo sur Android TV</a></li>
+        <li><a href="/guide-raspberry-pi">L'IPTV sur Raspberry Pi 4 ou 5</a></li>
+      </ul></div>
+      <div><p class="small-title">Comparer</p>
+      <ul>
+        <li><a href="/alternative-vlc">Alternative à VLC</a></li>
+        <li><a href="/alternative-tivimate">Alternative à TiviMate</a></li>
+        <li><a href="/alternative-iptv-smarters">Alternative à IPTV Smarters Pro</a></li>
+        <li><a href="/faq">Questions fréquentes</a></li>
+      </ul></div>
+      <div><p class="small-title">Projet</p>
+      <ul>
+        <li><a href="/nouveautes">Nouveautés</a></li>
+        <li><a href="/soutenir">Soutenir le projet</a></li>
+        <li><a href="/confidentialite">Politique de confidentialité</a></li>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+      </ul></div>
+    </nav>
+      <p class="fine">
+        <a href="/confidentialite">Confidentialité</a> ·
+        <a href="/mentions-legales">Mentions légales</a> ·
+        Kastideo <span data-ver="mac">1.9.1</span>
+      </p>
+    </div>
+  </footer>
+  <a class="to-top" href="#haut" aria-label="Remonter en haut de la page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kastideo.com/guide-m3u-windows#page","url":"https://kastideo.com/guide-m3u-windows","name":"Lire une playlist M3U sur Windows 10 et 11 : Kastideo","description":"Installez Kastideo sans droits administrateur, ajoutez votre playlist M3U et ouvrez les fichiers .m3u d'un double-clic.","inLanguage":"fr","isPartOf":{"@id":"https://kastideo.com/#site"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://kastideo.com/"},{"@type":"ListItem","position":2,"name":"Lire une playlist M3U sur Windows"}]}]}</script>
+<script src="/site.js"></script>
+</body>
+</html>
