@@ -5,6 +5,10 @@
 """
 
 HISTORY = [
+    ("1.11", "2026-11-03", "Corriger la fiche d'un film ou d'une série par son code TMDB, ou la personnaliser à la main, y compris pour l'abonnement IPTV.",
+     "Fix a movie or series page using its TMDB code, or customise it by hand, including for the IPTV subscription."),
+    ("1.10", "2026-11-02", "Plusieurs comptes IPTV : menu Source, fusion des doublons et diagnostic de la source. Affiches et résumés pour vos vidéos personnelles.",
+     "Several IPTV accounts: Source menu, duplicate merging and source diagnostics. Posters and summaries for your personal videos."),
     ("1.9", "2026-10-31", "Kastideo arrive sur Android et Android TV (aperçu). Aide de l'accueil refaite, textes sur la gratuité et mention légale.",
      "Kastideo arrives on Android and Android TV (preview). Home screen help rewritten, text about being free and legal notice."),
     ("1.8", "2026-10-31", "Page de départ au choix pour Direct, Films et Séries. Repli automatique en décodage logiciel pour les chaînes dont l'image se fige.",
