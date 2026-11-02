@@ -211,6 +211,7 @@ def header(slug):
       {bi("Fonctions", "Features", "a", ' href="index.html#fonctions"')}
       {bi("Versions", "Versions", "a", ' href="index.html#versions"')}
       {bi("Télécharger", "Download", "a", ' href="telecharger.html"')}
+      {bi("FAQ", "FAQ", "a", ' href="faq.html"')}
       {kofi_button("Offrir un café", False, "Buy me a coffee")}
       @@LANG@@
     </nav>
