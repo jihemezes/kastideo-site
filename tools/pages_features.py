@@ -240,7 +240,13 @@ FEATURES = [
       <li>Au survol d'une vignette, vous pouvez changer sa chaîne ou la retirer. Le nom de la chaîne et le programme en cours s'affichent en bas.</li>
       <li>Tout arrêter coupe tous les flux.</li>
     </ul>
-    <p>Sur Windows, Linux et Android, vous choisissez aussi la disposition (automatique, grille 2 × 2, une grande image et les autres en petit, côte à côte), vous passez une vignette en grand par un double-clic, et vous mémorisez un groupe de chaînes sous un nom (par exemple « Multiplex foot ») pour le rouvrir d'un clic.</p>
+    <p>Vous choisissez le nombre d'écrans (de 1 à 4) et la disposition : côte à côte, empilé, grille, ou une grande image avec les autres en petites vignettes flottantes. Dans cette dernière, vous déplacez les vignettes, qui s'accrochent au coin le plus proche, et vous les échangez avec la grande par un double-clic. Sur Windows, Linux et Android, vous pouvez aussi mémoriser un groupe de chaînes sous un nom (par exemple « Multiplex foot ») pour le rouvrir d'un clic.</p>
+
+    <h2 id="sources">Plusieurs abonnements ou listes publiques</h2>
+    <p>Si vous avez plusieurs sources de direct, la MultiVue les mélange : deux abonnements, ou un abonnement et une liste de chaînes publiques. Chaque source a son propre nombre de connexions, par exemple 1 pour un abonnement limité et 4 pour une liste publique. Chaque écran est réservé à une source, et son sélecteur de chaînes ne propose que les chaînes de cette source. Le sélecteur reprend l'interface Classique : favoris, récents et catégories à gauche, chaînes avec leur programme en cours à droite.</p>
+
+    <h2 id="pip">Image dans l'image</h2>
+    <p>Pendant un direct, le bouton image dans l'image ouvre une seconde chaîne en miniature dans un coin du lecteur, sans le son. Un clic sur la miniature l'échange avec la chaîne principale. La seconde chaîne doit venir d'une source qui a une connexion libre : avec un seul abonnement limité à une connexion, choisissez une chaîne d'une liste publique ou d'un second abonnement.</p>
 
     <h2 id="connexions">Pourquoi elle est désactivée par défaut</h2>
     <p>Chaque chaîne utilise une connexion à votre fournisseur. Comme la plupart des abonnements n'en autorisent qu'une, la MultiVue reste désactivée tant que vous n'avez pas indiqué le nombre de connexions simultanées de votre abonnement, de 2 à 4, dans les réglages de lecture. Pour une source Xtream, le bouton Tester la connexion affiche ce nombre.</p>
@@ -259,7 +265,13 @@ FEATURES = [
       <li>On hover, you can change a tile's channel or remove it. The channel name and current programme are shown at the bottom.</li>
       <li>Stop all cuts every stream.</li>
     </ul>
-    <p>On Windows, Linux and Android, you also choose the layout (automatic, 2 × 2 grid, one big picture with the others small, side by side), you make a tile big with a double-click, and you save a group of channels under a name (for example “Football multiplex”) to reopen it in one click.</p>
+    <p>You choose the number of screens (1 to 4) and the layout: side by side, stacked, grid, or one big picture with the others as small floating tiles. In the latter, you move the tiles, which snap to the nearest corner, and swap them with the big one by double-clicking. On Windows, Linux and Android, you can also save a group of channels under a name (for example “Football multiplex”) to reopen it in one click.</p>
+
+    <h2 id="sources">Several subscriptions or public lists</h2>
+    <p>If you have several live sources, MultiView mixes them: two subscriptions, or a subscription and a list of public channels. Each source has its own number of connections, for example 1 for a limited subscription and 4 for a public list. Each screen is reserved for one source, and its channel picker only offers that source's channels. The picker follows the Classic interface: favourites, recents and categories on the left, channels with their current programme on the right.</p>
+
+    <h2 id="pip">Picture in picture</h2>
+    <p>During live TV, the picture-in-picture button opens a second channel as a thumbnail in a corner of the player, without sound. A click on the thumbnail swaps it with the main channel. The second channel must come from a source with a free connection: with a single subscription limited to one connection, pick a channel from a public list or from a second subscription.</p>
 
     <h2 id="connexions">Why it is off by default</h2>
     <p>Each channel uses one connection to your provider. Since most subscriptions allow only one, MultiView stays disabled until you enter the number of simultaneous connections of your subscription, from 2 to 4, in the playback settings. For an Xtream source, the Test connection button shows this number.</p>

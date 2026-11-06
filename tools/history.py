@@ -5,6 +5,10 @@
 """
 
 HISTORY = [
+    ("1.13", "2026-11-03", "MultiVue repensée pour plusieurs abonnements : nombre d'écrans, dispositions, vrai PIP à vignettes déplaçables, nouveau sélecteur de chaînes et accès plus visibles.",
+     "MultiView redesigned for several subscriptions: number of screens, layouts, a real PIP with movable tiles, new channel picker and more visible entry points."),
+    ("1.12", "2026-11-03", "Mes vidéos : filtres (source, pays, langue, qualité, état) et tris mémorisés. MultiVue avec plusieurs sources et image dans l'image pendant un direct.",
+     "My videos: filters (source, country, language, quality, status) and remembered sorting. MultiView with several sources and picture in picture during live TV."),
     ("1.11", "2026-11-03", "Corriger la fiche d'un film ou d'une série par son code TMDB, ou la personnaliser à la main, y compris pour l'abonnement IPTV.",
      "Fix a movie or series page using its TMDB code, or customise it by hand, including for the IPTV subscription."),
     ("1.10", "2026-11-02", "Plusieurs comptes IPTV : menu Source, fusion des doublons et diagnostic de la source. Affiches et résumés pour vos vidéos personnelles.",
