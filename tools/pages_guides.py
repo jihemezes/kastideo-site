@@ -226,6 +226,14 @@ ATV_FR = """    <h1>Installer Kastideo sur Android TV et Google TV</h1>
     </ul>
     <p>Les fichiers sont sur la page <a href="android.html">Kastideo pour Android et Android TV</a>, ou sur <a href="telecharger.html">Télécharger</a>.</p>
 
+    <h3 id="adresses-courtes">Adresses courtes pour la télécommande</h3>
+    <p>Pour saisir l'adresse dans Downloader, ces adresses pointent toujours vers la dernière version :</p>
+    <ul>
+      <li><code>kastideo.com/tv</code> : APK universal (le plus sûr).</li>
+      <li><code>kastideo.com/tv64</code> : APK arm64-v8a.</li>
+      <li><code>kastideo.com/tv32</code> : APK armeabi-v7a.</li>
+    </ul>
+
     <h2 id="methodes">2. Installer sur le téléviseur</h2>
     <p>Le navigateur et le gestionnaire de fichiers d'un téléviseur sont souvent absents. Choisissez l'une de ces méthodes :</p>
     <ul>
@@ -261,6 +269,14 @@ ATV_EN = """    <h1>Install Kastideo on Android TV and Google TV</h1>
       <li><b>universal</b>: all processors, but larger.</li>
     </ul>
     <p>The files are on the <a href="android.html">Kastideo for Android and Android TV</a> page, or on <a href="telecharger.html">Download</a>.</p>
+
+    <h3 id="adresses-courtes">Short addresses for the remote</h3>
+    <p>To type the address in Downloader, these addresses always point to the latest version:</p>
+    <ul>
+      <li><code>kastideo.com/tv</code>: universal APK (the safest).</li>
+      <li><code>kastideo.com/tv64</code>: arm64-v8a APK.</li>
+      <li><code>kastideo.com/tv32</code>: armeabi-v7a APK.</li>
+    </ul>
 
     <h2 id="methodes">2. Install on the TV</h2>
     <p>A TV's browser and file manager are often missing. Pick one of these methods:</p>
@@ -353,7 +369,7 @@ FIRE_FR = """    <h1>Installer Kastideo sur Fire TV</h1>
     <div class="callout"><b class="label">Compatibilité</b><p>L'APK Android de Kastideo déclare une entrée pour téléviseur, il doit donc apparaître dans « Vos applications ». Les Fire TV ne font pas encore partie des appareils testés officiellement : cette procédure repose sur la compatibilité avec Android, et vos retours sont les bienvenus à <code>contact@kastideo.com</code>. Un modèle très ancien peut refuser l'installation.</p></div>
 
     <h2 id="fichier">1. Choisir le bon fichier</h2>
-    <p>Prenez <b>universal</b> : c'est le plus volumineux, mais il fonctionne partout. Plusieurs Fire TV, même récents, fonctionnent avec un système 32 bits : le fichier <b>arm64-v8a</b> peut alors être refusé. Si vous préférez un fichier plus léger, essayez <b>armeabi-v7a</b>. Les fichiers sont sur la page <a href="android.html">Kastideo pour Android et Android TV</a>.</p>
+    <p>Prenez <b>universal</b> : c'est le plus volumineux, mais il fonctionne partout. Plusieurs Fire TV, même récents, fonctionnent avec un système 32 bits : le fichier <b>arm64-v8a</b> peut alors être refusé. Si vous préférez un fichier plus léger, essayez <b>armeabi-v7a</b>. Dans Downloader, tapez <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) ou <code>kastideo.com/tv32</code> (armeabi-v7a) : ces adresses pointent toujours vers la dernière version. Les fichiers sont aussi sur la page <a href="android.html">Kastideo pour Android et Android TV</a>.</p>
 
     <h2 id="downloader">2. Installer Downloader</h2>
     <ol>
@@ -403,7 +419,7 @@ FIRE_EN = """    <h1>Install Kastideo on Fire TV</h1>
     <div class="callout"><b class="label">Compatibility</b><p>Kastideo's Android APK declares a TV entry, so it should appear in “Your Apps & Channels”. Fire TV devices are not yet among the officially tested ones: this procedure relies on compatibility with Android, and your feedback is welcome at <code>contact@kastideo.com</code>. A very old model may refuse the installation.</p></div>
 
     <h2 id="fichier">1. Choose the right file</h2>
-    <p>Take <b>universal</b>: it is the largest, but it works everywhere. Several Fire TV devices, even recent ones, run a 32-bit system: the <b>arm64-v8a</b> file may then be refused. If you prefer a lighter file, try <b>armeabi-v7a</b>. The files are on the <a href="android.html">Kastideo for Android and Android TV</a> page.</p>
+    <p>Take <b>universal</b>: it is the largest, but it works everywhere. Several Fire TV devices, even recent ones, run a 32-bit system: the <b>arm64-v8a</b> file may then be refused. If you prefer a lighter file, try <b>armeabi-v7a</b>. In Downloader, type <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) or <code>kastideo.com/tv32</code> (armeabi-v7a): these addresses always point to the latest version. The files are also on the <a href="android.html">Kastideo for Android and Android TV</a> page.</p>
 
     <h2 id="downloader">2. Install Downloader</h2>
     <ol>

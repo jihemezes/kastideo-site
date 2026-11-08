@@ -3,8 +3,12 @@
   // Aucune étape de compilation n'est nécessaire.
   "name": "kastideo-site",
   "compatibility_date": "2026-10-01",
+  // Le Worker ne répond qu'aux adresses courtes de téléchargement (/tv, /dl/...).
+  "main": "./src/worker.js",
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/tv", "/tv64", "/tv32", "/dl/*"]
   },
   // Requis par « npx wrangler preview » (builds des branches d'aperçu). Le bloc peut rester vide.
   "previews": {}
