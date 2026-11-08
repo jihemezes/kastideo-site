@@ -5,6 +5,12 @@
 """
 
 HISTORY = [
+    ("1.16", "2026-11-07", "Enregistrements (Mac) : durée réglable après le démarrage (15 min à 4 h, heure précise ou sans limite), durée par défaut et temps restant affiché. Le fichier d'origine est conservé si la conversion perdait l'image.",
+     "Recordings (Mac): duration adjustable after starting (15 min to 4 h, exact time or no limit), default duration and remaining time shown. The original file is kept if conversion would lose the picture."),
+    ("1.15", "2026-11-07", "Retirer un contenu de « Reprendre la lecture », avec annulation possible.",
+     "Remove an item from “Continue watching”, with undo."),
+    ("1.14", "2026-11-06", "Enregistrements (Mac) : retirer un, plusieurs ou tous les enregistrements de la liste, avec ou sans suppression des fichiers.",
+     "Recordings (Mac): remove one, several or all recordings from the list, with or without deleting the files."),
     ("1.13", "2026-11-03", "MultiVue repensée pour plusieurs abonnements : nombre d'écrans, dispositions, vrai PIP à vignettes déplaçables, nouveau sélecteur de chaînes et accès plus visibles.",
      "MultiView redesigned for several subscriptions: number of screens, layouts, a real PIP with movable tiles, new channel picker and more visible entry points."),
     ("1.12", "2026-11-03", "Mes vidéos : filtres (source, pays, langue, qualité, état) et tris mémorisés. MultiVue avec plusieurs sources et image dans l'image pendant un direct.",

@@ -31,7 +31,7 @@ import illustrations  # noqa: E402
 
 PUB = os.path.join(ROOT, "public")
 SITE = "https://kastideo.com"
-LASTMOD = "2026-11-01"
+LASTMOD = "2026-11-08"
 LANGS = ("fr", "en")
 
 LEGAL = [

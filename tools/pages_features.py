@@ -298,6 +298,7 @@ FEATURES = [
 
     <h2 id="direct">Enregistrer le direct</h2>
     <p>Un bouton rouge dans la barre du lecteur lance l'enregistrement de la chaîne regardée. Il s'arrête à la fin du programme en cours (d'après le guide TV, plus une marge) ou quand vous l'arrêtez. L'enregistrement utilise la même connexion que la lecture : il ne consomme rien de plus sur votre abonnement.</p>
+    <p>Sur Mac, l'enregistrement démarre tout de suite, puis un bandeau propose l'arrêt automatique : dans 15 minutes à 4 heures, à une heure précise ou sans limite. Sans choix, il s'arrête à la fin du programme, ou après la durée par défaut réglée dans Réglages > Enregistrements. Le bouton Durée de l'enregistrement en cours change l'arrêt à tout moment et affiche le temps restant.</p>
     <p>Un clic droit sur une autre chaîne permet de l'enregistrer en arrière-plan : si vous en regardez une autre, Kastideo demande s'il faut arrêter la lecture.</p>
     <ul>
       <li>Sur Mac, le fichier est visible et grossit dans un sous-dossier « En cours » pendant l'enregistrement. À la fin, il est converti sans perte en MP4, lisible par QuickTime, l'iPhone et l'iPad.</li>
@@ -320,6 +321,7 @@ FEATURES = [
 
     <h2 id="fichiers">Vos fichiers</h2>
     <p>Les enregistrements sont rangés dans un dossier de votre choix (par défaut Films/Kastideo sur Mac, Vidéos/Kastideo sur Windows et Linux), avec des noms automatiques comme « TF1 – Le goût du détail – 2026-10-18 20h50 ». Un nettoyage automatique facultatif met à la corbeille les anciens enregistrements, et une alerte prévient quand l'espace disque devient faible.</p>
+    <p>Sur Mac, vous pouvez aussi nettoyer la liste : retirer un enregistrement, plusieurs (mode Sélectionner) ou toute la liste. Par défaut, seule la liste est nettoyée et le fichier reste dans le dossier ; une case permet de le supprimer aussi, et un bandeau Annuler permet de tout remettre pendant quelques secondes.</p>
     <p>Les enregistrements sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
 """,
         "en": """    <h1>Recording and downloading</h1>
@@ -327,6 +329,7 @@ FEATURES = [
 
     <h2 id="direct">Recording live TV</h2>
     <p>A red button in the player bar starts recording the channel you are watching. It stops at the end of the current programme (from the TV guide, plus a margin) or when you stop it. Recording uses the same connection as playback: it consumes nothing more on your subscription.</p>
+    <p>On Mac, recording starts immediately, then a banner offers the automatic stop: in 15 minutes to 4 hours, at an exact time or with no limit. With no choice, it stops at the end of the programme, or after the default duration set in Settings > Recordings. The Duration button of the current recording changes the stop at any time and shows the time left.</p>
     <p>A right-click on another channel lets you record it in the background: if you are watching a different one, Kastideo asks whether to stop playback.</p>
     <ul>
       <li>On Mac, the file is visible and grows in an “In progress” sub-folder during recording. At the end, it is converted without loss to MP4, playable by QuickTime, iPhone and iPad.</li>
@@ -349,6 +352,7 @@ FEATURES = [
 
     <h2 id="fichiers">Your files</h2>
     <p>Recordings are stored in a folder of your choice (by default Movies/Kastideo on Mac, Videos/Kastideo on Windows and Linux), with automatic names like “TF1 – Le goût du détail – 2026-10-18 20h50”. An optional automatic clean-up sends old recordings to the trash, and an alert warns you when disk space runs low.</p>
+    <p>On Mac, you can also tidy the list: remove one recording, several (Select mode) or the whole list. By default only the list is cleaned and the file stays in the folder; a checkbox deletes it too, and an Undo banner puts everything back for a few seconds.</p>
     <p>Recordings are for private use only, within the limits of the law in your country.</p>
 """,
     },
