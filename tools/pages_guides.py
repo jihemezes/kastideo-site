@@ -13,6 +13,7 @@ M3U_MAC_FR = """    <h1>Lire une playlist M3U sur Mac</h1>
       <li>Votre playlist : soit son adresse (commençant par http), soit un fichier <code>.m3u</code> ou <code>.m3u8</code>.</li>
     </ul>
     <p>Kastideo ne fournit aucune chaîne : la playlist vient de vous, et vous devez vérifier que son contenu est légal.</p>
+    <div class="callout"><b class="label">Pour essayer sans abonnement</b><p>Des listes communautaires de flux publics existent, par exemple le dépôt <a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener">iptv-org/iptv</a> sur GitHub, qui ne contient que des liens et aucune vidéo. Kastideo n'est lié à ce projet d'aucune façon, ne fournit ni ne garantit aucun de ces flux, et leur disponibilité comme leur légalité ne sont pas vérifiées par Kastideo. Vous restez responsable de vérifier que leur usage est légal dans votre pays, et de respecter les droits des ayants droit.</p></div>
 
     <h2 id="installer">1. Installer Kastideo</h2>
     <p>Téléchargez le fichier <code>.dmg</code> depuis la page <a href="mac.html">Kastideo pour Mac</a>, ouvrez-le et glissez l'application dans le dossier Applications.</p>
@@ -47,6 +48,7 @@ M3U_MAC_EN = """    <h1>Play an M3U playlist on Mac</h1>
       <li>Your playlist: either its address (starting with http) or an <code>.m3u</code> or <code>.m3u8</code> file.</li>
     </ul>
     <p>Kastideo provides no channels: the playlist comes from you, and you must check that its content is legal.</p>
+    <div class="callout"><b class="label">To try without a subscription</b><p>Community lists of public streams exist, for example the <a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener">iptv-org/iptv</a> repository on GitHub, which contains only links and no video. Kastideo is not affiliated with that project in any way, provides or guarantees none of these streams, and does not verify their availability or their legality. You remain responsible for checking that using them is legal in your country, and for respecting rights holders.</p></div>
 
     <h2 id="installer">1. Install Kastideo</h2>
     <p>Download the <code>.dmg</code> file from the <a href="mac.html">Kastideo for Mac</a> page, open it and drag the app into the Applications folder.</p>
