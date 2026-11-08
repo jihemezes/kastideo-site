@@ -17,6 +17,9 @@ ROWS = [
 ]
 
 
+SHORT = {'mac': 'dl/mac', 'win-setup': 'dl/windows', 'win-zip': 'dl/windows-zip', 'deb22': 'dl/deb22', 'deb24': 'dl/deb', 'appimage-x86': 'dl/linux', 'appimage-arm': 'dl/linux-arm', 'apk-arm64': 'tv64', 'apk-v7a': 'tv32', 'apk-universal': 'tv'}
+
+
 def _rows(lang):
     out = []
     for key, fr, en, fname, state, fam in ROWS:
@@ -30,7 +33,8 @@ def _rows(lang):
         href = REL + "/latest" if key == "mac" else REL
         out.append(
             f'          <tr><td>{dev}</td><td><code>{fname}</code></td><td>{st}</td>'
-            f'<td><a class="btn ghost small" data-dl="{key}" href="{href}" target="_blank" rel="noopener">{btn}<small data-size="{key}"></small></a></td></tr>'
+            f'<td><a class="btn ghost small" data-dl="{key}" href="{href}" target="_blank" rel="noopener">{btn}<small data-size="{key}"></small></a>'
+            f'<div class="short-in-cell"><code>kastideo.com/{SHORT[key]}</code></div></td></tr>'
         )
     return "\n".join(out)
 
@@ -44,13 +48,23 @@ def _telecharger(lang):
     <h2 id="choisir">Quel fichier pour quel appareil</h2>
     <div class="table-wrap" role="region" aria-label="Quel fichier télécharger" tabindex="0">
       <table class="ver-table">
-        <thead><tr><th>Votre appareil</th><th>Fichier</th><th>État</th><th>Lien</th></tr></thead>
+        <thead><tr><th>Votre appareil</th><th>Fichier</th><th>État</th><th>Lien et adresse courte</th></tr></thead>
         <tbody>
 {_rows("fr")}
         </tbody>
       </table>
     </div>
     <p class="note">Les versions Windows, Linux et Android sont des aperçus, publiés en pré-version sur GitHub. Elles fonctionnent bien, mais les retours restent précieux. Si un lien ne se met pas à jour, la liste complète est sur la <a href="{REL}" target="_blank" rel="noopener">page des versions</a>.</p>
+
+    <h2 id="terminal">Télécharger depuis un terminal ou un téléviseur</h2>
+    <p>Chaque fichier a une adresse courte qui pointe toujours vers la dernière version (colonne de droite). Elle se saisit facilement à la télécommande, dans l'application Downloader d'un Android TV ou d'un Fire TV, ou dans un terminal :</p>
+    <pre><code># Mac ou Linux
+curl -LJO https://kastideo.com/dl/mac
+curl -LJO https://kastideo.com/dl/linux
+
+# Windows (PowerShell)
+Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
+    <p>Sur Android TV, dans Downloader, tapez <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) ou <code>kastideo.com/tv32</code> (armeabi-v7a).</p>
 
     <h2 id="guides">Guides d'installation</h2>
     <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android et Android TV</a></p>
@@ -65,13 +79,23 @@ def _telecharger(lang):
     <h2 id="choisir">Which file for which device</h2>
     <div class="table-wrap" role="region" aria-label="Which file to download" tabindex="0">
       <table class="ver-table">
-        <thead><tr><th>Your device</th><th>File</th><th>Status</th><th>Link</th></tr></thead>
+        <thead><tr><th>Your device</th><th>File</th><th>Status</th><th>Link and short address</th></tr></thead>
         <tbody>
 {_rows("en")}
         </tbody>
       </table>
     </div>
     <p class="note">Windows, Linux and Android versions are previews, published as pre-releases on GitHub. They work well, but feedback remains valuable. If a link does not update, the full list is on the <a href="{REL}" target="_blank" rel="noopener">releases page</a>.</p>
+
+    <h2 id="terminal">Download from a terminal or a TV</h2>
+    <p>Each file has a short address that always points to the latest version (right-hand column). It is easy to type with a remote, in the Downloader app on Android TV or Fire TV, or in a terminal:</p>
+    <pre><code># Mac or Linux
+curl -LJO https://kastideo.com/dl/mac
+curl -LJO https://kastideo.com/dl/linux
+
+# Windows (PowerShell)
+Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
+    <p>On Android TV, in Downloader, type <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) or <code>kastideo.com/tv32</code> (armeabi-v7a).</p>
 
     <h2 id="guides">Installation guides</h2>
     <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android and Android TV</a></p>

@@ -19,6 +19,7 @@ VERSIONS = [
         "fr": f"""    <h1>Kastideo pour Mac</h1>
     <p class="page-lead">La version de référence, celle où les nouveautés arrivent en premier. Version actuelle : <b data-ver="mac">…</b>.</p>
     <p class="actions"><a class="btn primary" data-dl="mac" href="{REL}/latest" target="_blank" rel="noopener">Télécharger pour Mac<small data-size="mac"></small></a></p>
+    <p class="short-url">Adresse courte : <code>kastideo.com/dl/mac</code>. Dans un terminal : <code>curl -LJO https://kastideo.com/dl/mac</code></p>
 
     <h2 id="config">Configuration requise</h2>
     <ul>
@@ -48,6 +49,7 @@ VERSIONS = [
         "en": f"""    <h1>Kastideo for Mac</h1>
     <p class="page-lead">The reference version, where new features arrive first. Current version: <b data-ver="mac">…</b>.</p>
     <p class="actions"><a class="btn primary" data-dl="mac" href="{REL}/latest" target="_blank" rel="noopener">Download for Mac<small data-size="mac"></small></a></p>
+    <p class="short-url">Short address: <code>kastideo.com/dl/mac</code>. In a terminal: <code>curl -LJO https://kastideo.com/dl/mac</code></p>
 
     <h2 id="config">Requirements</h2>
     <ul>
@@ -90,6 +92,7 @@ VERSIONS = [
       <a class="btn primary" data-dl="win-setup" href="{REL}" target="_blank" rel="noopener">Installateur Setup.exe<small data-size="win-setup"></small></a>
       <a class="btn ghost" data-dl="win-zip" href="{REL}" target="_blank" rel="noopener">Version portable (.zip)<small data-size="win-zip"></small></a>
     </p>
+    <p class="short-url">Adresses courtes : <code>kastideo.com/dl/windows</code> (installateur) et <code>kastideo.com/dl/windows-zip</code> (portable). Dans PowerShell : <code>Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></p>
 
     <h2 id="config">Configuration requise</h2>
     <ul><li>Windows 10 ou 11, 64 bits.</li></ul>
@@ -118,6 +121,7 @@ VERSIONS = [
       <a class="btn primary" data-dl="win-setup" href="{REL}" target="_blank" rel="noopener">Setup.exe installer<small data-size="win-setup"></small></a>
       <a class="btn ghost" data-dl="win-zip" href="{REL}" target="_blank" rel="noopener">Portable version (.zip)<small data-size="win-zip"></small></a>
     </p>
+    <p class="short-url">Short addresses: <code>kastideo.com/dl/windows</code> (installer) and <code>kastideo.com/dl/windows-zip</code> (portable). In PowerShell: <code>Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></p>
 
     <h2 id="config">Requirements</h2>
     <ul><li>Windows 10 or 11, 64-bit.</li></ul>
@@ -156,11 +160,12 @@ VERSIONS = [
     <h2 id="choisir">Quel fichier choisir</h2>
     <p>Deux commandes dans un terminal donnent la réponse : <code>lsb_release -d</code> pour la distribution et <code>uname -m</code> pour l'architecture.</p>
     <div class="dl-grid">
-      <a class="dl" data-dl="deb22" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 17 · Ubuntu 22.04</b><span>ubuntu22.04_amd64</span><small data-size="deb22"></small></a>
-      <a class="dl" data-dl="deb24" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 18 · Ubuntu 24.04</b><span>ubuntu24.04_amd64</span><small data-size="deb24"></small></a>
-      <a class="dl" data-dl="appimage-x86" href="{REL}" target="_blank" rel="noopener"><b>AppImage, PC 64 bits</b><span>linux-x86_64 (<code>uname -m</code> : x86_64)</span><small data-size="appimage-x86"></small></a>
-      <a class="dl" data-dl="appimage-arm" href="{REL}" target="_blank" rel="noopener"><b>AppImage, Raspberry Pi 4 ou 5</b><span>linux-aarch64 (<code>uname -m</code> : aarch64, système 64 bits)</span><small data-size="appimage-arm"></small></a>
+      <a class="dl" data-dl="deb22" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 17 · Ubuntu 22.04</b><span>ubuntu22.04_amd64</span><span class="short">Adresse courte : <code>kastideo.com/dl/deb22</code></span><small data-size="deb22"></small></a>
+      <a class="dl" data-dl="deb24" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 18 · Ubuntu 24.04</b><span>ubuntu24.04_amd64</span><span class="short">Adresse courte : <code>kastideo.com/dl/deb</code></span><small data-size="deb24"></small></a>
+      <a class="dl" data-dl="appimage-x86" href="{REL}" target="_blank" rel="noopener"><b>AppImage, PC 64 bits</b><span>linux-x86_64 (<code>uname -m</code> : x86_64)</span><span class="short">Adresse courte : <code>kastideo.com/dl/linux</code></span><small data-size="appimage-x86"></small></a>
+      <a class="dl" data-dl="appimage-arm" href="{REL}" target="_blank" rel="noopener"><b>AppImage, Raspberry Pi 4 ou 5</b><span>linux-aarch64 (<code>uname -m</code> : aarch64, système 64 bits)</span><span class="short">Adresse courte : <code>kastideo.com/dl/linux-arm</code></span><small data-size="appimage-arm"></small></a>
     </div>
+    <p class="short-url">Dans un terminal, par exemple : <code>curl -LJO https://kastideo.com/dl/linux</code> (AppImage PC 64 bits).</p>
 
     <h2 id="deb">Installer le paquet .deb</h2>
     <p>Double-cliquez sur le fichier, ou ouvrez un terminal dans le dossier Téléchargements :</p>
@@ -184,11 +189,12 @@ VERSIONS = [
     <h2 id="choisir">Which file to choose</h2>
     <p>Two terminal commands give the answer: <code>lsb_release -d</code> for the distribution and <code>uname -m</code> for the architecture.</p>
     <div class="dl-grid">
-      <a class="dl" data-dl="deb22" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 17 · Ubuntu 22.04</b><span>ubuntu22.04_amd64</span><small data-size="deb22"></small></a>
-      <a class="dl" data-dl="deb24" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 18 · Ubuntu 24.04</b><span>ubuntu24.04_amd64</span><small data-size="deb24"></small></a>
-      <a class="dl" data-dl="appimage-x86" href="{REL}" target="_blank" rel="noopener"><b>AppImage, 64-bit PC</b><span>linux-x86_64 (<code>uname -m</code>: x86_64)</span><small data-size="appimage-x86"></small></a>
-      <a class="dl" data-dl="appimage-arm" href="{REL}" target="_blank" rel="noopener"><b>AppImage, Raspberry Pi 4 or 5</b><span>linux-aarch64 (<code>uname -m</code>: aarch64, 64-bit system)</span><small data-size="appimage-arm"></small></a>
+      <a class="dl" data-dl="deb22" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 17 · Ubuntu 22.04</b><span>ubuntu22.04_amd64</span><span class="short">Short address: <code>kastideo.com/dl/deb22</code></span><small data-size="deb22"></small></a>
+      <a class="dl" data-dl="deb24" href="{REL}" target="_blank" rel="noopener"><b>.deb, Zorin OS 18 · Ubuntu 24.04</b><span>ubuntu24.04_amd64</span><span class="short">Short address: <code>kastideo.com/dl/deb</code></span><small data-size="deb24"></small></a>
+      <a class="dl" data-dl="appimage-x86" href="{REL}" target="_blank" rel="noopener"><b>AppImage, 64-bit PC</b><span>linux-x86_64 (<code>uname -m</code>: x86_64)</span><span class="short">Short address: <code>kastideo.com/dl/linux</code></span><small data-size="appimage-x86"></small></a>
+      <a class="dl" data-dl="appimage-arm" href="{REL}" target="_blank" rel="noopener"><b>AppImage, Raspberry Pi 4 or 5</b><span>linux-aarch64 (<code>uname -m</code>: aarch64, 64-bit system)</span><span class="short">Short address: <code>kastideo.com/dl/linux-arm</code></span><small data-size="appimage-arm"></small></a>
     </div>
+    <p class="short-url">In a terminal, for example: <code>curl -LJO https://kastideo.com/dl/linux</code> (64-bit PC AppImage).</p>
 
     <h2 id="deb">Installing the .deb package</h2>
     <p>Double-click the file, or open a terminal in the Downloads folder:</p>
@@ -221,9 +227,9 @@ VERSIONS = [
 
     <h2 id="choisir">Quel APK choisir</h2>
     <div class="dl-grid">
-      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Appareil récent (cas le plus courant)</span><small data-size="apk-arm64"></small></a>
-      <a class="dl" data-dl="apk-v7a" href="{REL}" target="_blank" rel="noopener"><b>armeabi-v7a</b><span>Ancien appareil ou boîtier 32 bits</span><small data-size="apk-v7a"></small></a>
-      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>Si vous hésitez (fichier plus gros)</span><small data-size="apk-universal"></small></a>
+      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Appareil récent (cas le plus courant)</span><span class="short">Adresse courte : <code>kastideo.com/tv64</code></span><small data-size="apk-arm64"></small></a>
+      <a class="dl" data-dl="apk-v7a" href="{REL}" target="_blank" rel="noopener"><b>armeabi-v7a</b><span>Ancien appareil ou boîtier 32 bits</span><span class="short">Adresse courte : <code>kastideo.com/tv32</code></span><small data-size="apk-v7a"></small></a>
+      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>Si vous hésitez (fichier plus gros)</span><span class="short">Adresse courte : <code>kastideo.com/tv</code></span><small data-size="apk-universal"></small></a>
     </div>
 
     <h2 id="installer">Installer</h2>
@@ -263,9 +269,9 @@ VERSIONS = [
 
     <h2 id="choisir">Which APK to choose</h2>
     <div class="dl-grid">
-      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Recent device (the most common case)</span><small data-size="apk-arm64"></small></a>
-      <a class="dl" data-dl="apk-v7a" href="{REL}" target="_blank" rel="noopener"><b>armeabi-v7a</b><span>Older device or 32-bit box</span><small data-size="apk-v7a"></small></a>
-      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>If unsure (larger file)</span><small data-size="apk-universal"></small></a>
+      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Recent device (the most common case)</span><span class="short">Short address: <code>kastideo.com/tv64</code></span><small data-size="apk-arm64"></small></a>
+      <a class="dl" data-dl="apk-v7a" href="{REL}" target="_blank" rel="noopener"><b>armeabi-v7a</b><span>Older device or 32-bit box</span><span class="short">Short address: <code>kastideo.com/tv32</code></span><small data-size="apk-v7a"></small></a>
+      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>If unsure (larger file)</span><span class="short">Short address: <code>kastideo.com/tv</code></span><small data-size="apk-universal"></small></a>
     </div>
 
     <h2 id="installer">Installing</h2>

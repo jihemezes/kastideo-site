@@ -65,22 +65,32 @@
     <h2 id="choisir">Quel fichier pour quel appareil</h2>
     <div class="table-wrap" role="region" aria-label="Quel fichier télécharger" tabindex="0">
       <table class="ver-table">
-        <thead><tr><th>Votre appareil</th><th>Fichier</th><th>État</th><th>Lien</th></tr></thead>
+        <thead><tr><th>Votre appareil</th><th>Fichier</th><th>État</th><th>Lien et adresse courte</th></tr></thead>
         <tbody>
-          <tr><td>Mac (Apple, Intel)</td><td><code>Kastideo-X.Y.Z.dmg</code></td><td>Stable</td><td><a class="btn ghost small" data-dl="mac" href="https://github.com/jihemezes/kastideo/releases/latest" target="_blank" rel="noopener">Télécharger<small data-size="mac"></small></a></td></tr>
-          <tr><td>Windows 10/11, 64 bits : installateur</td><td><code>…-windows-x64-setup.exe</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="win-setup" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="win-setup"></small></a></td></tr>
-          <tr><td>Windows 10/11, 64 bits : portable</td><td><code>…-windows-x64.zip</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="win-zip" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="win-zip"></small></a></td></tr>
-          <tr><td>Zorin OS 17, Ubuntu 22.04</td><td><code>kastideo_…_ubuntu22.04_amd64.deb</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="deb22" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="deb22"></small></a></td></tr>
-          <tr><td>Zorin OS 18, Ubuntu 24.04</td><td><code>kastideo_…_ubuntu24.04_amd64.deb</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="deb24" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="deb24"></small></a></td></tr>
-          <tr><td>Autre PC Linux 64 bits</td><td><code>Kastideo-…-linux-x86_64.AppImage</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="appimage-x86" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="appimage-x86"></small></a></td></tr>
-          <tr><td>Raspberry Pi 4 ou 5 (64 bits)</td><td><code>Kastideo-…-linux-aarch64.AppImage</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="appimage-arm" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="appimage-arm"></small></a></td></tr>
-          <tr><td>Téléphone ou TV récent</td><td><code>Kastideo-…-android-arm64-v8a.apk</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="apk-arm64" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="apk-arm64"></small></a></td></tr>
-          <tr><td>Ancien appareil, boîtier 32 bits</td><td><code>Kastideo-…-android-armeabi-v7a.apk</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="apk-v7a" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="apk-v7a"></small></a></td></tr>
-          <tr><td>Vous hésitez</td><td><code>Kastideo-…-android-universal.apk</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="apk-universal" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="apk-universal"></small></a></td></tr>
+          <tr><td>Mac (Apple, Intel)</td><td><code>Kastideo-X.Y.Z.dmg</code></td><td>Stable</td><td><a class="btn ghost small" data-dl="mac" href="https://github.com/jihemezes/kastideo/releases/latest" target="_blank" rel="noopener">Télécharger<small data-size="mac"></small></a><div class="short-in-cell"><code>kastideo.com/dl/mac</code></div></td></tr>
+          <tr><td>Windows 10/11, 64 bits : installateur</td><td><code>…-windows-x64-setup.exe</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="win-setup" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="win-setup"></small></a><div class="short-in-cell"><code>kastideo.com/dl/windows</code></div></td></tr>
+          <tr><td>Windows 10/11, 64 bits : portable</td><td><code>…-windows-x64.zip</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="win-zip" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="win-zip"></small></a><div class="short-in-cell"><code>kastideo.com/dl/windows-zip</code></div></td></tr>
+          <tr><td>Zorin OS 17, Ubuntu 22.04</td><td><code>kastideo_…_ubuntu22.04_amd64.deb</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="deb22" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="deb22"></small></a><div class="short-in-cell"><code>kastideo.com/dl/deb22</code></div></td></tr>
+          <tr><td>Zorin OS 18, Ubuntu 24.04</td><td><code>kastideo_…_ubuntu24.04_amd64.deb</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="deb24" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="deb24"></small></a><div class="short-in-cell"><code>kastideo.com/dl/deb</code></div></td></tr>
+          <tr><td>Autre PC Linux 64 bits</td><td><code>Kastideo-…-linux-x86_64.AppImage</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="appimage-x86" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="appimage-x86"></small></a><div class="short-in-cell"><code>kastideo.com/dl/linux</code></div></td></tr>
+          <tr><td>Raspberry Pi 4 ou 5 (64 bits)</td><td><code>Kastideo-…-linux-aarch64.AppImage</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="appimage-arm" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="appimage-arm"></small></a><div class="short-in-cell"><code>kastideo.com/dl/linux-arm</code></div></td></tr>
+          <tr><td>Téléphone ou TV récent</td><td><code>Kastideo-…-android-arm64-v8a.apk</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="apk-arm64" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="apk-arm64"></small></a><div class="short-in-cell"><code>kastideo.com/tv64</code></div></td></tr>
+          <tr><td>Ancien appareil, boîtier 32 bits</td><td><code>Kastideo-…-android-armeabi-v7a.apk</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="apk-v7a" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="apk-v7a"></small></a><div class="short-in-cell"><code>kastideo.com/tv32</code></div></td></tr>
+          <tr><td>Vous hésitez</td><td><code>Kastideo-…-android-universal.apk</code></td><td>Aperçu</td><td><a class="btn ghost small" data-dl="apk-universal" href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">Télécharger<small data-size="apk-universal"></small></a><div class="short-in-cell"><code>kastideo.com/tv</code></div></td></tr>
         </tbody>
       </table>
     </div>
     <p class="note">Les versions Windows, Linux et Android sont des aperçus, publiés en pré-version sur GitHub. Elles fonctionnent bien, mais les retours restent précieux. Si un lien ne se met pas à jour, la liste complète est sur la <a href="https://github.com/jihemezes/kastideo/releases" target="_blank" rel="noopener">page des versions</a>.</p>
+
+    <h2 id="terminal">Télécharger depuis un terminal ou un téléviseur</h2>
+    <p>Chaque fichier a une adresse courte qui pointe toujours vers la dernière version (colonne de droite). Elle se saisit facilement à la télécommande, dans l'application Downloader d'un Android TV ou d'un Fire TV, ou dans un terminal :</p>
+    <pre><code># Mac ou Linux
+curl -LJO https://kastideo.com/dl/mac
+curl -LJO https://kastideo.com/dl/linux
+
+# Windows (PowerShell)
+Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
+    <p>Sur Android TV, dans Downloader, tapez <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) ou <code>kastideo.com/tv32</code> (armeabi-v7a).</p>
 
     <h2 id="guides">Guides d'installation</h2>
     <p><a href="/mac">Mac</a> · <a href="/windows">Windows</a> · <a href="/linux">Linux</a> · <a href="/android">Android et Android TV</a></p>
