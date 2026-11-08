@@ -323,6 +323,16 @@ SHOTS = {
                      "My videos in Kastideo: grid of movie posters with genre and year filters",
                      "Mes vidéos : affiches, filtres et fiches corrigées, ici avec des courts-métrages libres de la fondation Blender.",
                      "My videos: posters, filters and corrected pages, here with free short films from the Blender Foundation."),
+    "multivue": ("app-multivue-grid", 1600, 1031,
+                 "MultiVue de Kastideo : quatre chaînes en grille, dont deux issues de sources différentes",
+                 "Kastideo MultiView: four channels in a grid, from different sources",
+                 "La MultiVue en grille : quatre chaînes, la source de chacune est indiquée sur sa vignette.",
+                 "MultiView in a grid: four channels, each tile shows its source."),
+    "multivue-pip": ("app-multivue-pip", 1600, 1024,
+                     "MultiVue de Kastideo en mode une grande image avec une vignette flottante dans un coin",
+                     "Kastideo MultiView in one-big-picture mode with a floating thumbnail in a corner",
+                     "Une grande image et une vignette flottante, que l'on déplace et que l'on échange d'un double-clic.",
+                     "One big picture and a floating thumbnail, which you drag and swap with a double-click."),
     "guide-m3u-mac": ("app-welcome", 1400, 834,
                       "Écran de bienvenue de Kastideo avec le bouton Ajouter une source",
                       "Kastideo welcome screen with the Add a source button",
@@ -344,6 +354,7 @@ def real_figure(slug, lang, lazy=True):
 
 def with_figure(p, lang):
     html = p[lang]
+    html = re.sub(r"<!--shot:([\w-]+)-->", lambda m: real_figure(m.group(1), lang), html)
     fig = real_figure(p["slug"], lang) or illustrations.svg(p["slug"], lang)
     if not fig:
         return html

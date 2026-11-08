@@ -242,6 +242,8 @@ FEATURES = [
     </ul>
     <p>Vous choisissez le nombre d'écrans (de 1 à 4) et la disposition : côte à côte, empilé, grille, ou une grande image avec les autres en petites vignettes flottantes. Dans cette dernière, vous déplacez les vignettes, qui s'accrochent au coin le plus proche, et vous les échangez avec la grande par un double-clic. Sur Windows, Linux et Android, vous pouvez aussi mémoriser un groupe de chaînes sous un nom (par exemple « Multiplex foot ») pour le rouvrir d'un clic.</p>
 
+    <!--shot:multivue-pip-->
+
     <h2 id="sources">Plusieurs abonnements ou listes publiques</h2>
     <p>Si vous avez plusieurs sources de direct, la MultiVue les mélange : deux abonnements, ou un abonnement et une liste de chaînes publiques. Chaque source a son propre nombre de connexions, par exemple 1 pour un abonnement limité et 4 pour une liste publique. Chaque écran est réservé à une source, et son sélecteur de chaînes ne propose que les chaînes de cette source. Le sélecteur reprend l'interface Classique : favoris, récents et catégories à gauche, chaînes avec leur programme en cours à droite.</p>
 
@@ -266,6 +268,8 @@ FEATURES = [
       <li>Stop all cuts every stream.</li>
     </ul>
     <p>You choose the number of screens (1 to 4) and the layout: side by side, stacked, grid, or one big picture with the others as small floating tiles. In the latter, you move the tiles, which snap to the nearest corner, and swap them with the big one by double-clicking. On Windows, Linux and Android, you can also save a group of channels under a name (for example “Football multiplex”) to reopen it in one click.</p>
+
+    <!--shot:multivue-pip-->
 
     <h2 id="sources">Several subscriptions or public lists</h2>
     <p>If you have several live sources, MultiView mixes them: two subscriptions, or a subscription and a list of public channels. Each source has its own number of connections, for example 1 for a limited subscription and 4 for a public list. Each screen is reserved for one source, and its channel picker only offers that source's channels. The picker follows the Classic interface: favourites, recents and categories on the left, channels with their current programme on the right.</p>
