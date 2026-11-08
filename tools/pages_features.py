@@ -505,6 +505,7 @@ FEATURES = [
 
     <h2 id="fiches">Des fiches complètes</h2>
     <p>Un clic sur l'affiche d'un film ou d'une série ouvre sa fiche : grande image de fond, affiche, année, durée, genres, note, résumé, réalisateur et distribution avec photos. Les boutons Lire ou Reprendre, Bande-annonce, Télécharger et favori sont à portée de main, avec un bouton Retour pour revenir au catalogue.</p>
+    <!--shot:films-fiche-->
     <p>Les informations viennent d'abord de votre fournisseur. Avec une clé TMDB gratuite, saisie dans les réglages, les fiches sont plus complètes et les titres, résumés et épisodes sont dans la langue de l'interface.</p>
 
     <h2 id="series">Saisons et épisodes</h2>
@@ -529,6 +530,7 @@ FEATURES = [
 
     <h2 id="fiches">Full details pages</h2>
     <p>A click on the poster of a movie or series opens its page: large background image, poster, year, runtime, genres, rating, plot, director and cast with photos. The Play or Resume, Trailer, Download and favourite buttons are close at hand, with a Back button to return to the catalogue.</p>
+    <!--shot:films-fiche-->
     <p>Information comes first from your provider. With a free TMDB key, entered in the settings, pages are more complete and titles, plots and episodes are in the interface language.</p>
 
     <h2 id="series">Seasons and episodes</h2>
