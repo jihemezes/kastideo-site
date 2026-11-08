@@ -1,4 +1,4 @@
-// Adresses courtes de téléchargement : /tv, /tv64, /tv32 et /dl/*.
+// Adresses courtes de téléchargement : /tv, /tv32, /tvu (et /tv64, alias de /tv) et /dl/*.
 // Le Worker ne sert que ces chemins (voir run_worker_first dans wrangler.jsonc) ;
 // tout le reste est servi directement par les fichiers statiques de public/.
 // Il lit les releases GitHub et redirige vers le fichier de la dernière version.
@@ -8,9 +8,10 @@ const API = 'https://api.github.com/repos/' + REPO + '/releases?per_page=50';
 
 // chemin -> [famille de version, motif du nom de fichier, page de repli]
 const ROUTES = {
-  '/tv':             ['android', /android-universal\.apk$/,        '/android'],
-  '/tv64':           ['android', /android-arm64-v8a\.apk$/,        '/android'],
+  '/tv':             ['android', /android-arm64-v8a\.apk$/,        '/android'],  // le plus léger
+  '/tv64':           ['android', /android-arm64-v8a\.apk$/,        '/android'],  // alias de /tv
   '/tv32':           ['android', /android-armeabi-v7a\.apk$/,      '/android'],
+  '/tvu':            ['android', /android-universal\.apk$/,        '/android'],
   '/dl/mac':         ['mac',     /^Kastideo-[\d.]+\.dmg$/,         '/mac'],
   '/dl/windows':     ['desktop', /windows-x64-setup\.exe$/,        '/windows'],
   '/dl/windows-zip': ['desktop', /windows-x64\.zip$/,              '/windows'],

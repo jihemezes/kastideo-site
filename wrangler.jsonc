@@ -8,7 +8,7 @@
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
-    "run_worker_first": ["/tv", "/tv64", "/tv32", "/dl/*"]
+    "run_worker_first": ["/tv", "/tv64", "/tv32", "/tvu", "/dl/*"]
   },
   // Requis par « npx wrangler preview » (builds des branches d'aperçu). Le bloc peut rester vide.
   "previews": {}

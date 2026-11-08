@@ -11,7 +11,7 @@ Site statique de Kastideo (kastideo.com). Aucune étape de compilation.
   - `TMDB-blue_square_1.svg` : logo TMDB (mention obligatoire)
   - `_headers` : en-têtes de sécurité et cache (Cloudflare)
 - `wrangler.jsonc` : configuration Cloudflare (le dossier `public/` est servi tel quel).
-- `src/worker.js` : Worker minimal, appelé seulement pour les adresses courtes `/tv`, `/tv64`, `/tv32` et `/dl/*` (mac, windows, windows-zip, linux, linux-arm, deb, deb22). Il lit les releases GitHub et redirige (302) vers le fichier de la dernière version ; si GitHub ne répond pas ou si le fichier manque, il renvoie vers la page de téléchargement. Les motifs de noms de fichiers doivent rester alignés avec `public/site.js`.
+- `src/worker.js` : Worker minimal, appelé seulement pour les adresses courtes `/tv` (arm64), `/tv32` (armeabi-v7a), `/tvu` (universal) et `/dl/*` (`/tv64` reste un alias de `/tv`) (mac, windows, windows-zip, linux, linux-arm, deb, deb22). Il lit les releases GitHub et redirige (302) vers le fichier de la dernière version ; si GitHub ne répond pas ou si le fichier manque, il renvoie vers la page de téléchargement. Les motifs de noms de fichiers doivent rester alignés avec `public/site.js`.
 
 ## Branches
 

@@ -17,7 +17,7 @@ ROWS = [
 ]
 
 
-SHORT = {'mac': 'dl/mac', 'win-setup': 'dl/windows', 'win-zip': 'dl/windows-zip', 'deb22': 'dl/deb22', 'deb24': 'dl/deb', 'appimage-x86': 'dl/linux', 'appimage-arm': 'dl/linux-arm', 'apk-arm64': 'tv64', 'apk-v7a': 'tv32', 'apk-universal': 'tv'}
+SHORT = {'mac': 'dl/mac', 'win-setup': 'dl/windows', 'win-zip': 'dl/windows-zip', 'deb22': 'dl/deb22', 'deb24': 'dl/deb', 'appimage-x86': 'dl/linux', 'appimage-arm': 'dl/linux-arm', 'apk-arm64': 'tv', 'apk-v7a': 'tv32', 'apk-universal': 'tvu'}
 
 
 def _rows(lang):
@@ -64,7 +64,7 @@ curl -LJO https://kastideo.com/dl/linux
 
 # Windows (PowerShell)
 Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
-    <p>Sur Android TV, dans Downloader, tapez <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) ou <code>kastideo.com/tv32</code> (armeabi-v7a).</p>
+    <p>Sur Android TV, dans Downloader, tapez <code>kastideo.com/tv</code> (arm64-v8a, le plus léger), <code>kastideo.com/tv32</code> (armeabi-v7a, si l'arm64 est refusé) ou <code>kastideo.com/tvu</code> (universal).</p>
 
     <h2 id="guides">Guides d'installation</h2>
     <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android et Android TV</a></p>
@@ -95,7 +95,7 @@ curl -LJO https://kastideo.com/dl/linux
 
 # Windows (PowerShell)
 Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
-    <p>On Android TV, in Downloader, type <code>kastideo.com/tv</code> (universal), <code>kastideo.com/tv64</code> (arm64-v8a) or <code>kastideo.com/tv32</code> (armeabi-v7a).</p>
+    <p>On Android TV, in Downloader, type <code>kastideo.com/tv</code> (arm64-v8a, the lightest), <code>kastideo.com/tv32</code> (armeabi-v7a, if arm64 is refused) or <code>kastideo.com/tvu</code> (universal).</p>
 
     <h2 id="guides">Installation guides</h2>
     <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android and Android TV</a></p>

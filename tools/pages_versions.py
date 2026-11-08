@@ -227,9 +227,9 @@ VERSIONS = [
 
     <h2 id="choisir">Quel APK choisir</h2>
     <div class="dl-grid">
-      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Appareil récent (cas le plus courant)</span><span class="short">Adresse courte : <code>kastideo.com/tv64</code></span><small data-size="apk-arm64"></small></a>
+      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Appareil récent (cas le plus courant)</span><span class="short">Adresse courte : <code>kastideo.com/tv</code></span><small data-size="apk-arm64"></small></a>
       <a class="dl" data-dl="apk-v7a" href="{REL}" target="_blank" rel="noopener"><b>armeabi-v7a</b><span>Ancien appareil ou boîtier 32 bits</span><span class="short">Adresse courte : <code>kastideo.com/tv32</code></span><small data-size="apk-v7a"></small></a>
-      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>Si vous hésitez (fichier plus gros)</span><span class="short">Adresse courte : <code>kastideo.com/tv</code></span><small data-size="apk-universal"></small></a>
+      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>Si vous hésitez (fichier plus gros)</span><span class="short">Adresse courte : <code>kastideo.com/tvu</code></span><small data-size="apk-universal"></small></a>
     </div>
 
     <h2 id="installer">Installer</h2>
@@ -269,9 +269,9 @@ VERSIONS = [
 
     <h2 id="choisir">Which APK to choose</h2>
     <div class="dl-grid">
-      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Recent device (the most common case)</span><span class="short">Short address: <code>kastideo.com/tv64</code></span><small data-size="apk-arm64"></small></a>
+      <a class="dl" data-dl="apk-arm64" href="{REL}" target="_blank" rel="noopener"><b>arm64-v8a</b><span>Recent device (the most common case)</span><span class="short">Short address: <code>kastideo.com/tv</code></span><small data-size="apk-arm64"></small></a>
       <a class="dl" data-dl="apk-v7a" href="{REL}" target="_blank" rel="noopener"><b>armeabi-v7a</b><span>Older device or 32-bit box</span><span class="short">Short address: <code>kastideo.com/tv32</code></span><small data-size="apk-v7a"></small></a>
-      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>If unsure (larger file)</span><span class="short">Short address: <code>kastideo.com/tv</code></span><small data-size="apk-universal"></small></a>
+      <a class="dl" data-dl="apk-universal" href="{REL}" target="_blank" rel="noopener"><b>universal</b><span>If unsure (larger file)</span><span class="short">Short address: <code>kastideo.com/tvu</code></span><small data-size="apk-universal"></small></a>
     </div>
 
     <h2 id="installer">Installing</h2>
