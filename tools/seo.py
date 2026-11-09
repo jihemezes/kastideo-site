@@ -145,17 +145,11 @@ META = {
         "en": ("What's new in Kastideo: latest version and history",
                "The latest Kastideo version with its notes, and a short history of every version, from 0.1 to today."),
     },
-    "guide-m3u-mac": {
-        "fr": ("Lire une playlist M3U sur Mac, pas à pas : Kastideo",
-               "Ajoutez une adresse ou un fichier M3U dans Kastideo sur Mac : catégories, logos, guide TV et classement films et séries automatiques."),
-        "en": ("Play an M3U playlist on Mac, step by step: Kastideo",
-               "Add an M3U address or file in Kastideo on Mac: categories, logos, TV guide and automatic movie and series sorting."),
-    },
-    "guide-m3u-windows": {
-        "fr": ("Lire une playlist M3U sur Windows 10 et 11 : Kastideo",
-               "Installez Kastideo sans droits administrateur, ajoutez votre playlist M3U et ouvrez les fichiers .m3u d'un double-clic."),
-        "en": ("Play an M3U playlist on Windows 10 and 11: Kastideo",
-               "Install Kastideo with no administrator rights, add your M3U playlist and open .m3u files with a double-click."),
+    "guide-m3u": {
+        "fr": ("Lire une playlist M3U pas à pas : Mac, Windows, Linux, Android",
+               "Ajoutez une adresse ou un fichier M3U dans Kastideo : catégories, logos, guide TV et classement films et séries automatiques, sur Mac, Windows, Linux et Android."),
+        "en": ("Play an M3U playlist step by step: Mac, Windows, Linux, Android",
+               "Add an M3U address or file in Kastideo: categories, logos, TV guide and automatic movie and series sorting, on Mac, Windows, Linux and Android."),
     },
     "guide-xtream-codes": {
         "fr": ("Ajouter un abonnement Xtream Codes dans un lecteur IPTV",

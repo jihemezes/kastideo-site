@@ -3,26 +3,31 @@
 Contenu tiré de l'aide de l'application (docs/help/aide-fr.md et aide-en.md).
 """
 
-# ------------------------------------------------------------------ M3U sur Mac
-M3U_MAC_FR = """    <h1>Lire une playlist M3U sur Mac</h1>
-    <p class="page-lead">Vous avez une playlist au format M3U ou M3U8 (une adresse ou un fichier) et vous voulez la regarder sur votre Mac, avec un guide TV et des chaînes classées. Voici comment faire avec Kastideo, en cinq minutes.</p>
+# ------------------------------------------------------------------ M3U (toutes plateformes)
+M3U_FR = """    <h1>Lire une playlist M3U</h1>
+    <p class="page-lead">Vous avez une playlist au format M3U ou M3U8 (une adresse ou un fichier) et vous voulez la regarder avec un guide TV et des chaînes classées. Voici comment faire avec Kastideo sur Mac, Windows, Linux et Android, en cinq minutes.</p>
 
     <h2 id="avant">Avant de commencer</h2>
     <ul>
-      <li>Un Mac sous macOS 14 Sonoma ou plus récent.</li>
       <li>Votre playlist : soit son adresse (commençant par http), soit un fichier <code>.m3u</code> ou <code>.m3u8</code>.</li>
+      <li>Kastideo installé sur votre appareil (étape 1).</li>
     </ul>
     <p>Kastideo ne fournit aucune chaîne : la playlist vient de vous, et vous devez vérifier que son contenu est légal.</p>
     <div class="callout"><b class="label">Pour essayer sans abonnement</b><p>Des listes communautaires de flux publics existent, par exemple le dépôt <a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener">iptv-org/iptv</a> sur GitHub, qui ne contient que des liens et aucune vidéo. Kastideo n'est lié à ce projet d'aucune façon, ne fournit ni ne garantit aucun de ces flux, et leur disponibilité comme leur légalité ne sont pas vérifiées par Kastideo. Vous restez responsable de vérifier que leur usage est légal dans votre pays, et de respecter les droits des ayants droit.</p></div>
 
     <h2 id="installer">1. Installer Kastideo</h2>
-    <p>Téléchargez le fichier <code>.dmg</code> depuis la page <a href="mac.html">Kastideo pour Mac</a>, ouvrez-le et glissez l'application dans le dossier Applications.</p>
+    <ul>
+      <li><b>Mac</b> (macOS 14 Sonoma ou plus récent) : téléchargez le fichier <code>.dmg</code> depuis <a href="mac.html">Kastideo pour Mac</a>, ouvrez-le et glissez l'application dans le dossier Applications.</li>
+      <li><b>Windows 10 et 11</b> : téléchargez l'installateur depuis <a href="windows.html">Kastideo pour Windows</a>, sans droits administrateur. Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur <b>Informations complémentaires</b> puis sur <b>Exécuter quand même</b> : l'application n'est pas encore signée.</li>
+      <li><b>Linux</b> : paquet .deb ou AppImage depuis <a href="linux.html">Kastideo pour Linux</a>.</li>
+      <li><b>Android et Android TV</b> : fichier APK depuis <a href="android.html">Kastideo pour Android</a>, ou le guide <a href="guide-android-tv.html">Installer Kastideo sur Android TV</a>.</li>
+    </ul>
 
     <h2 id="ajouter">2. Ajouter la playlist</h2>
     <ol>
-      <li>Au premier lancement, cliquez sur <b>Ajouter une source</b>. Plus tard : <b>Réglages</b> (⌘,) puis <b>Sources</b> puis <b>Ajouter</b>.</li>
+      <li>Au premier lancement, cliquez sur <b>Ajouter une source</b>. Plus tard : ouvrez les <b>Réglages</b> (⌘, sur Mac, Ctrl+, sous Windows et Linux, ou la roue dentée de l'accueil) puis <b>Sources</b> puis <b>Ajouter une source</b>.</li>
       <li>Choisissez <b>Playlist M3U</b>.</li>
-      <li><b>Par adresse :</b> collez l'adresse de la playlist. <b>Par fichier :</b> choisissez le fichier <code>.m3u</code> ou <code>.m3u8</code> sur votre Mac. Kastideo garde l'autorisation d'y accéder pour pouvoir l'actualiser.</li>
+      <li><b>Par adresse :</b> collez l'adresse de la playlist. <b>Par fichier :</b> cliquez sur <b>Choisir un fichier…</b> et prenez le fichier <code>.m3u</code> ou <code>.m3u8</code>. Sur Mac, Kastideo garde l'autorisation d'y accéder pour pouvoir l'actualiser.</li>
       <li>Cliquez sur <b>Ajouter</b> : Kastideo charge les chaînes et le guide TV.</li>
     </ol>
 
@@ -30,34 +35,45 @@ M3U_MAC_FR = """    <h1>Lire une playlist M3U sur Mac</h1>
     <ul>
       <li>Les catégories viennent de l'attribut <code>group-title</code> de la playlist, les logos de <code>tvg-logo</code> et l'association au guide TV de <code>tvg-id</code>.</li>
       <li>Kastideo classe les entrées en Direct, Films ou Séries d'après leur adresse.</li>
-      <li>Si l'adresse est de la forme <code>get.php?username=…&amp;password=…</code>, Kastideo la reconnaît et l'enregistre comme une source Xtream Codes : le chargement est plus rapide, le guide TV est inclus et le mot de passe est rangé dans le trousseau macOS. Voir <a href="guide-xtream-codes.html">Ajouter un abonnement Xtream Codes</a>.</li>
+      <li>Si l'adresse est de la forme <code>get.php?username=…&amp;password=…</code>, Kastideo la reconnaît et l'enregistre comme une source Xtream Codes : le chargement est plus rapide, le guide TV est inclus et, sur Mac, le mot de passe est rangé dans le trousseau. Voir <a href="guide-xtream-codes.html">Ajouter un abonnement Xtream Codes</a>.</li>
     </ul>
 
     <h2 id="guide">Le guide TV est vide ?</h2>
     <p>Une playlist M3U seule ne contient pas toujours de guide. Kastideo peut charger un guide de secours (xmltvfr.fr) et l'associer à vos chaînes d'après leur nom : voir <a href="guide-tv.html#secours">Guide TV et thèmes</a>.</p>
 
+    <h2 id="double-clic">Ouvrir les fichiers .m3u d'un double-clic (Windows)</h2>
+    <p>Dans <b>Réglages &gt; Général &gt; Démarrage et fichiers</b>, cochez <b>Ouvrir les fichiers .m3u et .m3u8 avec Kastideo</b> : un double-clic sur une playlist propose de l'ajouter comme source. Si Windows ouvre encore un autre programme, faites un clic droit sur le fichier, <b>Ouvrir avec</b>, <b>Choisir une autre application</b>, puis Kastideo.</p>
+
+    <h2 id="enregistrements">Pour les enregistrements programmés</h2>
+    <p>Kastideo doit être ouvert à l'heure prévue. Sous Windows et Linux, activez <b>Lancer Kastideo à l'ouverture de session</b> et <b>Démarrer réduit</b> pour qu'il reste discret. Voir <a href="enregistrer.html">Enregistrer et télécharger</a>.</p>
+
     <h2 id="suite">Et ensuite ?</h2>
     <p>Ouvrez Direct, parcourez les <a href="guide-tv.html">thèmes</a>, essayez la <a href="multivue.html">MultiVue</a> ou <a href="enregistrer.html">enregistrez une émission</a>. Si une chaîne ne démarre pas : <a href="fiabilite.html#journal">Rapide, stable et sobre</a>.</p>
 """
-M3U_MAC_EN = """    <h1>Play an M3U playlist on Mac</h1>
-    <p class="page-lead">You have an M3U or M3U8 playlist (an address or a file) and want to watch it on your Mac, with a TV guide and sorted channels. Here is how to do it with Kastideo, in five minutes.</p>
+M3U_EN = """    <h1>Play an M3U playlist</h1>
+    <p class="page-lead">You have an M3U or M3U8 playlist (an address or a file) and want to watch it with a TV guide and sorted channels. Here is how to do it with Kastideo on Mac, Windows, Linux and Android, in five minutes.</p>
 
     <h2 id="avant">Before you start</h2>
     <ul>
-      <li>A Mac running macOS 14 Sonoma or later.</li>
       <li>Your playlist: either its address (starting with http) or an <code>.m3u</code> or <code>.m3u8</code> file.</li>
+      <li>Kastideo installed on your device (step 1).</li>
     </ul>
     <p>Kastideo provides no channels: the playlist comes from you, and you must check that its content is legal.</p>
     <div class="callout"><b class="label">To try without a subscription</b><p>Community lists of public streams exist, for example the <a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener">iptv-org/iptv</a> repository on GitHub, which contains only links and no video. Kastideo is not affiliated with that project in any way, provides or guarantees none of these streams, and does not verify their availability or their legality. You remain responsible for checking that using them is legal in your country, and for respecting rights holders.</p></div>
 
     <h2 id="installer">1. Install Kastideo</h2>
-    <p>Download the <code>.dmg</code> file from the <a href="mac.html">Kastideo for Mac</a> page, open it and drag the app into the Applications folder.</p>
+    <ul>
+      <li><b>Mac</b> (macOS 14 Sonoma or later): download the <code>.dmg</code> file from <a href="mac.html">Kastideo for Mac</a>, open it and drag the app into the Applications folder.</li>
+      <li><b>Windows 10 and 11</b>: download the installer from <a href="windows.html">Kastideo for Windows</a>, no administrator rights needed. If Windows shows “Windows protected your PC”, click <b>More info</b> then <b>Run anyway</b>: the app is not signed yet.</li>
+      <li><b>Linux</b>: .deb package or AppImage from <a href="linux.html">Kastideo for Linux</a>.</li>
+      <li><b>Android and Android TV</b>: APK file from <a href="android.html">Kastideo for Android</a>, or the guide <a href="guide-android-tv.html">Install Kastideo on Android TV</a>.</li>
+    </ul>
 
     <h2 id="ajouter">2. Add the playlist</h2>
     <ol>
-      <li>At first launch, click <b>Add a source</b>. Later: <b>Settings</b> (⌘,) then <b>Sources</b> then <b>Add</b>.</li>
+      <li>At first launch, click <b>Add a source</b>. Later: open <b>Settings</b> (⌘, on Mac, Ctrl+, on Windows and Linux, or the cog on the home screen) then <b>Sources</b> then <b>Add a source</b>.</li>
       <li>Choose <b>M3U playlist</b>.</li>
-      <li><b>By address:</b> paste the playlist address. <b>By file:</b> choose the <code>.m3u</code> or <code>.m3u8</code> file on your Mac. Kastideo keeps the permission to access it so it can refresh it.</li>
+      <li><b>By address:</b> paste the playlist address. <b>By file:</b> click <b>Choose a file…</b> and pick the <code>.m3u</code> or <code>.m3u8</code> file. On Mac, Kastideo keeps the permission to access it so it can refresh it.</li>
       <li>Click <b>Add</b>: Kastideo loads the channels and the TV guide.</li>
     </ol>
 
@@ -65,66 +81,20 @@ M3U_MAC_EN = """    <h1>Play an M3U playlist on Mac</h1>
     <ul>
       <li>Categories come from the playlist's <code>group-title</code> attribute, logos from <code>tvg-logo</code> and the TV guide match from <code>tvg-id</code>.</li>
       <li>Kastideo sorts entries into Live, Movies or Series from their address.</li>
-      <li>If the address looks like <code>get.php?username=…&amp;password=…</code>, Kastideo recognises it and saves it as an Xtream Codes source: loading is faster, the TV guide is included and the password is kept in the macOS keychain. See <a href="guide-xtream-codes.html">Add an Xtream Codes subscription</a>.</li>
+      <li>If the address looks like <code>get.php?username=…&amp;password=…</code>, Kastideo recognises it and saves it as an Xtream Codes source: loading is faster, the TV guide is included and, on Mac, the password is kept in the keychain. See <a href="guide-xtream-codes.html">Add an Xtream Codes subscription</a>.</li>
     </ul>
 
     <h2 id="guide">Empty TV guide?</h2>
     <p>A plain M3U playlist does not always contain a guide. Kastideo can load a backup guide (xmltvfr.fr) and match it to your channels by name: see <a href="guide-tv.html#secours">TV guide and themes</a>.</p>
 
-    <h2 id="suite">What next?</h2>
-    <p>Open Live, browse the <a href="guide-tv.html">themes</a>, try <a href="multivue.html">MultiView</a> or <a href="enregistrer.html">record a show</a>. If a channel does not start: <a href="fiabilite.html#journal">Fast, stable and frugal</a>.</p>
-"""
-
-# -------------------------------------------------------------- M3U sur Windows
-M3U_WIN_FR = """    <h1>Lire une playlist M3U sur Windows</h1>
-    <p class="page-lead">Kastideo lit une playlist M3U sur Windows 10 et 11 avec un guide TV, des thèmes et le replay si votre fournisseur le propose. Installation sans droits administrateur, ajout de la playlist en quelques clics.</p>
-
-    <h2 id="installer">1. Installer Kastideo</h2>
-    <ol>
-      <li>Téléchargez <code>Kastideo-…-windows-x64-setup.exe</code> depuis la page <a href="windows.html">Kastideo pour Windows</a>. Par défaut l'installation se fait pour votre compte seul, dans votre dossier AppData, sans droits administrateur.</li>
-      <li>Ou prenez l'archive <code>windows-x64.zip</code>, décompressez-la où vous voulez et lancez <code>kastideo.exe</code> : rien n'est installé.</li>
-      <li>Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur <b>Informations complémentaires</b> puis sur <b>Exécuter quand même</b>. L'application n'est pas encore signée.</li>
-    </ol>
-
-    <h2 id="ajouter">2. Ajouter la playlist</h2>
-    <ol>
-      <li>Ouvrez les <b>Réglages</b> (la roue dentée de l'accueil, ou Ctrl+,) puis <b>Sources</b> puis <b>Ajouter une source</b>.</li>
-      <li>Choisissez <b>Playlist M3U</b>.</li>
-      <li>Collez l'adresse de la playlist, ou cliquez sur <b>Choisir un fichier…</b> pour un fichier <code>.m3u</code> ou <code>.m3u8</code>.</li>
-      <li>Cliquez sur <b>Ajouter</b>.</li>
-    </ol>
-    <p>Une adresse <code>get.php?username=…&amp;password=…</code> est reconnue et transformée en source Xtream, plus rapide et plus complète : voir <a href="guide-xtream-codes.html">Ajouter un abonnement Xtream Codes</a>.</p>
-
-    <h2 id="double-clic">Ouvrir les fichiers .m3u d'un double-clic</h2>
-    <p>Dans <b>Réglages &gt; Général &gt; Démarrage et fichiers</b>, cochez <b>Ouvrir les fichiers .m3u et .m3u8 avec Kastideo</b> : un double-clic sur une playlist propose de l'ajouter comme source. Si Windows ouvre encore un autre programme, faites un clic droit sur le fichier, <b>Ouvrir avec</b>, <b>Choisir une autre application</b>, puis Kastideo.</p>
-
-    <h2 id="enregistrements">Pour les enregistrements programmés</h2>
-    <p>Kastideo doit être ouvert à l'heure prévue. Activez <b>Lancer Kastideo à l'ouverture de session</b> et <b>Démarrer réduit</b> pour qu'il reste discret dans la barre des tâches. Voir <a href="enregistrer.html">Enregistrer et télécharger</a>.</p>
-"""
-M3U_WIN_EN = """    <h1>Play an M3U playlist on Windows</h1>
-    <p class="page-lead">Kastideo plays an M3U playlist on Windows 10 and 11 with a TV guide, themes and replay if your provider offers it. Installation with no administrator rights, playlist added in a few clicks.</p>
-
-    <h2 id="installer">1. Install Kastideo</h2>
-    <ol>
-      <li>Download <code>Kastideo-…-windows-x64-setup.exe</code> from the <a href="windows.html">Kastideo for Windows</a> page. By default it installs for your account only, in your AppData folder, with no administrator rights.</li>
-      <li>Or take the <code>windows-x64.zip</code> archive, extract it wherever you like and run <code>kastideo.exe</code>: nothing is installed.</li>
-      <li>If Windows shows “Windows protected your PC”, click <b>More info</b> then <b>Run anyway</b>. The app is not signed yet.</li>
-    </ol>
-
-    <h2 id="ajouter">2. Add the playlist</h2>
-    <ol>
-      <li>Open <b>Settings</b> (the cog on the home screen, or Ctrl+,) then <b>Sources</b> then <b>Add a source</b>.</li>
-      <li>Choose <b>M3U playlist</b>.</li>
-      <li>Paste the playlist address, or click <b>Choose a file…</b> for an <code>.m3u</code> or <code>.m3u8</code> file.</li>
-      <li>Click <b>Add</b>.</li>
-    </ol>
-    <p>A <code>get.php?username=…&amp;password=…</code> address is recognised and turned into an Xtream source, faster and more complete: see <a href="guide-xtream-codes.html">Add an Xtream Codes subscription</a>.</p>
-
-    <h2 id="double-clic">Open .m3u files with a double-click</h2>
+    <h2 id="double-clic">Open .m3u files with a double-click (Windows)</h2>
     <p>In <b>Settings &gt; General &gt; Startup and files</b>, tick <b>Open .m3u and .m3u8 files with Kastideo</b>: a double-click on a playlist offers to add it as a source. If Windows still opens another program, right-click the file, <b>Open with</b>, <b>Choose another app</b>, then Kastideo.</p>
 
     <h2 id="enregistrements">For scheduled recordings</h2>
-    <p>Kastideo must be open at the scheduled time. Enable <b>Launch Kastideo at sign-in</b> and <b>Start minimised</b> so it stays discreet in the taskbar. See <a href="enregistrer.html">Recording and downloading</a>.</p>
+    <p>Kastideo must be open at the scheduled time. On Windows and Linux, turn on <b>Launch Kastideo at sign-in</b> and <b>Start minimised</b> so it stays out of the way. See <a href="enregistrer.html">Recording and downloading</a>.</p>
+
+    <h2 id="suite">What next?</h2>
+    <p>Open Live, browse the <a href="guide-tv.html">themes</a>, try <a href="multivue.html">MultiView</a> or <a href="enregistrer.html">record a show</a>. If a channel does not start: <a href="fiabilite.html#journal">Fast, stable and frugal</a>.</p>
 """
 
 # ------------------------------------------------------------------- Xtream
@@ -159,7 +129,7 @@ XT_FR = """    <h1>Ajouter un abonnement Xtream Codes</h1>
     </ul>
 
     <h2 id="get-php">Vous avez une adresse get.php ?</h2>
-    <p>Si votre fournisseur vous a donné une adresse de playlist de la forme <code>get.php?username=…&amp;password=…</code>, collez-la simplement comme une playlist M3U : Kastideo la reconnaît et l'enregistre en Xtream Codes, avec les avantages ci-dessus. Voir <a href="guide-m3u-mac.html">Lire une playlist M3U sur Mac</a>.</p>
+    <p>Si votre fournisseur vous a donné une adresse de playlist de la forme <code>get.php?username=…&amp;password=…</code>, collez-la simplement comme une playlist M3U : Kastideo la reconnaît et l'enregistre en Xtream Codes, avec les avantages ci-dessus. Voir <a href="guide-m3u.html">Lire une playlist M3U</a>.</p>
 
     <h2 id="probleme">Ça ne marche pas ?</h2>
     <ul>
@@ -201,7 +171,7 @@ XT_EN = """    <h1>Add an Xtream Codes subscription</h1>
     </ul>
 
     <h2 id="get-php">Do you have a get.php address?</h2>
-    <p>If your provider gave you a playlist address of the form <code>get.php?username=…&amp;password=…</code>, simply paste it as an M3U playlist: Kastideo recognises it and saves it as Xtream Codes, with the benefits above. See <a href="guide-m3u-mac.html">Play an M3U playlist on Mac</a>.</p>
+    <p>If your provider gave you a playlist address of the form <code>get.php?username=…&amp;password=…</code>, simply paste it as an M3U playlist: Kastideo recognises it and saves it as Xtream Codes, with the benefits above. See <a href="guide-m3u.html">Play an M3U playlist</a>.</p>
 
     <h2 id="probleme">Not working?</h2>
     <ul>
@@ -466,12 +436,9 @@ FIRE_EN = """    <h1>Install Kastideo on Fire TV</h1>
 """
 
 GUIDES = [
-    {"slug": "guide-m3u-mac", "title_fr": "Lire une playlist M3U sur Mac", "title_en": "Play an M3U playlist on Mac",
-     "blurb_fr": "Ajouter une adresse ou un fichier M3U dans Kastideo, en cinq minutes.",
-     "blurb_en": "Add an M3U address or file in Kastideo, in five minutes.", "fr": M3U_MAC_FR, "en": M3U_MAC_EN},
-    {"slug": "guide-m3u-windows", "title_fr": "Lire une playlist M3U sur Windows", "title_en": "Play an M3U playlist on Windows",
-     "blurb_fr": "Installation sans droits administrateur et ajout de la playlist.",
-     "blurb_en": "Install without administrator rights and add the playlist.", "fr": M3U_WIN_FR, "en": M3U_WIN_EN},
+    {"slug": "guide-m3u", "title_fr": "Lire une playlist M3U", "title_en": "Play an M3U playlist",
+     "blurb_fr": "Ajouter une adresse ou un fichier M3U dans Kastideo (Mac, Windows, Linux, Android), en cinq minutes.",
+     "blurb_en": "Add an M3U address or file in Kastideo (Mac, Windows, Linux, Android), in five minutes.", "fr": M3U_FR, "en": M3U_EN},
     {"slug": "guide-xtream-codes", "title_fr": "Ajouter un abonnement Xtream Codes", "title_en": "Add an Xtream Codes subscription",
      "blurb_fr": "Serveur, identifiant, mot de passe : tout ce qu'il faut savoir.",
      "blurb_en": "Server, username, password: everything you need to know.", "fr": XT_FR, "en": XT_EN},

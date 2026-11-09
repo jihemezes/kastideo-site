@@ -338,7 +338,7 @@ SHOTS = {
                     "Movie page in Kastideo: poster, year, runtime, genres, rating, plot and a Fix the page link",
                     "Une fiche complète, avec le lien Corriger la fiche en bas.",
                     "A complete page, with the Fix the page link at the bottom."),
-    "guide-m3u-mac": ("app-welcome", 1400, 834,
+    "guide-m3u": ("app-welcome", 1400, 834,
                       "Écran de bienvenue de Kastideo avec le bouton Ajouter une source",
                       "Kastideo welcome screen with the Add a source button",
                       "Au premier lancement : Ajouter une source.", "At first launch: Add a source."),

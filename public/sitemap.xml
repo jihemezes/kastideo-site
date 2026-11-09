@@ -267,32 +267,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/faq"/>
   </url>
   <url>
-    <loc>https://kastideo.com/guide-m3u-mac</loc>
+    <loc>https://kastideo.com/guide-m3u</loc>
     <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-mac"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-mac"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-mac"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u"/>
   </url>
   <url>
-    <loc>https://kastideo.com/en/guide-m3u-mac</loc>
+    <loc>https://kastideo.com/en/guide-m3u</loc>
     <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-mac"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-mac"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-mac"/>
-  </url>
-  <url>
-    <loc>https://kastideo.com/guide-m3u-windows</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-windows"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-windows"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-windows"/>
-  </url>
-  <url>
-    <loc>https://kastideo.com/en/guide-m3u-windows</loc>
-    <lastmod>2026-11-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u-windows"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u-windows"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u-windows"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-m3u"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-m3u"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-m3u"/>
   </url>
   <url>
     <loc>https://kastideo.com/guide-xtream-codes</loc>
