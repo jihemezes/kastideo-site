@@ -66,8 +66,11 @@ curl -LJO https://kastideo.com/dl/linux
 Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
     <p>Sur Android TV, dans Downloader, tapez <code>kastideo.com/tv</code> (arm64-v8a, le plus léger), <code>kastideo.com/tv32</code> (armeabi-v7a, si l'arm64 est refusé) ou <code>kastideo.com/tvu</code> (universal).</p>
 
+    <h2 id="apple">iPhone, iPad et Apple TV</h2>
+    <p>Les versions pour <a href="ios.html">iPhone et iPad</a> (iOS 17 ou plus récent) et pour <a href="apple-tv.html">Apple TV</a> ne sont pas encore sur l'App Store. On les essaie par TestFlight, sur invitation : écrivez à <code>contact@kastideo.com</code>. Nous espérons une publication prochaine, sans date annoncée.</p>
+
     <h2 id="guides">Guides d'installation</h2>
-    <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android et Android TV</a></p>
+    <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android et Android TV</a> · <a href="ios.html">iPhone et iPad</a> · <a href="apple-tv.html">Apple TV</a></p>
 
     <h2 id="apres">Après l'installation</h2>
     <p>Kastideo ne fournit aucun contenu : à la première ouverture, ajoutez votre source dans les réglages. Voir <a href="sources.html">Vos sources</a>.</p>
@@ -97,8 +100,11 @@ curl -LJO https://kastideo.com/dl/linux
 Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
     <p>On Android TV, in Downloader, type <code>kastideo.com/tv</code> (arm64-v8a, the lightest), <code>kastideo.com/tv32</code> (armeabi-v7a, if arm64 is refused) or <code>kastideo.com/tvu</code> (universal).</p>
 
+    <h2 id="apple">iPhone, iPad and Apple TV</h2>
+    <p>The versions for <a href="ios.html">iPhone and iPad</a> (iOS 17 or later) and for <a href="apple-tv.html">Apple TV</a> are not on the App Store yet. Try them through TestFlight, by invitation: write to <code>contact@kastideo.com</code>. We hope for a release soon, with no date announced.</p>
+
     <h2 id="guides">Installation guides</h2>
-    <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android and Android TV</a></p>
+    <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android and Android TV</a> · <a href="ios.html">iPhone and iPad</a> · <a href="apple-tv.html">Apple TV</a></p>
 
     <h2 id="apres">After installing</h2>
     <p>Kastideo provides no content: at first launch, add your source in the settings. See <a href="sources.html">Your sources</a>.</p>

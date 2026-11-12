@@ -175,7 +175,7 @@ FAQ_FR = """    <h1>Questions fréquentes</h1>
     <p>Oui. Aucune fonction n'est payante, aucun compte n'est demandé et aucune publicité n'est affichée. Un soutien est possible, entièrement facultatif : <a href="soutenir.html">Soutenir le projet</a>.</p>
 
     <h2 id="appareils">Sur quels appareils fonctionne-t-il ?</h2>
-    <p>Sur Mac (version stable), et en aperçu sur Windows 10 et 11, Linux (Zorin OS, Ubuntu, Raspberry Pi) et Android, y compris Android TV. Voir <a href="telecharger.html">Télécharger</a>.</p>
+    <p>Sur Mac (version stable), et en aperçu sur Windows 10 et 11, Linux (Zorin OS, Ubuntu, Raspberry Pi) et Android, y compris Android TV. Des versions pour <a href="ios.html">iPhone et iPad</a> et pour <a href="apple-tv.html">Apple TV</a> sont en test via TestFlight, pas encore sur l'App Store. Voir <a href="telecharger.html">Télécharger</a>.</p>
 
     <h2 id="sources">Quelles sources sait-il lire ?</h2>
     <p>Un abonnement Xtream Codes, une playlist M3U, des dossiers de vos disques ou de votre NAS, des serveurs Jellyfin, Emby et Plex, et YouTube.</p>
@@ -223,7 +223,7 @@ FAQ_EN = """    <h1>Frequently asked questions</h1>
     <p>Yes. No feature is paid, no account is asked and no ads are shown. Support is possible and entirely optional: <a href="soutenir.html">Support the project</a>.</p>
 
     <h2 id="appareils">Which devices does it run on?</h2>
-    <p>On Mac (stable version), and as a preview on Windows 10 and 11, Linux (Zorin OS, Ubuntu, Raspberry Pi) and Android, including Android TV. See <a href="telecharger.html">Download</a>.</p>
+    <p>On Mac (stable version), and as a preview on Windows 10 and 11, Linux (Zorin OS, Ubuntu, Raspberry Pi) and Android, including Android TV. Versions for <a href="ios.html">iPhone and iPad</a> and for <a href="apple-tv.html">Apple TV</a> are being tested through TestFlight, not on the App Store yet. See <a href="telecharger.html">Download</a>.</p>
 
     <h2 id="sources">Which sources can it play?</h2>
     <p>An Xtream Codes subscription, an M3U playlist, folders on your drives or NAS, Jellyfin, Emby and Plex servers, and YouTube.</p>

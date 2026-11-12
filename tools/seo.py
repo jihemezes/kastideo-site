@@ -77,6 +77,18 @@ META = {
         "en": ("Download Kastideo for Mac: free IPTV player",
                "Kastideo for macOS 14 or later: stable version signed and checked by Apple, automatic updates, Apple and Intel processors."),
     },
+    "ios": {
+        "fr": ("Kastideo pour iPhone et iPad : lecteur IPTV en test TestFlight",
+               "Kastideo pour iPhone et iPad (iOS 17 ou plus récent) en test via TestFlight, bientôt sur l'App Store nous l'espérons : comment participer."),
+        "en": ("Kastideo for iPhone and iPad: IPTV player in TestFlight",
+               "Kastideo for iPhone and iPad (iOS 17 or later) is being tested through TestFlight, hopefully soon on the App Store: how to join and what the app offers."),
+    },
+    "apple-tv": {
+        "fr": ("Kastideo pour Apple TV : version en test via TestFlight",
+               "Une version de Kastideo pour Apple TV est en test via TestFlight, bientôt sur l'App Store nous l'espérons : comment participer."),
+        "en": ("Kastideo for Apple TV: version in TestFlight",
+               "A Kastideo version for Apple TV is being tested through TestFlight, hopefully soon on the App Store: how to join."),
+    },
     "windows": {
         "fr": ("Télécharger Kastideo pour Windows 10 et 11 : lecteur IPTV",
                "Kastideo pour Windows 10 et 11, 64 bits : installateur sans droits administrateur ou version portable, avertissement SmartScreen expliqué."),

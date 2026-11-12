@@ -211,6 +211,34 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/android"/>
   </url>
   <url>
+    <loc>https://kastideo.com/ios</loc>
+    <lastmod>2026-11-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/ios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/ios"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/ios"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/ios</loc>
+    <lastmod>2026-11-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/ios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/ios"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/ios"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/apple-tv</loc>
+    <lastmod>2026-11-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/apple-tv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/apple-tv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/apple-tv"/>
+  </url>
+  <url>
+    <loc>https://kastideo.com/en/apple-tv</loc>
+    <lastmod>2026-11-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/apple-tv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kastideo.com/en/apple-tv"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kastideo.com/apple-tv"/>
+  </url>
+  <url>
     <loc>https://kastideo.com/lecteur-video-ou-lecteur-iptv</loc>
     <lastmod>2026-11-08</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://kastideo.com/lecteur-video-ou-lecteur-iptv"/>

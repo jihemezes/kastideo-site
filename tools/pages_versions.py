@@ -1,4 +1,4 @@
-"""Pages par plateforme (Mac, Windows, Linux, Android). Texte FR et EN.
+"""Pages par plateforme (Mac, Windows, Linux, Android, iPhone et iPad, Apple TV). Texte FR et EN.
 
 Les boutons [data-dl] sont complétés par site.js avec les liens de la dernière version.
 [data-ver="mac|desktop|android"] reçoit le numéro de version.
@@ -305,6 +305,138 @@ VERSIONS = [
       <li>The file does not open: use a file manager rather than the browser.</li>
       <li>A channel does not start: turn off the VPN and check the playback log (see <a href="fiabilite.html#journal">Fast, stable and frugal</a>).</li>
     </ul>
+""",
+    },
+    # --------------------------------------------------------------------- IOS
+    {
+        "slug": "ios",
+        "title_fr": "Kastideo pour iPhone et iPad",
+        "title_en": "Kastideo for iPhone and iPad",
+        "blurb_fr": "En test via TestFlight, bientôt sur l'App Store nous l'espérons.",
+        "blurb_en": "Being tested through TestFlight, hopefully soon on the App Store.",
+        "tag": "preview",
+        "desc": "Kastideo pour iPhone et iPad (iOS 17 ou plus récent) : en test via TestFlight, comment participer, ce que propose l'application, synchronisation iCloud.",
+        "fr": """    <h1>Kastideo pour iPhone et iPad</h1>
+    <p class="page-lead">Une application native pour iOS 17 ou plus récent. Elle est en test via TestFlight, le service d'Apple pour essayer une application avant sa publication. Nous espérons la voir bientôt sur l'App Store, sans date annoncée pour l'instant.</p>
+    <div class="callout"><b class="label">Pas encore sur l'App Store</b><p>Pour l'instant, le seul moyen d'essayer Kastideo sur iPhone et iPad est TestFlight. Il n'y a aucun fichier à installer à la main.</p></div>
+
+    <h2 id="participer">Participer au test</h2>
+    <ol>
+      <li>Écrivez à <code>contact@kastideo.com</code> en indiquant l'adresse e-mail de votre identifiant Apple et votre appareil (iPhone ou iPad). Vous recevez une invitation TestFlight.</li>
+      <li>Installez l'application gratuite <b>TestFlight</b> depuis l'App Store.</li>
+      <li>Ouvrez l'invitation, puis installez <b>Kastideo</b> depuis TestFlight.</li>
+    </ol>
+    <p>Les mises à jour arrivent aussi par TestFlight. Vos retours sont précieux : le journal de lecture se partage depuis Réglages &gt; À propos.</p>
+
+    <h2 id="demarrer">Premier lancement</h2>
+    <p>Lisez et acceptez l'avertissement, puis appuyez sur <b>Ajouter une source</b> (Xtream Codes ou liste M3U). Vous pouvez aussi importer votre configuration depuis un Mac, un PC ou un appareil Android : sources, favoris et catégories. Kastideo ne fournit aucune chaîne : le contenu vient de vos sources, dont vous devez vérifier la légalité. Voir <a href="guide-m3u.html">Lire une playlist M3U</a>.</p>
+
+    <h2 id="fonctions">Ce que propose l'application</h2>
+    <ul>
+      <li>Accueil avec reprise de la lecture, favoris et récents.</li>
+      <li>Direct en liste, en affichage Cinéma, par thèmes ou dans le guide TV, avec le replay quand votre fournisseur le propose.</li>
+      <li>Films et séries en affichage Cinéma ou en grille, avec fiches, saisons et épisodes.</li>
+      <li>Lecteur plein écran, mini-lecteur, direct en différé et son qui continue écran verrouillé.</li>
+      <li>Enregistrement du direct, téléchargements, alertes de programmes.</li>
+      <li>Mes vidéos : Jellyfin, Emby, Plex, dossiers et galerie de l'appareil. YouTube.</li>
+      <li><a href="multivue.html">MultiVue</a> avec plusieurs chaînes en même temps, si vos sources autorisent plusieurs connexions.</li>
+    </ul>
+
+    <h2 id="icloud">Synchronisation iCloud</h2>
+    <p>En option et désactivée par défaut, la synchronisation iCloud retrouve vos sources, favoris, catégories, réglages d'affichage, reprise de lecture et fiches corrigées sur tous vos iPhone et iPad. Les mots de passe passent par le Trousseau iCloud, chiffré de bout en bout.</p>
+
+    <h2 id="limites">Ce qui diffère du Mac</h2>
+    <ul>
+      <li>Pas d'image dans l'image pour l'instant.</li>
+      <li>Pas d'enregistrement programmé : l'application ne peut pas se réveiller seule sur iPhone. Utilisez les alertes de programmes, ou le Mac.</li>
+      <li>AirPlay envoie le son vers une Apple TV ou un HomePod. Pour la vidéo, utilisez la recopie d'écran d'iOS.</li>
+    </ul>
+    <p>Voir aussi <a href="apple-tv.html">Kastideo pour Apple TV</a>.</p>
+""",
+        "en": """    <h1>Kastideo for iPhone and iPad</h1>
+    <p class="page-lead">A native app for iOS 17 or later. It is being tested through TestFlight, Apple's service for trying an app before its release. We hope to see it on the App Store soon, with no date announced for now.</p>
+    <div class="callout"><b class="label">Not on the App Store yet</b><p>For now, the only way to try Kastideo on iPhone and iPad is TestFlight. There is no file to install by hand.</p></div>
+
+    <h2 id="participer">Join the test</h2>
+    <ol>
+      <li>Write to <code>contact@kastideo.com</code> with the email address of your Apple ID and your device (iPhone or iPad). You receive a TestFlight invitation.</li>
+      <li>Install the free <b>TestFlight</b> app from the App Store.</li>
+      <li>Open the invitation, then install <b>Kastideo</b> from TestFlight.</li>
+    </ol>
+    <p>Updates also arrive through TestFlight. Your feedback is valuable: the playback log can be shared from Settings &gt; About.</p>
+
+    <h2 id="demarrer">First launch</h2>
+    <p>Read and accept the notice, then tap <b>Add a source</b> (Xtream Codes or M3U list). You can also import your configuration from a Mac, a PC or an Android device: sources, favourites and categories. Kastideo provides no channels: content comes from your sources, whose legality you must check. See <a href="guide-m3u.html">Play an M3U playlist</a>.</p>
+
+    <h2 id="fonctions">What the app offers</h2>
+    <ul>
+      <li>Home with resume playback, favourites and recents.</li>
+      <li>Live TV as a list, in Cinema display, by themes or in the TV guide, with replay when your provider offers it.</li>
+      <li>Movies and series in Cinema display or as a grid, with details pages, seasons and episodes.</li>
+      <li>Full-screen player, mini player, time-shifted live and sound that keeps playing with the screen locked.</li>
+      <li>Live recording, downloads, programme alerts.</li>
+      <li>My videos: Jellyfin, Emby, Plex, folders and the device gallery. YouTube.</li>
+      <li><a href="multivue.html">MultiView</a> with several channels at once, if your sources allow several connections.</li>
+    </ul>
+
+    <h2 id="icloud">iCloud sync</h2>
+    <p>Optional and off by default, iCloud sync brings your sources, favourites, categories, display settings, resume positions and corrected pages to all your iPhones and iPads. Passwords go through iCloud Keychain, end-to-end encrypted.</p>
+
+    <h2 id="limites">What differs from the Mac</h2>
+    <ul>
+      <li>No picture in picture for now.</li>
+      <li>No scheduled recording: the app cannot wake itself on iPhone. Use programme alerts, or the Mac.</li>
+      <li>AirPlay sends sound to an Apple TV or a HomePod. For video, use iOS screen mirroring.</li>
+    </ul>
+    <p>See also <a href="apple-tv.html">Kastideo for Apple TV</a>.</p>
+""",
+    },
+    # ---------------------------------------------------------------- APPLE TV
+    {
+        "slug": "apple-tv",
+        "title_fr": "Kastideo pour Apple TV",
+        "title_en": "Kastideo for Apple TV",
+        "blurb_fr": "En test via TestFlight, bientôt sur l'App Store nous l'espérons.",
+        "blurb_en": "Being tested through TestFlight, hopefully soon on the App Store.",
+        "tag": "preview",
+        "desc": "Kastideo pour Apple TV : en test via TestFlight, comment participer, et en attendant, comment regarder Kastideo sur une Apple TV.",
+        "fr": """    <h1>Kastideo pour Apple TV</h1>
+    <p class="page-lead">Une version pour Apple TV est en préparation. Elle est en test via TestFlight, le service d'Apple pour essayer une application avant sa publication. Nous espérons la voir bientôt sur l'App Store, sans date annoncée pour l'instant.</p>
+    <div class="callout"><b class="label">Pas encore sur l'App Store</b><p>Pour l'instant, le seul moyen d'essayer Kastideo sur Apple TV est TestFlight. Cette version est un test : elle peut changer et ses fonctions ne sont pas toutes décrites ici.</p></div>
+
+    <h2 id="participer">Participer au test</h2>
+    <ol>
+      <li>Écrivez à <code>contact@kastideo.com</code> en indiquant l'adresse e-mail de votre identifiant Apple et le modèle de votre Apple TV. Vous recevez une invitation TestFlight.</li>
+      <li>Sur l'Apple TV, installez l'application gratuite <b>TestFlight</b> depuis l'App Store.</li>
+      <li>Ouvrez l'invitation, puis installez <b>Kastideo</b> depuis TestFlight.</li>
+    </ol>
+    <p>Les mises à jour arrivent aussi par TestFlight. Vos retours sont précieux.</p>
+
+    <h2 id="attendant">En attendant</h2>
+    <ul>
+      <li>Sur iPhone et iPad, Kastideo est aussi en test : voir <a href="ios.html">Kastideo pour iPhone et iPad</a>.</li>
+      <li>Depuis un Mac, vous pouvez envoyer l'image vers une Apple TV par la recopie d'écran de macOS : voir <a href="cast.html">Envoyer à la télévision</a>.</li>
+    </ul>
+    <p>Kastideo ne fournit aucune chaîne : le contenu vient de vos sources, dont vous devez vérifier la légalité.</p>
+""",
+        "en": """    <h1>Kastideo for Apple TV</h1>
+    <p class="page-lead">A version for Apple TV is in the works. It is being tested through TestFlight, Apple's service for trying an app before its release. We hope to see it on the App Store soon, with no date announced for now.</p>
+    <div class="callout"><b class="label">Not on the App Store yet</b><p>For now, the only way to try Kastideo on Apple TV is TestFlight. This version is a test: it may change and not all its features are described here.</p></div>
+
+    <h2 id="participer">Join the test</h2>
+    <ol>
+      <li>Write to <code>contact@kastideo.com</code> with the email address of your Apple ID and your Apple TV model. You receive a TestFlight invitation.</li>
+      <li>On the Apple TV, install the free <b>TestFlight</b> app from the App Store.</li>
+      <li>Open the invitation, then install <b>Kastideo</b> from TestFlight.</li>
+    </ol>
+    <p>Updates also arrive through TestFlight. Your feedback is valuable.</p>
+
+    <h2 id="attendant">In the meantime</h2>
+    <ul>
+      <li>On iPhone and iPad, Kastideo is also being tested: see <a href="ios.html">Kastideo for iPhone and iPad</a>.</li>
+      <li>From a Mac, you can send the picture to an Apple TV with macOS screen mirroring: see <a href="cast.html">Casting to a TV</a>.</li>
+    </ul>
+    <p>Kastideo provides no channels: content comes from your sources, whose legality you must check.</p>
 """,
     },
 ]
