@@ -7,9 +7,9 @@ Description : environ 155 caractères au plus.
 META = {
     "index": {
         "fr": ("Kastideo, lecteur IPTV gratuit pour Mac, Windows, Linux et Android",
-               "Kastideo lit votre abonnement IPTV (Xtream Codes, M3U), vos films et séries sur Mac, Windows, Linux et Android. Guide TV, replay, enregistrement. Gratuit."),
+               "Kastideo lit votre abonnement IPTV et vos films sur Mac, Windows, Linux, Android, iPhone et iPad (test). Guide TV, replay, enregistrement. Gratuit."),
         "en": ("Kastideo, free IPTV player for Mac, Windows, Linux and Android",
-               "Kastideo plays your IPTV subscription (Xtream Codes, M3U), movies and series on Mac, Windows, Linux and Android. TV guide, replay, recording. Free."),
+               "Kastideo plays your IPTV subscription and movies on Mac, Windows, Linux, Android, iPhone and iPad (testing). TV guide, replay, recording. Free."),
     },
     "direct": {
         "fr": ("Télé en direct sur IPTV : démarrage rapide et différé",

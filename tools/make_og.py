@@ -13,10 +13,10 @@ from playwright.sync_api import sync_playwright
 PUB = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "public")
 
 TEXT = {
-    "fr": ("Lecteur IPTV pour Mac, Windows, Linux et Android",
+    "fr": ("Lecteur IPTV pour Mac, Windows, Linux, Android, iPhone et iPad",
            "Un seul lecteur pour <em>tout</em> ce que vous regardez",
            "Guide TV · Replay · Enregistrement · Films et séries", "Gratuit · kastideo.com"),
-    "en": ("IPTV player for Mac, Windows, Linux and Android",
+    "en": ("IPTV player for Mac, Windows, Linux, Android, iPhone and iPad",
            "One player for <em>everything</em> you watch",
            "TV guide · Replay · Recording · Movies and series", "Free · kastideo.com"),
 }
