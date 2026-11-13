@@ -5,6 +5,8 @@
 """
 
 HISTORY = [
+    ("1.17", "2026-11-12", "Synchronisation iCloud entre Mac, iPhone et iPad : sources, favoris, reprise de lecture, catégories et fiches, avec les mots de passe chiffrés au choix.",
+     "iCloud sync between Mac, iPhone and iPad: sources, favourites, resume positions, categories and pages, with passwords encrypted if you choose."),
     ("1.16", "2026-11-07", "Enregistrements (Mac) : durée réglable après le démarrage (15 min à 4 h, heure précise ou sans limite), durée par défaut et temps restant affiché. Le fichier d'origine est conservé si la conversion perdait l'image.",
      "Recordings (Mac): duration adjustable after starting (15 min to 4 h, exact time or no limit), default duration and remaining time shown. The original file is kept if conversion would lose the picture."),
     ("1.15", "2026-11-07", "Retirer un contenu de « Reprendre la lecture », avec annulation possible.",

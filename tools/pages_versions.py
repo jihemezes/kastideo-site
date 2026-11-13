@@ -41,6 +41,7 @@ VERSIONS = [
     <h2 id="mac-seulement">Ce qui est propre au Mac</h2>
     <ul>
       <li>Enregistrements convertis en MP4, lisibles par QuickTime, l'iPhone et l'iPad.</li>
+      <li>Synchronisation iCloud avec vos iPhone et iPad : sources, favoris, reprise de lecture, catégories et fiches corrigées, par un dossier d'iCloud Drive.</li>
       <li>Panneau Informations avec choix de la piste audio et des sous-titres.</li>
       <li>Mémoire tampon réglable : Rapide, Équilibré ou Stable.</li>
       <li>Envoi vers Apple TV par la recopie d'écran de macOS : voir <a href="cast.html">Envoyer à la télévision</a>.</li>
@@ -71,6 +72,7 @@ VERSIONS = [
     <h2 id="mac-seulement">What is specific to Mac</h2>
     <ul>
       <li>Recordings converted to MP4, playable by QuickTime, iPhone and iPad.</li>
+      <li>iCloud sync with your iPhone and iPad: sources, favourites, resume positions, categories and corrected pages, through an iCloud Drive folder.</li>
       <li>Information panel with audio track and subtitle selection.</li>
       <li>Adjustable buffer: Fast, Balanced or Stable.</li>
       <li>Casting to Apple TV through macOS screen mirroring: see <a href="cast.html">Casting to a TV</a>.</li>
@@ -333,17 +335,18 @@ VERSIONS = [
 
     <h2 id="fonctions">Ce que propose l'application</h2>
     <ul>
-      <li>Accueil avec reprise de la lecture, favoris et récents.</li>
-      <li>Direct en liste, en affichage Cinéma, par thèmes ou dans le guide TV, avec le replay quand votre fournisseur le propose.</li>
-      <li>Films et séries en affichage Cinéma ou en grille, avec fiches, saisons et épisodes.</li>
-      <li>Lecteur plein écran, mini-lecteur, direct en différé et son qui continue écran verrouillé.</li>
+      <li>Un accueil dans l'esprit de la version de bureau : grandes tuiles Direct, Films, Séries, YouTube et Mes vidéos, puis Reprendre, Récents, Favoris, Guide TV et Enregistrements.</li>
+      <li>Direct en liste, en affichage Cinéma ou par thèmes, avec le replay quand votre fournisseur le propose.</li>
+      <li>Guide TV en grille comme sur Mac : une ligne par chaîne, heures et chaînes toujours visibles, pincement pour zoomer l'échelle du temps, filtres par favoris, récents, thème ou catégorie.</li>
+      <li>Films et séries en affichage Cinéma ou en grille, avec fiches, saisons et épisodes, et enchaînement automatique des épisodes.</li>
+      <li>Lecteur plein écran avec gestes (double appui pour avancer, reculer ou mettre en pause, glisser pour le volume, la luminosité ou changer de chaîne), vitesse de lecture, format d'image, programme en cours et infos du flux. Mini-lecteur, direct en différé et son qui continue écran verrouillé.</li>
       <li>Enregistrement du direct, téléchargements, alertes de programmes.</li>
-      <li>Mes vidéos : Jellyfin, Emby, Plex, dossiers et galerie de l'appareil. YouTube.</li>
+      <li>Mes vidéos : Jellyfin, Emby, Plex, dossiers et galerie de l'appareil, avec tris, filtres et regroupements. YouTube.</li>
       <li><a href="multivue.html">MultiVue</a> avec plusieurs chaînes en même temps, si vos sources autorisent plusieurs connexions.</li>
     </ul>
 
     <h2 id="icloud">Synchronisation iCloud</h2>
-    <p>En option et désactivée par défaut, la synchronisation iCloud retrouve vos sources, favoris, catégories, réglages d'affichage, reprise de lecture et fiches corrigées sur tous vos iPhone et iPad. Les mots de passe passent par le Trousseau iCloud, chiffré de bout en bout.</p>
+    <p>En option et désactivée par défaut, la synchronisation iCloud retrouve vos sources, favoris, historique, catégories, réglages d'affichage, reprise de lecture et fiches corrigées sur vos iPhone, iPad et Mac. Elle passe par un dossier de votre iCloud Drive, à choisir identique sur chaque appareil. Les mots de passe sont synchronisés seulement si vous le décidez, et chiffrés par une phrase secrète de votre choix.</p>
 
     <h2 id="limites">Ce qui diffère du Mac</h2>
     <ul>
@@ -370,17 +373,18 @@ VERSIONS = [
 
     <h2 id="fonctions">What the app offers</h2>
     <ul>
-      <li>Home with resume playback, favourites and recents.</li>
-      <li>Live TV as a list, in Cinema display, by themes or in the TV guide, with replay when your provider offers it.</li>
-      <li>Movies and series in Cinema display or as a grid, with details pages, seasons and episodes.</li>
-      <li>Full-screen player, mini player, time-shifted live and sound that keeps playing with the screen locked.</li>
+      <li>A home screen in the spirit of the desktop version: large Live, Movies, Series, YouTube and My videos tiles, then Continue, Recents, Favourites, TV guide and Recordings.</li>
+      <li>Live TV as a list, in Cinema display or by themes, with replay when your provider offers it.</li>
+      <li>Grid TV guide like on Mac: one row per channel, hours and channels always visible, pinch to zoom the time scale, filters by favourites, recents, theme or category.</li>
+      <li>Movies and series in Cinema display or as a grid, with details pages, seasons and episodes, and automatic playback of the next episode.</li>
+      <li>Full-screen player with gestures (double-tap to skip forward, back or pause, drag for volume, brightness or to change channel), playback speed, picture format, current programme and stream info. Mini player, time-shifted live and sound that keeps playing with the screen locked.</li>
       <li>Live recording, downloads, programme alerts.</li>
-      <li>My videos: Jellyfin, Emby, Plex, folders and the device gallery. YouTube.</li>
+      <li>My videos: Jellyfin, Emby, Plex, folders and the device gallery, with sorting, filters and grouping. YouTube.</li>
       <li><a href="multivue.html">MultiView</a> with several channels at once, if your sources allow several connections.</li>
     </ul>
 
     <h2 id="icloud">iCloud sync</h2>
-    <p>Optional and off by default, iCloud sync brings your sources, favourites, categories, display settings, resume positions and corrected pages to all your iPhones and iPads. Passwords go through iCloud Keychain, end-to-end encrypted.</p>
+    <p>Optional and off by default, iCloud sync brings your sources, favourites, history, categories, display settings, resume positions and corrected pages to your iPhone, iPad and Mac. It goes through a folder of your iCloud Drive, which you choose to be the same on every device. Passwords are synchronised only if you decide so, and encrypted with a passphrase of your choice.</p>
 
     <h2 id="limites">What differs from the Mac</h2>
     <ul>
