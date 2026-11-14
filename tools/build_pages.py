@@ -15,6 +15,7 @@ import html as htmllib
 import json
 import os
 import re
+from html.parser import HTMLParser
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -213,6 +214,7 @@ def header(slug):
       {bi("Télécharger", "Download", "a", ' href="telecharger.html"')}
       {bi("Nouveautés", "What's new", "a", ' href="nouveautes.html"')}
       {bi("FAQ", "FAQ", "a", ' href="faq.html"')}
+      <button class="search-btn" id="search-open" type="button" hidden aria-label="Rechercher / Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
       {kofi_button("Offrir un café", False, "Buy me a coffee")}
       @@LANG@@
     </nav>
@@ -420,6 +422,66 @@ def write(path, text):
     open(path, "w", encoding="utf-8").write(text)
 
 
+# --------------------------------------------------------------------------- recherche
+class _SearchParser(HTMLParser):
+    """Découpe le contenu de <main> en sections (h1/h2) : titre, ancre, texte."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.in_main = False
+        self.skip = 0
+        self.head = None          # balise de titre en cours (h1, h2)
+        self.sections = [{"h": "", "a": "", "x": []}]
+        self.title = ""
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "main":
+            self.in_main = True
+        elif self.in_main and tag in ("script", "style", "svg", "figure"):
+            self.skip += 1
+        elif self.in_main and tag in ("h1", "h2"):
+            self.head = tag
+            if tag == "h2":
+                self.sections.append({"h": "", "a": a.get("id", ""), "x": []})
+
+    def handle_endtag(self, tag):
+        if tag == "main":
+            self.in_main = False
+        elif self.in_main and tag in ("script", "style", "svg", "figure") and self.skip:
+            self.skip -= 1
+        elif tag in ("h1", "h2"):
+            self.head = None
+
+    def handle_data(self, data):
+        if not self.in_main or self.skip:
+            return
+        t = " ".join(data.split())
+        if not t:
+            return
+        if self.head == "h1":
+            self.title = (self.title + " " + t).strip()
+        elif self.head == "h2":
+            self.sections[-1]["h"] = (self.sections[-1]["h"] + " " + t).strip()
+        else:
+            self.sections[-1]["x"].append(t)
+
+
+def search_entries(slug, lang, html):
+    p = _SearchParser()
+    p.feed(html)
+    title = p.title or slug
+    out = []
+    for i, sec in enumerate(p.sections):
+        text = " ".join(sec["x"]).strip()
+        if i > 0 and not sec["h"] and not text:
+            continue
+        if i == 0 and not text and len(p.sections) > 1:
+            continue
+        out.append({"u": url_path(slug, lang), "t": title, "h": sec["h"], "a": sec["a"], "x": text[:700]})
+    return out
+
+
 NEWS_L = [NEWS]
 
 
@@ -427,14 +489,18 @@ def main():
     idx = index_source()
     footer = footer_of(idx)
     pages = []  # (slug)
+    search = {lang: [] for lang in LANGS}
     for lang in LANGS:
         base = PUB if lang == "fr" else os.path.join(PUB, "en")
-        write(os.path.join(base, "index.html"), index_page(idx, lang))
+        html = index_page(idx, lang)
+        write(os.path.join(base, "index.html"), html)
+        search[lang] += search_entries("index", lang, html)
         for plist, group in ((FEATURES, "features"), (VERSIONS, "versions"), (COMPARE, "compare"), (GUIDES, "guides"), (NEWS_L, "news"),
                              (OTHER, "other"), (LEGAL, "legal")):
             for p in plist:
-                write(os.path.join(base, p["slug"] + ".html"),
-                      subpage(p, group, plist if group in ("features", "versions", "compare", "guides") else None, footer, lang))
+                html = subpage(p, group, plist if group in ("features", "versions", "compare", "guides") else None, footer, lang)
+                write(os.path.join(base, p["slug"] + ".html"), html)
+                search[lang] += search_entries(p["slug"], lang, html)
     slugs = ["index"] + [p["slug"] for pl in (FEATURES, VERSIONS, COMPARE, GUIDES, NEWS_L, OTHER, LEGAL) for p in pl]
 
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -452,6 +518,8 @@ def main():
     write(os.path.join(PUB, "sitemap.xml"), "\n".join(sm) + "\n")
 
     write(os.path.join(PUB, "robots.txt"), f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
+    for lang in LANGS:
+        write(os.path.join(PUB, f"search-{lang}.json"), json.dumps(search[lang], ensure_ascii=False, separators=(",", ":")))
     print("Pages générées :", len(slugs) * 2)
 
 

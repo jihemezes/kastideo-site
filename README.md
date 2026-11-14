@@ -51,3 +51,7 @@ Cloudflare sert les pages sans `.html` (`/direct`, `/en/direct`) : les adresses 
 - Images : `backdrop.webp` (fond flou), `icon-112.png` (en-tête), `og-fr.jpg` / `og-en.jpg` (partage). Régénérer les images de partage avec `python3 tools/make_og.py`.
 - Captures réelles : `public/img/app-*.webp` (playlist de démo, interface en français), déclarées dans `SHOTS` de `tools/build_pages.py`. Aucune capture ne doit montrer une source personnelle.
 - Historique des versions (`tools/history.py`) : une ligne par version X.Y (les X.Y.n sont regroupées), à compléter à chaque nouvelle version X.Y. La dernière version est lue en direct sur GitHub.
+
+## Recherche
+
+Loupe dans le menu (raccourci `/` ou Ctrl/Cmd+K). `tools/build_pages.py` génère `public/search-fr.json` et `public/search-en.json` (une entrée par section h1/h2 de chaque page, avec ancre) ; `public/site.js` (`initSearch`) les charge à l'ouverture. Ces fichiers sont régénérés à chaque `python3 tools/build_pages.py` : ne pas les éditer à la main.

@@ -220,6 +220,187 @@
       });
   }
 
+  /* ---------- Recherche dans le site ---------- */
+  function initSearch() {
+    var btn = document.getElementById('search-open');
+    if (!btn || !window.fetch) return;
+    var fr = lang !== 'en';
+    var T = fr
+      ? { open: 'Rechercher dans le site', ph: 'Rechercher (ex. Fire TV, playlist M3U…)', close: 'Fermer', pop: 'Recherches fréquentes', none: 'Aucun résultat pour « {q} ».', count1: '1 résultat', countN: '{n} résultats', err: 'Impossible de charger la recherche.' }
+      : { open: 'Search the site', ph: 'Search (e.g. Fire TV, M3U playlist…)', close: 'Close', pop: 'Popular searches', none: 'No results for “{q}”.', count1: '1 result', countN: '{n} results', err: 'Search could not be loaded.' };
+    var SUGG = fr
+      ? ['Fire TV', 'playlist M3U', 'enregistrer', 'replay', 'iCloud', 'MultiVue', 'Android TV', 'Xtream Codes']
+      : ['Fire TV', 'M3U playlist', 'recording', 'replay', 'iCloud', 'MultiVue', 'Android TV', 'Xtream Codes'];
+    btn.hidden = false; btn.setAttribute('aria-label', T.open); btn.title = T.open + ' (/)';
+
+    var data = null, loading = null, overlay = null, input, list, status, sugg, items = [], cur = -1, lastFocus = null;
+
+    function norm(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+    function load() {
+      if (data) return Promise.resolve(data);
+      if (!loading) {
+        loading = fetch('/search-' + (fr ? 'fr' : 'en') + '.json').then(function (r) {
+          if (!r.ok) throw new Error('http');
+          return r.json();
+        }).then(function (d) {
+          data = d.map(function (e) { return { e: e, t: norm(e.t), h: norm(e.h), x: norm(e.x) }; });
+          return data;
+        });
+        loading['catch'](function () { loading = null; });
+      }
+      return loading;
+    }
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+    function highlight(parent, text, terms) {
+      var n = norm(text), marks = [], i, k;
+      for (k = 0; k < terms.length; k++) {
+        var from = 0, p;
+        while ((p = n.indexOf(terms[k], from)) !== -1) { marks.push([p, p + terms[k].length]); from = p + terms[k].length; }
+      }
+      marks.sort(function (a, b) { return a[0] - b[0]; });
+      var pos = 0;
+      for (i = 0; i < marks.length; i++) {
+        if (marks[i][1] <= pos) continue;
+        var s = Math.max(marks[i][0], pos);
+        if (s > pos) parent.appendChild(document.createTextNode(text.slice(pos, s)));
+        parent.appendChild(el('mark', null, text.slice(s, marks[i][1])));
+        pos = marks[i][1];
+      }
+      if (pos < text.length) parent.appendChild(document.createTextNode(text.slice(pos)));
+    }
+    function snippet(text, terms) {
+      var n = norm(text), first = -1, k;
+      for (k = 0; k < terms.length; k++) { var p = n.indexOf(terms[k]); if (p !== -1 && (first === -1 || p < first)) first = p; }
+      if (first === -1) first = 0;
+      var start = Math.max(0, first - 50), end = Math.min(text.length, start + 160);
+      if (start > 0) { var sp = text.indexOf(' ', start); if (sp !== -1 && sp < first) start = sp + 1; }
+      return (start > 0 ? '… ' : '') + text.slice(start, end) + (end < text.length ? ' …' : '');
+    }
+    function search(q) {
+      var terms = norm(q).split(/\s+/).filter(Boolean), res = [];
+      if (!terms.length) return { terms: terms, res: res };
+      data.forEach(function (d) {
+        var score = 0, ok = true;
+        for (var i = 0; i < terms.length; i++) {
+          var t = terms[i], s = 0, c;
+          if (d.t.indexOf(t) !== -1) s += 10;
+          if (d.h.indexOf(t) !== -1) s += 6;
+          c = d.x.split(t).length - 1;
+          if (c) s += Math.min(c, 5);
+          if (!s) { ok = false; break; }
+          score += s;
+        }
+        if (ok) res.push({ d: d.e, score: score + (d.e.h ? 0 : 1) });
+      });
+      res.sort(function (a, b) { return b.score - a.score; });
+      var per = {}, out = [];
+      res.forEach(function (r) {
+        if (out.length >= 10) return;
+        per[r.d.u] = (per[r.d.u] || 0) + 1;
+        if (per[r.d.u] <= 3) out.push(r.d);
+      });
+      return { terms: terms, res: out };
+    }
+    function setCur(i) {
+      if (cur >= 0 && items[cur]) { items[cur].classList.remove('on'); items[cur].removeAttribute('aria-current'); }
+      cur = i;
+      if (cur >= 0 && items[cur]) { items[cur].classList.add('on'); items[cur].setAttribute('aria-current', 'true'); items[cur].scrollIntoView({ block: 'nearest' }); }
+    }
+    function render() {
+      var q = input.value.trim();
+      list.textContent = ''; items = []; cur = -1;
+      sugg.hidden = !!q;
+      if (!q) { status.textContent = ''; return; }
+      if (!data) { status.textContent = '…'; return; }
+      var r = search(q);
+      if (!r.res.length) { status.textContent = T.none.replace('{q}', q); return; }
+      status.textContent = r.res.length === 1 ? T.count1 : T.countN.replace('{n}', r.res.length);
+      r.res.forEach(function (e) {
+        var li = el('li'), a = el('a', 'sr');
+        a.href = e.u + (e.a ? '#' + e.a : '');
+        var top = el('span', 'sr-t');
+        highlight(top, e.t, r.terms);
+        if (e.h) { top.appendChild(el('span', 'sr-sep', ' › ')); var h = el('span', 'sr-h'); highlight(h, e.h, r.terms); top.appendChild(h); }
+        a.appendChild(top);
+        if (e.x) { var sn = el('span', 'sr-x'); highlight(sn, snippet(e.x, r.terms), r.terms); a.appendChild(sn); }
+        li.appendChild(a); list.appendChild(li); items.push(a);
+      });
+    }
+    function build() {
+      overlay = el('div', 'search-overlay');
+      var panel = el('div', 'search-panel');
+      panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'true'); panel.setAttribute('aria-label', T.open);
+      var row = el('div', 'search-row');
+      input = el('input'); input.type = 'search'; input.placeholder = T.ph; input.setAttribute('aria-label', T.open);
+      input.autocomplete = 'off'; input.spellcheck = false;
+      var x = el('button', 'search-x', '×'); x.type = 'button'; x.setAttribute('aria-label', T.close);
+      row.appendChild(input); row.appendChild(x);
+      sugg = el('div', 'search-sugg');
+      sugg.appendChild(el('p', 'search-sugg-t', T.pop));
+      var chips = el('div', 'chips');
+      SUGG.forEach(function (s) {
+        var c = el('button', 'chip', s); c.type = 'button';
+        c.addEventListener('click', function () { input.value = s; input.focus(); run(); });
+        chips.appendChild(c);
+      });
+      sugg.appendChild(chips);
+      status = el('p', 'search-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+      list = el('ul', 'search-list');
+      panel.appendChild(row); panel.appendChild(sugg); panel.appendChild(status); panel.appendChild(list);
+      overlay.appendChild(panel);
+      document.body.appendChild(overlay);
+      x.addEventListener('click', close);
+      overlay.addEventListener('mousedown', function (e) { if (e.target === overlay) close(); });
+      input.addEventListener('input', run);
+      overlay.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { e.preventDefault(); close(); }
+        else if (e.key === 'ArrowDown' && items.length) { e.preventDefault(); setCur((cur + 1) % items.length); }
+        else if (e.key === 'ArrowUp' && items.length) { e.preventDefault(); setCur(cur <= 0 ? items.length - 1 : cur - 1); }
+        else if (e.key === 'Enter' && cur >= 0 && items[cur]) { e.preventDefault(); items[cur].click(); }
+        else if (e.key === 'Tab') {
+          var f = overlay.querySelectorAll('input,button,a'), vis = [], i;
+          for (i = 0; i < f.length; i++) if (f[i].offsetParent !== null) vis.push(f[i]);
+          if (!vis.length) return;
+          var first = vis[0], last = vis[vis.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+    }
+    function run() {
+      render();
+      if (!data) load().then(render, function () { status.textContent = T.err; });
+    }
+    function open() {
+      if (!overlay) build();
+      lastFocus = document.activeElement;
+      overlay.hidden = false;
+      document.documentElement.classList.add('search-on');
+      input.focus(); input.select();
+      load()['catch'](function () {});
+      render();
+    }
+    function close() {
+      if (!overlay || overlay.hidden) return;
+      overlay.hidden = true;
+      document.documentElement.classList.remove('search-on');
+      if (lastFocus && lastFocus.focus) lastFocus.focus(); else btn.focus();
+    }
+    btn.addEventListener('click', open);
+    document.addEventListener('keydown', function (e) {
+      var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable);
+      if ((e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) || ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault(); open();
+      }
+    });
+  }
+
   loadReleases();
   loadNews();
+  initSearch();
 })();
