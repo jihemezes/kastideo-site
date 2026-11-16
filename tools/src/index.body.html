@@ -16,62 +16,8 @@
     </div>
   </div>
 
-  <section class="demo" aria-labelledby="demo-t">
-    <p class="demo-hint"><span class="demo-dot" aria-hidden="true"></span><span data-fr="Aperçu interactif de l'accueil de Kastideo : ouvrez un pavé ou cherchez. Chaînes et films de démonstration." data-en="Interactive preview of Kastideo's home screen: open a tile or search. Demo channels and films.">Aperçu interactif de l'accueil de Kastideo : ouvrez un pavé ou cherchez. Chaînes et films de démonstration.</span></p>
-    <h2 id="demo-t" class="sr-only" data-fr="Aperçu de l'application" data-en="Application preview">Aperçu de l'application</h2>
-    <div class="win" id="demo">
-      <div class="win-bar"><span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="win-name">Kastideo</span><span class="win-pill" data-fr="Source de démonstration" data-en="Demo source">Source de démonstration</span></div>
-      <div class="win-body">
-        <div id="demo-home">
-          <div class="win-brand"><img src="icon-112.png" alt="" width="52" height="52"><div><b>Kastideo</b><span data-fr="Vos chaînes, vos films et vos séries au même endroit" data-en="Your channels, films and series in one place">Vos chaînes, vos films et vos séries au même endroit</span></div></div>
-          <label class="win-search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="demo-q" type="search" autocomplete="off" spellcheck="false" placeholder="Rechercher une chaîne, un film ou une série" aria-label="Rechercher dans l'aperçu"></label>
-          <div class="d-results" id="demo-results" hidden></div>
-          <div class="d-tiles">
-          <button class="d-tile t-live" type="button" data-view="live">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0M8 12a4 4 0 0 1 8 0M12 12h.01M2.5 12a9.5 9.5 0 0 1 19 0"/></svg>
-            <span class="d-tile-t" data-fr="Direct" data-en="Live">Direct</span>
-            <span class="d-tile-s" data-fr="8 chaînes" data-en="8 channels">8 chaînes</span>
-          </button>
-          <button class="d-tile t-films" type="button" data-view="films">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
-            <span class="d-tile-t" data-fr="Films" data-en="Movies">Films</span>
-            <span class="d-tile-s" data-fr="8 films" data-en="8 movies">8 films</span>
-          </button>
-          <button class="d-tile t-series" type="button" data-view="series">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V5h8v3"/></svg>
-            <span class="d-tile-t" data-fr="Séries" data-en="Series">Séries</span>
-            <span class="d-tile-s" data-fr="6 séries" data-en="6 series">6 séries</span>
-          </button>
-          <button class="d-tile t-videos" type="button" data-view="videos">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
-            <span class="d-tile-t" data-fr="Mes vidéos" data-en="My videos">Mes vidéos</span>
-            <span class="d-tile-s" data-fr="4 vidéos" data-en="4 videos">4 vidéos</span>
-          </button>
-          </div>
-          <div class="d-quicks">
-          <button class="d-quick" type="button" data-view="fav"><span class="d-qi" aria-hidden="true">★</span><span data-fr="Favoris" data-en="Favourites">Favoris</span></button>
-          <button class="d-quick" type="button" data-view="recent"><span class="d-qi" aria-hidden="true">◷</span><span data-fr="Récents" data-en="Recent">Récents</span><span class="d-badge">12</span></button>
-          <button class="d-quick" type="button" data-view="epg"><span class="d-qi" aria-hidden="true">▦</span><span data-fr="Guide TV" data-en="TV guide">Guide TV</span></button>
-          <button class="d-quick" type="button" data-view="youtube"><span class="d-qi" aria-hidden="true">▶</span><span data-fr="YouTube" data-en="YouTube">YouTube</span></button>
-          <button class="d-quick" type="button" data-view="rec"><span class="d-qi" aria-hidden="true">●</span><span data-fr="Enregistrements" data-en="Recordings">Enregistrements</span></button>
-          </div>
-          <p class="d-sub" data-fr="À la télé maintenant" data-en="On TV now">À la télé maintenant</p>
-          <div class="d-pills">
-          <button class="d-pill" type="button" data-view="th-sport"><span data-fr="Sport" data-en="Sport">Sport</span><small>2</small></button>
-          <button class="d-pill" type="button" data-view="th-info"><span data-fr="Info" data-en="News">Info</span><small>2</small></button>
-          <button class="d-pill" type="button" data-view="th-films"><span data-fr="Films" data-en="Movies">Films</span><small>1</small></button>
-          <button class="d-pill" type="button" data-view="th-series"><span data-fr="Séries" data-en="Series">Séries</span><small>1</small></button>
-          <button class="d-pill" type="button" data-view="tonight"><span data-fr="Ce soir" data-en="Tonight">Ce soir</span><small>20 h – 23 h</small></button>
-          </div>
-        </div>
-        <div id="demo-screen" hidden>
-          <div class="d-screen-h"><button class="d-back" type="button" data-view="home"><span aria-hidden="true">‹</span> <span data-fr="Accueil" data-en="Home">Accueil</span></button><h3 id="demo-title"></h3><span id="demo-count"></span></div>
-          <div class="d-grid" id="demo-grid" aria-live="polite"></div>
-        </div>
-        <p class="d-note" id="demo-note" role="status" data-fr="Aperçu de démonstration : aucune source, aucune vidéo réelle." data-en="Demo preview: no real source, no real video.">Aperçu de démonstration : aucune source, aucune vidéo réelle.</p>
-      </div>
-    </div>
-  </section>
+
+  <!--shot:index-->
 
   <div class="tiles" aria-label="Accès principaux">
     <a class="tile t-live" href="direct.html">
@@ -96,7 +42,6 @@
     </a>
   </div>
 
-  <!--shot:index-->
 
 
   <section id="fonctions" aria-labelledby="t-fonctions">

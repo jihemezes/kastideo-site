@@ -94,62 +94,8 @@
     </div>
   </div>
 
-  <section class="demo" aria-labelledby="demo-t">
-    <p class="demo-hint"><span class="demo-dot" aria-hidden="true"></span><span>Interactive preview of Kastideo's home screen: open a tile or search. Demo channels and films.</span></p>
-    <h2 id="demo-t" class="sr-only">Application preview</h2>
-    <div class="win" id="demo">
-      <div class="win-bar"><span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="win-name">Kastideo</span><span class="win-pill">Demo source</span></div>
-      <div class="win-body">
-        <div id="demo-home">
-          <div class="win-brand"><img src="/icon-112.png" alt="" width="52" height="52"><div><b>Kastideo</b><span>Your channels, films and series in one place</span></div></div>
-          <label class="win-search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="demo-q" type="search" autocomplete="off" spellcheck="false" placeholder="Rechercher une chaîne, un film ou une série" aria-label="Search in the preview"></label>
-          <div class="d-results" id="demo-results" hidden></div>
-          <div class="d-tiles">
-          <button class="d-tile t-live" type="button" data-view="live">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0M8 12a4 4 0 0 1 8 0M12 12h.01M2.5 12a9.5 9.5 0 0 1 19 0"/></svg>
-            <span class="d-tile-t">Live</span>
-            <span class="d-tile-s">8 channels</span>
-          </button>
-          <button class="d-tile t-films" type="button" data-view="films">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
-            <span class="d-tile-t">Movies</span>
-            <span class="d-tile-s">8 movies</span>
-          </button>
-          <button class="d-tile t-series" type="button" data-view="series">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V5h8v3"/></svg>
-            <span class="d-tile-t">Series</span>
-            <span class="d-tile-s">6 series</span>
-          </button>
-          <button class="d-tile t-videos" type="button" data-view="videos">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
-            <span class="d-tile-t">My videos</span>
-            <span class="d-tile-s">4 videos</span>
-          </button>
-          </div>
-          <div class="d-quicks">
-          <button class="d-quick" type="button" data-view="fav"><span class="d-qi" aria-hidden="true">★</span><span>Favourites</span></button>
-          <button class="d-quick" type="button" data-view="recent"><span class="d-qi" aria-hidden="true">◷</span><span>Recent</span><span class="d-badge">12</span></button>
-          <button class="d-quick" type="button" data-view="epg"><span class="d-qi" aria-hidden="true">▦</span><span>TV guide</span></button>
-          <button class="d-quick" type="button" data-view="youtube"><span class="d-qi" aria-hidden="true">▶</span><span>YouTube</span></button>
-          <button class="d-quick" type="button" data-view="rec"><span class="d-qi" aria-hidden="true">●</span><span>Recordings</span></button>
-          </div>
-          <p class="d-sub">On TV now</p>
-          <div class="d-pills">
-          <button class="d-pill" type="button" data-view="th-sport"><span>Sport</span><small>2</small></button>
-          <button class="d-pill" type="button" data-view="th-info"><span>News</span><small>2</small></button>
-          <button class="d-pill" type="button" data-view="th-films"><span>Movies</span><small>1</small></button>
-          <button class="d-pill" type="button" data-view="th-series"><span>Series</span><small>1</small></button>
-          <button class="d-pill" type="button" data-view="tonight"><span>Tonight</span><small>20 h – 23 h</small></button>
-          </div>
-        </div>
-        <div id="demo-screen" hidden>
-          <div class="d-screen-h"><button class="d-back" type="button" data-view="home"><span aria-hidden="true">‹</span> <span>Home</span></button><h3 id="demo-title"></h3><span id="demo-count"></span></div>
-          <div class="d-grid" id="demo-grid" aria-live="polite"></div>
-        </div>
-        <p class="d-note" id="demo-note" role="status">Demo preview: no real source, no real video.</p>
-      </div>
-    </div>
-  </section>
+
+  <figure class="app-shot"><img src="/img/app-home.webp" width="1600" height="956" alt="Kastideo home screen: Live, Movies, Series, My videos, TV guide, YouTube and Recordings" loading="lazy" decoding="async"><figcaption>The Kastideo home screen. Screenshot of the French interface.</figcaption></figure>
 
   <div class="tiles" aria-label="Main access">
     <a class="tile t-live" href="/en/direct">
@@ -174,7 +120,6 @@
     </a>
   </div>
 
-  <figure class="app-shot"><img src="/img/app-home.webp" width="1600" height="956" alt="Kastideo home screen: Live, Movies, Series, My videos, TV guide, YouTube and Recordings" loading="lazy" decoding="async"><figcaption>The Kastideo home screen. Screenshot of the French interface.</figcaption></figure>
 
 
   <section id="fonctions" aria-labelledby="t-fonctions">
@@ -428,6 +373,5 @@
   <a class="to-top" href="#haut" aria-label="Back to top of the page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://kastideo.com/#site","url":"https://kastideo.com/en/","name":"Kastideo","inLanguage":"en"},{"@type":"SoftwareApplication","name":"Kastideo","applicationCategory":"MultimediaApplication","operatingSystem":"macOS, Windows, Linux, Android","description":"IPTV player for Mac, Windows, Linux, Android, iPhone, iPad and Apple TV (testing). Subscription or free M3U lists, TV guide, replay. Free.","url":"https://kastideo.com/en/","image":"https://kastideo.com/icon-512.png","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"downloadUrl":"https://kastideo.com/en/telecharger"}]}</script>
 <script src="/site.js"></script>
-<script src="/demo.js" defer></script>
 </body>
 </html>

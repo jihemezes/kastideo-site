@@ -536,7 +536,7 @@ def index_page(idx, lang):
     body = re.sub(r'<script src="site.js"></script>\n?', "", body)
     out = h + "<body>\n<a class=\"skip\" href=\"#contenu\" data-fr=\"Aller au contenu\" data-en=\"Skip to content\">Aller au contenu</a>\n" + body
     out += jsonld("index", lang, title, desc, None)
-    out += '<script src="site.js"></script>\n<script src="demo.js" defer></script>\n</body>\n</html>\n'
+    out += '<script src="site.js"></script>\n</body>\n</html>\n'
     return localize(out, lang)
 
 
