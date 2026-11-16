@@ -534,6 +534,8 @@ def index_page(idx, lang):
     title, desc, h = head("index", lang)
     body = with_lang(idx.replace("<!--@@HEADER@@-->", top_header("index")), "index", lang)
     body = body.replace("<!--shot:index-->", real_figure("index", lang))
+    back = f'  <p class="back-row">{bi("Retour où vous étiez", "Back to where you were", "a", " class=" + chr(34) + "back-prev" + chr(34) + " href=" + chr(34) + "index.html" + chr(34) + " hidden")}</p>\n'
+    body = body.replace("</main>\n", "</main>\n" + back, 1)
     body = re.sub(r'<script src="site.js"></script>\n?', "", body)
     out = h + "<body>\n<a class=\"skip\" href=\"#contenu\" data-fr=\"Aller au contenu\" data-en=\"Skip to content\">Aller au contenu</a>\n" + body
     out += jsonld("index", lang, title, desc, None)
