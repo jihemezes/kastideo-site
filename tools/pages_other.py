@@ -43,6 +43,13 @@ def _telecharger(lang):
     if lang == "fr":
         return f"""    <h1>Télécharger Kastideo</h1>
     <p class="page-lead">Kastideo est gratuit. Choisissez le fichier qui correspond à votre appareil : les liens pointent toujours vers la dernière version publiée.</p>
+    <aside class="promo" id="apple" aria-labelledby="t-apple">
+      <p class="tag">Nouveau · en test</p>
+      <h2 id="t-apple">Kastideo arrive sur iPhone, iPad et Apple TV</h2>
+      <p>Le direct, le guide TV, le replay, vos films et séries, MultiVue, et la synchronisation iCloud avec votre Mac : retrouvez Kastideo sur vos appareils Apple. Les versions pour iPhone et iPad (iOS 17 ou plus récent) et pour Apple TV ne sont pas encore sur l'App Store : on les essaie par TestFlight, sur invitation. Nous espérons une publication prochaine, sans date annoncée.</p>
+      <p class="actions"><a class="btn primary" href="mailto:contact@kastideo.com?subject=Invitation%20TestFlight%20Kastideo">Demander une invitation</a><a class="btn ghost" href="ios.html">iPhone et iPad</a><a class="btn ghost" href="apple-tv.html">Apple TV</a></p>
+    </aside>
+
     <p class="versions-now">Dernières versions : Mac <b data-ver="mac">…</b> · Windows et Linux <b data-ver="desktop">…</b> · Android <b data-ver="android">…</b></p>
 
     <h2 id="choisir">Quel fichier pour quel appareil</h2>
@@ -66,9 +73,6 @@ curl -LJO https://kastideo.com/dl/linux
 Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
     <p>Sur Android TV, dans Downloader, tapez <code>kastideo.com/tv</code> (arm64-v8a, le plus léger), <code>kastideo.com/tv32</code> (armeabi-v7a, si l'arm64 est refusé) ou <code>kastideo.com/tvu</code> (universal).</p>
 
-    <h2 id="apple">iPhone, iPad et Apple TV</h2>
-    <p>Les versions pour <a href="ios.html">iPhone et iPad</a> (iOS 17 ou plus récent) et pour <a href="apple-tv.html">Apple TV</a> ne sont pas encore sur l'App Store. On les essaie par TestFlight, sur invitation : écrivez à <code>contact@kastideo.com</code>. Nous espérons une publication prochaine, sans date annoncée.</p>
-
     <h2 id="guides">Guides d'installation</h2>
     <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android et Android TV</a> · <a href="ios.html">iPhone et iPad</a> · <a href="apple-tv.html">Apple TV</a></p>
 
@@ -77,6 +81,13 @@ Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</c
 """
     return f"""    <h1>Download Kastideo</h1>
     <p class="page-lead">Kastideo is free. Pick the file that matches your device: the links always point to the latest published version.</p>
+    <aside class="promo" id="apple" aria-labelledby="t-apple">
+      <p class="tag">New · in testing</p>
+      <h2 id="t-apple">Kastideo is coming to iPhone, iPad and Apple TV</h2>
+      <p>Live TV, the TV guide, replay, your films and series, MultiVue, and iCloud sync with your Mac: find Kastideo on your Apple devices. The versions for iPhone and iPad (iOS 17 or later) and for Apple TV are not on the App Store yet: try them through TestFlight, by invitation. We hope for a release soon, with no date announced.</p>
+      <p class="actions"><a class="btn primary" href="mailto:contact@kastideo.com?subject=Kastideo%20TestFlight%20invitation">Request an invitation</a><a class="btn ghost" href="ios.html">iPhone and iPad</a><a class="btn ghost" href="apple-tv.html">Apple TV</a></p>
+    </aside>
+
     <p class="versions-now">Latest versions: Mac <b data-ver="mac">…</b> · Windows and Linux <b data-ver="desktop">…</b> · Android <b data-ver="android">…</b></p>
 
     <h2 id="choisir">Which file for which device</h2>
@@ -99,9 +110,6 @@ curl -LJO https://kastideo.com/dl/linux
 # Windows (PowerShell)
 Invoke-WebRequest https://kastideo.com/dl/windows -OutFile Kastideo-setup.exe</code></pre>
     <p>On Android TV, in Downloader, type <code>kastideo.com/tv</code> (arm64-v8a, the lightest), <code>kastideo.com/tv32</code> (armeabi-v7a, if arm64 is refused) or <code>kastideo.com/tvu</code> (universal).</p>
-
-    <h2 id="apple">iPhone, iPad and Apple TV</h2>
-    <p>The versions for <a href="ios.html">iPhone and iPad</a> (iOS 17 or later) and for <a href="apple-tv.html">Apple TV</a> are not on the App Store yet. Try them through TestFlight, by invitation: write to <code>contact@kastideo.com</code>. We hope for a release soon, with no date announced.</p>
 
     <h2 id="guides">Installation guides</h2>
     <p><a href="mac.html">Mac</a> · <a href="windows.html">Windows</a> · <a href="linux.html">Linux</a> · <a href="android.html">Android and Android TV</a> · <a href="ios.html">iPhone and iPad</a> · <a href="apple-tv.html">Apple TV</a></p>
