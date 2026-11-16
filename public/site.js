@@ -445,40 +445,51 @@
       row.addEventListener('click', function (ev) { ev.preventDefault(); history.back(); });
     }
 
-    // 2. Saut vers une section de la même page, ou arrivée directe sur une section d'une autre page.
-    function sectionOf(id) {
+    // 2. Saut vers une section ou un titre de la même page, ou arrivée sur une ancre d'une autre page.
+    function blockOf(id) {
       var t = id && document.getElementById(id);
-      if (!t) return null;
-      if (t.tagName === 'SECTION') return t;
-      return t.closest ? t.closest('section[id]') : null;
-    }
-    function makeBtn(sec, action) {
-      var b = sec.querySelector(':scope > .back-jump');
-      if (!b) {
-        b = document.createElement('button');
-        b.type = 'button'; b.className = 'back-jump';
-        b.textContent = '↩ ' + txt;
-        sec.appendChild(b);
+      if (!t || t.id === 'haut') return null;
+      if (t.tagName === 'SECTION') return { parent: t, before: null, key: t };
+      var sec = t.closest ? t.closest('section[id]') : null;
+      if (sec) return { parent: sec, before: null, key: sec };
+      if ((t.tagName === 'H2' || t.tagName === 'H3') && t.parentNode) {
+        var n = t.nextElementSibling;
+        while (n && !(n.tagName === 'H2' || (t.tagName === 'H3' && n.tagName === 'H3'))) n = n.nextElementSibling;
+        return { parent: t.parentNode, before: n, key: t };
       }
-      b.hidden = false;
-      b.onclick = function () { b.hidden = true; action(); };
-      return b;
+      return null;
     }
-    var from = null;
+    function hideAll() {
+      var all = document.querySelectorAll('.back-wrap');
+      for (var i = 0; i < all.length; i++) all[i].hidden = true;
+    }
+    function makeBtn(blk, action) {
+      var w = blk.key.__backWrap;
+      if (!w) {
+        w = document.createElement('div'); w.className = 'back-wrap';
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'back-jump'; b.textContent = '↩ ' + txt;
+        w.appendChild(b);
+        blk.parent.insertBefore(w, blk.before);
+        blk.key.__backWrap = w;
+      }
+      w.hidden = false;
+      w.firstChild.onclick = function () { w.hidden = true; action(); };
+    }
     document.addEventListener('click', function (ev) {
       var a = ev.target.closest ? ev.target.closest('a[href*="#"]') : null;
       if (!a || a.classList.contains('to-top') || a.classList.contains('top-link') || a.classList.contains('skip')) return;
       if (a.origin !== location.origin || a.pathname.replace(/\/$/, '') !== location.pathname.replace(/\/$/, '') || !a.hash) return;
-      var sec = sectionOf(a.hash.slice(1));
-      if (!sec || sec.id === 'haut') return;
+      var blk = blockOf(a.hash.slice(1));
+      if (!blk) return;
       var y = window.pageYOffset;
-      var prev = document.querySelectorAll('.back-jump');
-      for (var i = 0; i < prev.length; i++) prev[i].hidden = true;
-      makeBtn(sec, function () { window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' }); });
+      hideAll();
+      makeBtn(blk, function () { window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' }); });
     });
-    var hs = sectionOf(location.hash.slice(1));
-    if (hs && sameSite) makeBtn(hs, function () { history.back(); });
+    var hb = blockOf(location.hash.slice(1));
+    if (hb && sameSite) makeBtn(hb, function () { history.back(); });
   }
+
 
   loadReleases();
   loadNews();

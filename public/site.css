@@ -437,4 +437,6 @@ html { scroll-padding-top: 84px; }
 .back-prev[hidden], .back-jump[hidden] { display: none; }
 .back-prev::before { content: "↩"; }
 .back-prev:hover, .back-jump:hover { color: var(--fg); background: var(--card); }
-section > .back-jump { margin-top: 22px; }
+
+.back-wrap { margin: 22px 0 0; }
+.back-wrap[hidden] { display: none; }
