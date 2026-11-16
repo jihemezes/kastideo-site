@@ -37,9 +37,9 @@ META = {
     },
     "index": {
         "fr": ("Kastideo, lecteur IPTV gratuit pour Mac, Windows, Linux et Android",
-               "Kastideo lit votre abonnement IPTV et vos films sur Mac, Windows, Linux, Android, iPhone et iPad (test). Guide TV, replay, enregistrement. Gratuit."),
+               "Lecteur IPTV sur Mac, Windows, Linux, Android, iPhone, iPad et Apple TV (test). Abonnement ou listes M3U libres, guide TV, replay. Gratuit."),
         "en": ("Kastideo, free IPTV player for Mac, Windows, Linux and Android",
-               "Kastideo plays your IPTV subscription and movies on Mac, Windows, Linux, Android, iPhone and iPad (testing). TV guide, replay, recording. Free."),
+               "IPTV player for Mac, Windows, Linux, Android, iPhone, iPad and Apple TV (testing). Subscription or free M3U lists, TV guide, replay. Free."),
     },
     "direct": {
         "fr": ("Télé en direct sur IPTV : démarrage rapide et différé",

@@ -182,8 +182,8 @@ def head(slug, lang):
     full = t if slug == "index" else f"{t} | Kastideo"
     other = "en" if lang == "fr" else "fr"
     img = f"{SITE}/og-{lang}.jpg"
-    alt = ("Kastideo, lecteur IPTV pour Mac, Windows, Linux, Android, iPhone et iPad" if lang == "fr"
-           else "Kastideo, IPTV player for Mac, Windows, Linux, Android, iPhone and iPad")
+    alt = ("Kastideo, lecteur IPTV pour Mac, Windows, Linux, Android, iPhone, iPad et Apple TV" if lang == "fr"
+           else "Kastideo, IPTV player for Mac, Windows, Linux, Android, iPhone, iPad and Apple TV")
     loc, loc2 = ("fr_FR", "en_US") if lang == "fr" else ("en_US", "fr_FR")
     return t, d, f"""<!doctype html>
 <html lang="{lang}">

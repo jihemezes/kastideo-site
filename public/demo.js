@@ -59,34 +59,39 @@
     ['Planète Nature', [[t('Au cœur de la forêt', 'Into the Forest'), 3], [t('Savane', 'Savannah'), 3]]]
   ];
 
-  var VIEWS = {
-    live: { title: t('À la télé maintenant', 'On TV now'), n: LIVE.length, unit: t('chaînes', 'channels') },
-    films: { title: t('Films', 'Movies'), n: FILMS.length, unit: t('titres', 'titles') },
-    series: { title: t('Séries', 'Series'), n: SERIES.length, unit: t('séries', 'series') },
-    videos: { title: t('Mes vidéos', 'My videos'), n: VIDEOS.length, unit: t('vidéos', 'videos') },
-    fav: { title: t('Favoris', 'Favourites'), n: 4, unit: t('chaînes', 'channels') },
-    recent: { title: t('Récents', 'Recent'), n: 4, unit: t('éléments', 'items') },
-    epg: { title: t('Guide TV', 'TV guide'), n: EPG.length, unit: t('chaînes', 'channels') },
-    replay: { title: t('Revoir (replay)', 'Watch again (replay)'), n: REPLAY.length, unit: t('programmes', 'programmes') },
-    rec: { title: t('Enregistrements', 'Recordings'), n: REC.length, unit: t('éléments', 'items') }
+  var THEMES = {
+    'th-sport': [t('Sport', 'Sport'), [1, 5]],
+    'th-info': [t('Info', 'News'), [0, 6]],
+    'th-films': [t('Films', 'Movies'), [2]],
+    'th-series': [t('Séries', 'Series'), [7]]
   };
-  var view = 'live', query = '';
-  var grid = document.getElementById('demo-grid'), ttl = document.getElementById('demo-title'), cnt = document.getElementById('demo-count'),
-      note = document.getElementById('demo-note'), q = document.getElementById('demo-q');
-  q.placeholder = t('Rechercher une chaîne, un film…', 'Search a channel, a movie…');
+  var VIEWS = {
+    live: { title: t('Direct', 'Live'), unit: t('chaînes', 'channels') },
+    films: { title: t('Films', 'Movies'), unit: t('films', 'movies') },
+    series: { title: t('Séries', 'Series'), unit: t('séries', 'series') },
+    videos: { title: t('Mes vidéos', 'My videos'), unit: t('vidéos', 'videos') },
+    fav: { title: t('Favoris', 'Favourites'), unit: t('chaînes', 'channels') },
+    recent: { title: t('Récents', 'Recent'), unit: t('éléments', 'items') },
+    epg: { title: t('Guide TV', 'TV guide'), unit: t('chaînes', 'channels') },
+    youtube: { title: 'YouTube', unit: '' },
+    rec: { title: t('Enregistrements', 'Recordings'), unit: t('éléments', 'items') },
+    tonight: { title: t('Ce soir · 20 h – 23 h', 'Tonight · 8 pm – 11 pm'), unit: t('programmes', 'programmes') }
+  };
+  var home = document.getElementById('demo-home'), screen = document.getElementById('demo-screen'),
+      grid = document.getElementById('demo-grid'), ttl = document.getElementById('demo-title'), cnt = document.getElementById('demo-count'),
+      note = document.getElementById('demo-note'), q = document.getElementById('demo-q'), results = document.getElementById('demo-results');
+  q.placeholder = t('Rechercher une chaîne, un film ou une série', 'Search a channel, a movie or a series');
   var NOTE0 = note.textContent;
 
   function norm(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
-  function match(a) { return !query || norm(a.join(' ')).indexOf(query) !== -1; }
   function play(name) {
     note.textContent = t('▶ Dans l’application, un clic lance « ' + name + ' ».', '▶ In the app, a click plays “' + name + '”.');
   }
-  function card(cls, title, sub, extra) {
+  function card(cls, title, sub) {
     var b = el('button', 'dc ' + cls); b.type = 'button';
     b.appendChild(el('span', 'dc-t', title));
     if (sub) b.appendChild(el('span', 'dc-s', sub));
-    if (extra) b.appendChild(extra);
     b.addEventListener('click', function () { play(title); });
     return b;
   }
@@ -96,40 +101,19 @@
     b.insertBefore(el('span', 'dc-logo', c[0].charAt(0)), b.firstChild);
     return b;
   }
-  function poster(title, sub, g) { var b = card('poster g' + g, title, sub); return b; }
+  function poster(title, sub, g) { return card('poster g' + g, title, sub); }
+  function film(f) { return poster(f[0], f[1] + ' · ' + f[2], f[3]); }
+  function ser(s) { return poster(s[0], s[1], s[2]); }
+  function vid(v) { return poster(v[0], v[1] + ' · ' + v[2], v[3]); }
+  function pick(list, idx) { return idx.map(function (i) { return list[i]; }); }
 
-  var out;
-  function build() {
-    var items = [];
-    if (view === 'live') items = LIVE.filter(function (c) { return match([c[0], c[1]]); }).map(chan);
-    else if (view === 'fav') items = LIVE.slice(0, 4).filter(function (c) { return match([c[0], c[1]]); }).map(chan);
-    else if (view === 'films') items = FILMS.filter(function (f) { return match([f[0], f[2]]); }).map(function (f) { return poster(f[0], f[1] + ' · ' + f[2], f[3]); });
-    else if (view === 'series') items = SERIES.filter(function (s) { return match([s[0]]); }).map(function (s) { return poster(s[0], s[1], s[2]); });
-    else if (view === 'videos') items = VIDEOS.filter(function (v) { return match([v[0], v[1]]); }).map(function (v) { return poster(v[0], v[1] + ' · ' + v[2], v[3]); });
-    else if (view === 'recent') {
-      items = FILMS.slice(0, 2).filter(function (f) { return match([f[0]]); }).map(function (f) { return poster(f[0], f[1] + ' · ' + f[2], f[3]); })
-        .concat(LIVE.slice(1, 3).filter(function (c) { return match([c[0], c[1]]); }).map(chan));
-    } else if (view === 'replay') {
-      items = REPLAY.filter(function (r) { return match(r); }).map(function (r) {
-        var b = card('chan', r[1], r[0] + ' · ' + r[2]); b.insertBefore(el('span', 'dc-logo rp', '↺'), b.firstChild); return b;
-      });
-    } else if (view === 'rec') {
-      items = REC.filter(function (r) { return match(r); }).map(function (r) {
-        var b = card('chan', r[1], r[0] + ' · ' + r[3]);
-        b.insertBefore(el('span', 'dc-logo st-' + r[2].toLowerCase(), r[2] === 'REC' ? '●' : r[2] === 'PLAN' ? '◷' : '✓'), b.firstChild); return b;
-      });
-    }
-    return items;
-  }
   function epg() {
-    var rows = EPG.filter(function (r) { return match([r[0]].concat(r[1].map(function (s) { return s[0]; }))); });
     var wrap = el('div', 'epg');
     var head = el('div', 'epg-row epg-head'); head.appendChild(el('span', 'epg-ch', ''));
-    var hours = ['20:00', '21:00', '22:00', '23:00'];
     var hs = el('span', 'epg-slots');
-    hours.forEach(function (h) { hs.appendChild(el('span', 'epg-h', h)); });
+    ['20:00', '21:00', '22:00', '23:00'].forEach(function (h) { hs.appendChild(el('span', 'epg-h', h)); });
     head.appendChild(hs); wrap.appendChild(head);
-    rows.forEach(function (r) {
+    EPG.forEach(function (r) {
       var row = el('div', 'epg-row'); row.appendChild(el('span', 'epg-ch', r[0]));
       var sl = el('span', 'epg-slots');
       r[1].forEach(function (s) {
@@ -139,24 +123,78 @@
       });
       row.appendChild(sl); wrap.appendChild(row);
     });
-    return { node: wrap, n: rows.length };
+    return wrap;
   }
-  function render() {
-    var v = VIEWS[view], n;
+  function info(title, text) {
+    var d = el('div', 'd-info'); d.appendChild(el('b', null, title)); d.appendChild(el('span', null, text)); return d;
+  }
+  function content(view) {
+    if (view === 'live') return LIVE.map(chan);
+    if (view === 'fav') return LIVE.slice(0, 4).map(chan);
+    if (view === 'films') return FILMS.map(film);
+    if (view === 'series') return SERIES.map(ser);
+    if (view === 'videos') return VIDEOS.map(vid);
+    if (view === 'recent') return FILMS.slice(0, 2).map(film).concat(LIVE.slice(1, 3).map(chan));
+    if (view === 'epg') return [epg()];
+    if (view === 'tonight') return LIVE.filter(function (c) { return c[2] >= '20:00'; }).slice(0, 6).map(chan);
+    if (view === 'rec') {
+      return REC.map(function (r) {
+        var b = card('chan', r[1], r[0] + ' · ' + r[3]);
+        b.insertBefore(el('span', 'dc-logo st-' + r[2].toLowerCase(), r[2] === 'REC' ? '●' : r[2] === 'PLAN' ? '◷' : '✓'), b.firstChild); return b;
+      });
+    }
+    if (view === 'youtube') {
+      return [info(t('Recherche YouTube', 'YouTube search'), t('Cherchez une vidéo et lisez-la sans publicité.', 'Search a video and play it without ads.')),
+              info(t('Vos abonnements', 'Your subscriptions'), t('Importez vos abonnements YouTube pour retrouver vos chaînes.', 'Import your YouTube subscriptions to find your channels.'))];
+    }
+    if (THEMES[view]) return pick(LIVE, THEMES[view][1]).map(chan);
+    return [];
+  }
+  function titleOf(view) { return THEMES[view] ? t('À la télé maintenant · ', 'On TV now · ') + THEMES[view][0] : VIEWS[view].title; }
+
+  function show(view) {
+    note.textContent = NOTE0;
+    if (view === 'home') { screen.hidden = true; home.hidden = false; return; }
+    var items = content(view);
     grid.textContent = '';
-    grid.className = 'd-grid' + (view === 'epg' ? ' is-epg' : '');
-    if (view === 'epg') { var e = epg(); grid.appendChild(e.node); n = e.n; }
-    else { var items = build(); items.forEach(function (i) { grid.appendChild(i); }); n = items.length; }
-    ttl.textContent = v.title;
-    cnt.textContent = n ? n + ' ' + v.unit : t('Aucun résultat', 'No results');
-    var btns = root.querySelectorAll('[data-view]'), i;
-    for (i = 0; i < btns.length; i++) btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-view') === view ? 'true' : 'false');
+    grid.className = 'd-grid' + (view === 'epg' ? ' is-epg' : view === 'youtube' ? ' is-info' : '');
+    items.forEach(function (i) { grid.appendChild(i); });
+    ttl.textContent = titleOf(view);
+    var unit = THEMES[view] ? t('chaînes', 'channels') : VIEWS[view].unit;
+    cnt.textContent = unit ? (view === 'epg' ? EPG.length : items.length) + ' ' + unit : '';
+    home.hidden = true; screen.hidden = false;
+    var back = screen.querySelector('.d-back'); back.focus({ preventScroll: true });
   }
   root.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('[data-view]') : null;
     if (!b) return;
-    view = b.getAttribute('data-view'); note.textContent = NOTE0; render();
+    q.value = ''; results.hidden = true;
+    show(b.getAttribute('data-view'));
   });
-  q.addEventListener('input', function () { query = norm(q.value.trim()); note.textContent = NOTE0; render(); });
-  render();
+
+  // Recherche sur l'accueil : chaînes, films et séries d'un coup
+  q.addEventListener('input', function () {
+    var v = norm(q.value.trim());
+    results.textContent = '';
+    note.textContent = NOTE0;
+    if (!v) { results.hidden = true; return; }
+    var groups = [
+      [t('Chaînes', 'Channels'), LIVE.filter(function (c) { return norm(c[0] + ' ' + c[1]).indexOf(v) !== -1; }).map(function (c) { return [c[0], c[1]]; })],
+      [t('Films', 'Movies'), FILMS.filter(function (f) { return norm(f[0]).indexOf(v) !== -1; }).map(function (f) { return [f[0], f[1]]; })],
+      [t('Séries', 'Series'), SERIES.filter(function (s) { return norm(s[0]).indexOf(v) !== -1; }).map(function (s) { return [s[0], s[1]]; })]
+    ], total = 0;
+    groups.forEach(function (g) {
+      if (!g[1].length) return;
+      total += g[1].length;
+      results.appendChild(el('p', 'd-rg', g[0]));
+      g[1].forEach(function (r) {
+        var b = el('button', 'd-row'); b.type = 'button';
+        b.appendChild(el('b', null, r[0])); b.appendChild(el('span', null, r[1]));
+        b.addEventListener('click', function () { play(r[0]); });
+        results.appendChild(b);
+      });
+    });
+    if (!total) results.appendChild(el('p', 'd-rg', t('Aucun résultat', 'No results')));
+    results.hidden = false;
+  });
 })();
