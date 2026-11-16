@@ -32,7 +32,7 @@ import illustrations  # noqa: E402
 
 PUB = os.path.join(ROOT, "public")
 SITE = "https://kastideo.com"
-LASTMOD = "2026-11-08"
+LASTMOD = "2026-11-16"
 LANGS = ("fr", "en")
 
 LEGAL = [
@@ -53,7 +53,41 @@ ARIA_EN = {
     "Logo TMDB": "TMDB logo",
     "Changer de langue": "Change language",
     "Comparaison": "Comparison",
+    "Menu": "Menu",
+    "Ouvrir le menu": "Open the menu",
+    "Afficher les guides": "Show the guides",
+    "Guides": "Guides",
+    "Menu mobile": "Mobile menu",
+    "Rechercher dans l'aperçu": "Search in the preview",
 }
+
+
+def _guides_index(lang):
+    fr = lang == "fr"
+    h2 = {"install": ("Installer Kastideo", "Install Kastideo"), "setup": ("Ajouter vos sources et configurer", "Add your sources and set up"),
+          "use": ("Utiliser Kastideo au quotidien", "Use Kastideo day to day")}
+    lead = ("Des guides pas à pas, un sujet par page. Choisissez votre besoin : installer l'application, ajouter vos sources, ou profiter du guide TV, du replay et des enregistrements.",
+            "Step-by-step guides, one topic per page. Pick what you need: install the app, add your sources, or make the most of the TV guide, replay and recording.")
+    out = [f"    <h1>{'Guides' if fr else 'Guides'}</h1>", f'    <p class="page-lead">{lead[0] if fr else lead[1]}</p>']
+    for cat in ("install", "setup", "use"):
+        out.append(f'\n    <h2 id="{cat}">{h2[cat][0] if fr else h2[cat][1]}</h2>\n    <div class="cards">')
+        items = [g for g in GUIDES if g.get("cat") == cat]
+        for g in items:
+            out.append(f'      <a class="card link" href="{g["slug"]}.html"><h3>{g["title_fr"] if fr else g["title_en"]}</h3><p>{g["blurb_fr"] if fr else g["blurb_en"]}</p></a>')
+        if cat == "install":
+            out.append('      <a class="card link" href="ios.html"><h3>' + ("iPhone et iPad (test)" if fr else "iPhone and iPad (testing)") + '</h3><p>'
+                       + ("Participer au test sur TestFlight." if fr else "Join the TestFlight test.") + '</p></a>')
+            out.append('      <a class="card link" href="apple-tv.html"><h3>Apple TV</h3><p>'
+                       + ("Version en test sur TestFlight." if fr else "Version being tested on TestFlight.") + '</p></a>')
+        out.append("    </div>")
+    out.append('\n    <p class="note">' + ("Une question qui n'est pas traitée ? Consultez la <a href=\"faq.html\">FAQ</a> ou écrivez à <code>contact@kastideo.com</code>."
+               if fr else "A question not covered? See the <a href=\"faq.html\">FAQ</a> or write to <code>contact@kastideo.com</code>.") + "</p>\n")
+    return "\n".join(out)
+
+
+OTHER.append({"slug": "guides", "title_fr": "Guides", "title_en": "Guides",
+              "desc": "Guides pas à pas pour Kastideo : installation, sources, guide TV, replay, enregistrement, iCloud, fiches films.",
+              "fr": _guides_index("fr"), "en": _guides_index("en")})
 
 
 def esc(s):
@@ -186,10 +220,111 @@ def head(slug, lang):
 """
 
 
-def lang_link(slug, lang):
+GLOBE = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>'
+         '<path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>')
+
+
+def lang_link(slug, lang, ident=True):
+    i = ' id="lang"' if ident else ""
     if lang == "fr":
-        return f'<a class="lang" id="lang" href="{url_path(slug, "en")}" hreflang="en" lang="en" aria-label="Changer de langue : English">English</a>'
-    return f'<a class="lang" id="lang" href="{url_path(slug, "fr")}" hreflang="fr" lang="fr" aria-label="Change language: Français">Français</a>'
+        return f'<a class="lang"{i} href="{url_path(slug, "en")}" hreflang="en" lang="en" aria-label="Changer de langue : English">{GLOBE}<span>EN</span></a>'
+    return f'<a class="lang"{i} href="{url_path(slug, "fr")}" hreflang="fr" lang="fr" aria-label="Change language: Français">{GLOBE}<span>FR</span></a>'
+
+
+# --------------------------------------------------------------------------- bandeau
+CAT_TITLES = {"install": ("Installer", "Install"), "setup": ("Configurer", "Set up"), "use": ("Utiliser", "Use")}
+MENU_NAMES = {
+    "guide-android-tv": ("Android TV", "Android TV"),
+    "guide-fire-tv": ("Fire TV", "Fire TV"),
+    "guide-raspberry-pi": ("Raspberry Pi", "Raspberry Pi"),
+    "guide-m3u": ("Playlist M3U", "M3U playlist"),
+    "guide-xtream-codes": ("Xtream Codes", "Xtream Codes"),
+    "guide-icloud": ("Synchro iCloud", "iCloud sync"),
+    "guide-films-series": ("Fiches films et séries (TMDB)", "Film and series details (TMDB)"),
+    "guide-epg-replay": ("Guide TV et replay", "TV guide and replay"),
+    "guide-enregistrer": ("Enregistrer une émission", "Record a programme"),
+}
+EXTRA_INSTALL = [("ios", "iPhone et iPad (test)", "iPhone and iPad (testing)"), ("apple-tv", "Apple TV (test)", "Apple TV (testing)")]
+
+SEARCH_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>'
+              '<path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>')
+CHEVRON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+BURGER = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>'
+
+
+def guide_groups():
+    """[(catégorie, [(slug, nom FR, nom EN)])] pour le menu Guides."""
+    out = []
+    for cat in ("install", "setup", "use"):
+        items = [(g["slug"],) + MENU_NAMES[g["slug"]] for g in GUIDES if g.get("cat") == cat]
+        if cat == "install":
+            items += EXTRA_INSTALL
+        out.append((cat, items))
+    return out
+
+
+def _guide_cols(mobile=False):
+    cols = []
+    for cat, items in guide_groups():
+        t_fr, t_en = CAT_TITLES[cat]
+        li = "".join(f'<li>{bi(fr, en, "a", " href=" + chr(34) + slug + ".html" + chr(34))}</li>' for slug, fr, en in items)
+        cols.append(f'<div class="dd-col">{bi(t_fr, t_en, "p", " class=" + chr(34) + "dd-title" + chr(34))}<ul>{li}</ul></div>')
+    return "".join(cols)
+
+
+def top_header(slug_for_lang):
+    """Bandeau commun à toutes les pages (verre dépoli, une seule ligne)."""
+    all_link = bi("Tous les guides", "All guides", "a", ' class="dd-all" href="guides.html"')
+    mobile_links = "".join(
+        f'<li>{bi(fr, en, "a", " href=" + chr(34) + href + chr(34))}</li>'
+        for href, fr, en in (("index.html#fonctions", "Fonctions", "Features"), ("index.html#versions", "Versions", "Versions"),
+                             ("nouveautes.html", "Nouveautés", "What's new"), ("faq.html", "FAQ", "FAQ"))
+    )
+    return f"""<header class="top" id="haut">
+  <div class="top-in">
+    <a class="brand" href="index.html">
+      <img src="icon-112.png" alt="Icône de Kastideo" width="40" height="40">
+      <div>
+        <strong>Kastideo</strong>
+        {bi("Lecteur IPTV et médias", "IPTV and media player", "span", ' class="tagline"')}
+      </div>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      {bi("Fonctions", "Features", "a", ' href="index.html#fonctions"')}
+      {bi("Versions", "Versions", "a", ' href="index.html#versions"')}
+      <div class="dd">
+        {bi("Guides", "Guides", "a", ' class="dd-link" href="guides.html"')}<button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-menu" aria-label="Afficher les guides">{CHEVRON}</button>
+        <div class="dd-menu" id="dd-menu">
+          <div class="dd-cols">{_guide_cols()}</div>
+          {all_link}
+        </div>
+      </div>
+      {bi("Nouveautés", "What's new", "a", ' href="nouveautes.html"')}
+      {bi("FAQ", "FAQ", "a", ' href="faq.html"')}
+    </nav>
+    <div class="top-actions">
+      <button class="search-btn" id="search-open" type="button" hidden aria-label="Rechercher / Search">{SEARCH_SVG}</button>
+      {kofi_button("Offrir un café", False, "Buy me a coffee")}
+      @@LANG@@
+      {bi("Télécharger", "Download", "a", ' class="btn primary small dl-top" href="telecharger.html"')}
+      <button class="burger" type="button" aria-expanded="false" aria-controls="m-panel" aria-label="Ouvrir le menu">{BURGER}</button>
+    </div>
+  </div>
+  <div class="m-panel" id="m-panel" hidden>
+    <ul class="m-links">{mobile_links}</ul>
+    <details class="m-guides">
+      <summary>{bi("Guides", "Guides", "span")}</summary>
+      <div class="dd-cols">{_guide_cols()}</div>
+      {all_link}
+    </details>
+    <div class="m-foot">
+      {bi("Télécharger", "Download", "a", ' class="btn primary small" href="telecharger.html"')}
+      {kofi_button("Offrir un café", False, "Buy me a coffee")}
+      @@LANG2@@
+    </div>
+  </div>
+</header>
+"""
 
 
 def header(slug):
@@ -199,27 +334,13 @@ def header(slug):
   <img src="backdrop.webp" alt="" width="256" height="256">
 </div>
 
+{top_header(slug)}
 <div class="wrap">
-  <header class="top" id="haut">
-    <a class="brand" href="index.html">
-      <img src="icon-112.png" alt="Icône de Kastideo" width="56" height="56">
-      <div>
-        <strong>Kastideo</strong>
-        {bi("Vos chaînes, vos films et vos séries au même endroit", "Your channels, films and series in one place")}
-      </div>
-    </a>
-    <nav class="main" aria-label="Navigation principale">
-      {bi("Fonctions", "Features", "a", ' href="index.html#fonctions"')}
-      {bi("Versions", "Versions", "a", ' href="index.html#versions"')}
-      {bi("Télécharger", "Download", "a", ' href="telecharger.html"')}
-      {bi("Nouveautés", "What's new", "a", ' href="nouveautes.html"')}
-      {bi("FAQ", "FAQ", "a", ' href="faq.html"')}
-      <button class="search-btn" id="search-open" type="button" hidden aria-label="Rechercher / Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
-      {kofi_button("Offrir un café", False, "Buy me a coffee")}
-      @@LANG@@
-    </nav>
-  </header>
 """
+
+
+def with_lang(html, slug, lang):
+    return html.replace("@@LANG@@", lang_link(slug, lang)).replace("@@LANG2@@", lang_link(slug, lang, False))
 
 
 def crumb_data(group, p):
@@ -229,6 +350,8 @@ def crumb_data(group, p):
         items.append(("Fonctions", "Features", "index#fonctions"))
     elif group == "versions":
         items.append(("Versions", "Versions", "index#versions"))
+    elif group == "guides":
+        items.append(("Guides", "Guides", "guides"))
     items.append((p["title_fr"], p["title_en"], None))
     return items
 
@@ -393,7 +516,7 @@ def subpage(p, group, siblings, footer, lang):
             crumbs_ld.append((name, url_path(s, lang) + ("#" + frag if frag else "")))
         else:
             crumbs_ld.append((name, None))
-    out = h + header(slug).replace("@@LANG@@", lang_link(slug, lang))
+    out = h + with_lang(header(slug), slug, lang)
     out += crumbs_html(items)
     out += f'\n  <main class="doc" id="contenu">\n{with_figure(p, lang)}  </main>\n\n'
     if siblings:
@@ -408,12 +531,12 @@ def subpage(p, group, siblings, footer, lang):
 
 def index_page(idx, lang):
     title, desc, h = head("index", lang)
-    body = re.sub(r'<button class="lang"[^>]*>[^<]*</button>', lang_link("index", lang), idx)
+    body = with_lang(idx.replace("<!--@@HEADER@@-->", top_header("index")), "index", lang)
     body = body.replace("<!--shot:index-->", real_figure("index", lang))
     body = re.sub(r'<script src="site.js"></script>\n?', "", body)
     out = h + "<body>\n<a class=\"skip\" href=\"#contenu\" data-fr=\"Aller au contenu\" data-en=\"Skip to content\">Aller au contenu</a>\n" + body
     out += jsonld("index", lang, title, desc, None)
-    out += '<script src="site.js"></script>\n</body>\n</html>\n'
+    out += '<script src="site.js"></script>\n<script src="demo.js" defer></script>\n</body>\n</html>\n'
     return localize(out, lang)
 
 

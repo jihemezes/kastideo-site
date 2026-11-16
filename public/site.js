@@ -400,7 +400,40 @@
     });
   }
 
+
+  /* ---------- Bandeau : menu Guides et menu mobile ---------- */
+  function initHeader() {
+    var dd = document.querySelector('.dd'), btn = dd && dd.querySelector('.dd-btn');
+    function setDD(open) { if (!dd) return; dd.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    if (btn) {
+      btn.addEventListener('click', function (e) { e.stopPropagation(); setDD(!dd.classList.contains('open')); });
+      document.addEventListener('click', function (e) { if (!dd.contains(e.target)) setDD(false); });
+      dd.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setDD(false); btn.focus(); } });
+      dd.addEventListener('focusout', function (e) { if (e.relatedTarget && !dd.contains(e.relatedTarget)) setDD(false); });
+    }
+    var burger = document.querySelector('.burger'), panel = document.getElementById('m-panel');
+    function setPanel(open) {
+      if (!panel) return;
+      panel.hidden = !open;
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    if (burger && panel) {
+      var label = { open: burger.getAttribute('aria-label') || '', close: lang === 'en' ? 'Close the menu' : 'Fermer le menu' };
+      burger.setAttribute('aria-label', lang === 'en' ? 'Open the menu' : 'Ouvrir le menu');
+      label.open = burger.getAttribute('aria-label');
+      burger.addEventListener('click', function () {
+        var open = panel.hidden;
+        setPanel(open);
+        burger.setAttribute('aria-label', open ? label.close : label.open);
+      });
+      panel.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) setPanel(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { setPanel(false); burger.focus(); } });
+      window.addEventListener('resize', function () { if (window.innerWidth > 900) setPanel(false); });
+    }
+  }
+
   loadReleases();
   loadNews();
   initSearch();
+  initHeader();
 })();

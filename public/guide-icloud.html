@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Synchroniser Kastideo avec iCloud (Mac, iPhone, iPad) | Kastideo</title>
+<meta name="description" content="Synchroniser sources, favoris, historique et reprise de lecture entre Mac, iPhone et iPad via un dossier iCloud Drive, avec phrase secrète.">
+<meta name="theme-color" content="#0F0524">
+<link rel="canonical" href="https://kastideo.com/guide-icloud">
+<link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-icloud">
+<link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-icloud">
+<link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-icloud">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kastideo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://kastideo.com/guide-icloud">
+<meta property="og:title" content="Synchroniser Kastideo avec iCloud (Mac, iPhone, iPad) | Kastideo">
+<meta property="og:description" content="Synchroniser sources, favoris, historique et reprise de lecture entre Mac, iPhone et iPad via un dossier iCloud Drive, avec phrase secrète.">
+<meta property="og:image" content="https://kastideo.com/og-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kastideo, lecteur IPTV pour Mac, Windows, Linux, Android, iPhone et iPad">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Synchroniser Kastideo avec iCloud (Mac, iPhone, iPad) | Kastideo">
+<meta name="twitter:description" content="Synchroniser sources, favoris, historique et reprise de lecture entre Mac, iPhone et iPad via un dossier iCloud Drive, avec phrase secrète.">
+<meta name="twitter:image" content="https://kastideo.com/og-fr.jpg">
+<link rel="preload" href="/fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="backdrop" aria-hidden="true">
+  <img src="/backdrop.webp" alt="" width="256" height="256">
+</div>
+
+<header class="top" id="haut">
+  <div class="top-in">
+    <a class="brand" href="/">
+      <img src="/icon-112.png" alt="Icône de Kastideo" width="40" height="40">
+      <div>
+        <strong>Kastideo</strong>
+        <span class="tagline">Lecteur IPTV et médias</span>
+      </div>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="/#fonctions">Fonctions</a>
+      <a href="/#versions">Versions</a>
+      <div class="dd">
+        <a class="dd-link" href="/guides">Guides</a><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-menu" aria-label="Afficher les guides"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-menu" id="dd-menu">
+          <div class="dd-cols"><div class="dd-col"><p class="dd-title">Installer</p><ul><li><a href="/guide-android-tv">Android TV</a></li><li><a href="/guide-fire-tv">Fire TV</a></li><li><a href="/guide-raspberry-pi">Raspberry Pi</a></li><li><a href="/ios">iPhone et iPad (test)</a></li><li><a href="/apple-tv">Apple TV (test)</a></li></ul></div><div class="dd-col"><p class="dd-title">Configurer</p><ul><li><a href="/guide-m3u">Playlist M3U</a></li><li><a href="/guide-xtream-codes">Xtream Codes</a></li><li><a href="/guide-icloud">Synchro iCloud</a></li><li><a href="/guide-films-series">Fiches films et séries (TMDB)</a></li></ul></div><div class="dd-col"><p class="dd-title">Utiliser</p><ul><li><a href="/guide-epg-replay">Guide TV et replay</a></li><li><a href="/guide-enregistrer">Enregistrer une émission</a></li></ul></div></div>
+          <a class="dd-all" href="/guides">Tous les guides</a>
+        </div>
+      </div>
+      <a href="/nouveautes">Nouveautés</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+    <div class="top-actions">
+      <button class="search-btn" id="search-open" type="button" hidden aria-label="Rechercher / Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
+      <a class="lang" id="lang" href="/en/guide-icloud" hreflang="en" lang="en" aria-label="Changer de langue : English"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>EN</span></a>
+      <a class="btn primary small dl-top" href="/telecharger">Télécharger</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="m-panel" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div class="m-panel" id="m-panel" hidden>
+    <ul class="m-links"><li><a href="/#fonctions">Fonctions</a></li><li><a href="/#versions">Versions</a></li><li><a href="/nouveautes">Nouveautés</a></li><li><a href="/faq">FAQ</a></li></ul>
+    <details class="m-guides">
+      <summary><span>Guides</span></summary>
+      <div class="dd-cols"><div class="dd-col"><p class="dd-title">Installer</p><ul><li><a href="/guide-android-tv">Android TV</a></li><li><a href="/guide-fire-tv">Fire TV</a></li><li><a href="/guide-raspberry-pi">Raspberry Pi</a></li><li><a href="/ios">iPhone et iPad (test)</a></li><li><a href="/apple-tv">Apple TV (test)</a></li></ul></div><div class="dd-col"><p class="dd-title">Configurer</p><ul><li><a href="/guide-m3u">Playlist M3U</a></li><li><a href="/guide-xtream-codes">Xtream Codes</a></li><li><a href="/guide-icloud">Synchro iCloud</a></li><li><a href="/guide-films-series">Fiches films et séries (TMDB)</a></li></ul></div><div class="dd-col"><p class="dd-title">Utiliser</p><ul><li><a href="/guide-epg-replay">Guide TV et replay</a></li><li><a href="/guide-enregistrer">Enregistrer une émission</a></li></ul></div></div>
+      <a class="dd-all" href="/guides">Tous les guides</a>
+    </details>
+    <div class="m-foot">
+      <a class="btn primary small" href="/telecharger">Télécharger</a>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
+      <a class="lang" href="/en/guide-icloud" hreflang="en" lang="en" aria-label="Changer de langue : English"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>EN</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> <a href="/guides">Guides</a> <span aria-hidden="true">›</span> <span aria-current="page">Synchroniser avec iCloud</span></nav>
+
+  <main class="doc" id="contenu">
+    <h1>Synchroniser avec iCloud</h1>
+    <p class="page-lead">Gardez votre Mac, votre iPhone et votre iPad à l'identique : sources, favoris, historique et reprise de lecture suivent d'un appareil à l'autre.</p>
+
+    <div class="callout"><b class="label">En test</b><p>La version iPhone et iPad est en test sur TestFlight (voir <a href="/ios">Kastideo pour iPhone et iPad</a>). La synchronisation iCloud est désactivée par défaut et n'est pas disponible sur Apple TV, Windows, Linux ni Android.</p></div>
+
+    <h2 id="ce-qui-est-synchronise">Ce qui est synchronisé</h2>
+    <ul>
+      <li>Vos sources (Xtream Codes, playlists M3U par adresse, Jellyfin, Emby, Plex).</li>
+      <li>Les favoris, l'historique, les catégories (ordre, masquages, noms).</li>
+      <li>La reprise de lecture et les contenus déjà vus, les fiches corrigées.</li>
+      <li>Au choix : les mots de passe des sources et la clé TMDB.</li>
+    </ul>
+    <p>Les dossiers de vidéos, les fichiers M3U et la galerie restent propres à chaque appareil, ainsi que les réglages d'affichage propres à chaque plateforme.</p>
+
+    <h2 id="mise-en-route">Mise en route, sur chaque appareil</h2>
+    <ol>
+      <li>Dans iCloud Drive, créez un dossier, par exemple <b>Kastideo</b> (une seule fois). Vérifiez que iCloud Drive est activé sur chaque appareil.</li>
+      <li>Ouvrez Kastideo &gt; Réglages &gt; <b>iCloud</b> et activez <b>Synchroniser avec iCloud Drive</b>.</li>
+      <li>Touchez <b>Dossier de synchronisation</b> et choisissez <b>le même dossier</b>.</li>
+      <li>Choisissez les éléments à synchroniser.</li>
+      <li>Si vous synchronisez les mots de passe ou la clé TMDB, saisissez la <b>phrase secrète</b> (la même sur tous les appareils) puis <b>Enregistrer la phrase secrète</b>.</li>
+    </ol>
+
+    <h2 id="phrase">La phrase secrète</h2>
+    <p>Les mots de passe sont chiffrés avec votre phrase secrète avant d'être déposés dans iCloud Drive : sans elle, personne ne peut les lire. Notez-la dans un endroit sûr, elle ne peut pas être retrouvée. Vous pouvez aussi ne synchroniser aucun mot de passe et les saisir une fois sur chaque appareil.</p>
+
+    <h2 id="fonctionnement">Comment ça marche</h2>
+    <ul>
+      <li>La modification la plus récente l'emporte. À la première synchronisation, les listes (sources, favoris, historique) sont réunies.</li>
+      <li>La synchronisation a lieu toutes les 30 secondes, au retour dans l'application et quand elle passe en arrière-plan. <b>Synchroniser maintenant</b> la force.</li>
+      <li>Sur Mac, une petite icône nuage en bas de la barre latérale indique l'état.</li>
+      <li><b>Effacer les fichiers de synchronisation</b> supprime les fichiers du dossier pour tous vos appareils. Vos données locales sont conservées.</li>
+    </ul>
+
+    <h2 id="autres">Et sur les autres plateformes ?</h2>
+    <p>Pour passer de l'un à l'autre (Windows, Linux, Android, Apple TV), exportez votre configuration depuis <b>Réglages &gt; Sauvegarde</b> et importez-la sur l'autre appareil : le fichier est le même partout. Astuce : enregistrez-le dans iCloud Drive pour le retrouver facilement.</p>
+    <p>Voir aussi : <a href="/ios#icloud">iCloud sur iPhone et iPad</a>, <a href="/mac">Kastideo pour Mac</a>.</p>
+  </main>
+
+  <section class="related" aria-labelledby="t-related">
+    <h2 id="t-related" class="sec">Voir aussi</h2>
+    <div class="cards">
+      <a class="card link" href="/guide-films-series">
+        <h3>Des fiches complètes pour vos films et séries</h3>
+        <p>Clé TMDB gratuite, correction des fiches, nommage des fichiers.</p>
+      </a>
+      <a class="card link" href="/guide-m3u">
+        <h3>Lire une playlist M3U</h3>
+        <p>Ajouter une adresse ou un fichier M3U dans Kastideo (Mac, Windows, Linux, Android), en cinq minutes.</p>
+      </a>
+      <a class="card link" href="/guide-xtream-codes">
+        <h3>Ajouter un abonnement Xtream Codes</h3>
+        <p>Serveur, identifiant, mot de passe : tout ce qu'il faut savoir.</p>
+      </a>
+    </div>
+  </section>
+  <aside class="cta-band" aria-label="Télécharger">
+    <div><strong>Prêt à essayer ?</strong><span>Kastideo est gratuit et sans compte.</span></div>
+    <div class="actions"><a class="btn primary" href="/telecharger">Télécharger Kastideo</a><a class="btn ghost" href="/soutenir">Soutenir le projet</a></div>
+  </aside>
+  <footer>
+    <div class="legal">
+      <h2 class="small-title">Avertissement</h2>
+      <p>Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales.</p>
+      <p>Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires.</p>
+      <p>Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
+
+      <div class="attrib">
+        <img class="tmdb-logo" src="/TMDB-blue_square_1.svg" alt="Logo TMDB" width="150" height="64">
+        <p style="margin:0">Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.</p>
+      </div>
+
+      <p class="credits">Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube.</p>
+
+      <div class="contact">
+        <span>Contact :</span>
+        <code>contact@kastideo.com</code>
+        <button class="copy" type="button" data-copy="contact@kastideo.com">Copier</button>
+      </div>
+      <nav class="sitemap" aria-label="Plan du site">
+      <div><p class="small-title">Fonctions</p>
+      <ul>
+        <li><a href="/direct">Regarder le direct</a></li>
+        <li><a href="/guide-tv">Guide TV et thèmes</a></li>
+        <li><a href="/interfaces">Interfaces et personnalisation</a></li>
+        <li><a href="/multivue">MultiVue</a></li>
+        <li><a href="/enregistrer">Enregistrer et télécharger</a></li>
+        <li><a href="/cast">Envoyer à la télévision</a></li>
+        <li><a href="/replay">Replay des programmes</a></li>
+        <li><a href="/films-series">Films et séries</a></li>
+        <li><a href="/sources">Vos sources</a></li>
+        <li><a href="/fiabilite">Rapide, stable et sobre</a></li>
+      </ul></div>
+      <div><p class="small-title">Versions</p>
+      <ul>
+        <li><a href="/mac">Kastideo pour Mac</a></li>
+        <li><a href="/windows">Kastideo pour Windows</a></li>
+        <li><a href="/linux">Kastideo pour Linux</a></li>
+        <li><a href="/android">Kastideo pour Android et Android TV</a></li>
+        <li><a href="/ios">Kastideo pour iPhone et iPad</a></li>
+        <li><a href="/apple-tv">Kastideo pour Apple TV</a></li>
+        <li><a href="/telecharger">Télécharger</a></li>
+      </ul></div>
+      <div><p class="small-title">Guides</p>
+      <ul>
+        <li><a href="/guide-m3u">Lire une playlist M3U</a></li>
+        <li><a href="/guide-xtream-codes">Ajouter un abonnement Xtream Codes</a></li>
+        <li><a href="/guide-android-tv">Installer Kastideo sur Android TV</a></li>
+        <li><a href="/guide-fire-tv">Installer Kastideo sur Fire TV</a></li>
+        <li><a href="/guide-raspberry-pi">L'IPTV sur Raspberry Pi 4 ou 5</a></li>
+        <li><a href="/guide-epg-replay">Régler le guide TV et revoir un programme</a></li>
+        <li><a href="/guide-enregistrer">Enregistrer une émission</a></li>
+        <li><a href="/guide-icloud">Synchroniser avec iCloud</a></li>
+        <li><a href="/guide-films-series">Des fiches complètes pour vos films et séries</a></li>
+      </ul></div>
+      <div><p class="small-title">Comparer</p>
+      <ul>
+        <li><a href="/lecteur-video-ou-lecteur-iptv">Lecteur vidéo ou lecteur IPTV ?</a></li>
+        <li><a href="/application-tv-ou-multi-appareils">Boîtier TV ou multi-appareils ?</a></li>
+        <li><a href="/application-fournisseur-ou-independant">Application du fournisseur ou indépendante ?</a></li>
+        <li><a href="/faq">Questions fréquentes</a></li>
+      </ul></div>
+      <div><p class="small-title">Projet</p>
+      <ul>
+        <li><a href="/nouveautes">Nouveautés</a></li>
+        <li><a href="/soutenir">Soutenir le projet</a></li>
+        <li><a href="/confidentialite">Politique de confidentialité</a></li>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+      </ul></div>
+    </nav>
+      <p class="fine">
+        <a href="/confidentialite">Confidentialité</a> ·
+        <a href="/mentions-legales">Mentions légales</a> ·
+        Kastideo <span data-ver="mac">1.9.1</span>
+      </p>
+    </div>
+  </footer>
+  <a class="to-top" href="#haut" aria-label="Remonter en haut de la page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kastideo.com/guide-icloud#page","url":"https://kastideo.com/guide-icloud","name":"Synchroniser Kastideo avec iCloud (Mac, iPhone, iPad)","description":"Synchroniser sources, favoris, historique et reprise de lecture entre Mac, iPhone et iPad via un dossier iCloud Drive, avec phrase secrète.","inLanguage":"fr","isPartOf":{"@id":"https://kastideo.com/#site"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://kastideo.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://kastideo.com/guides"},{"@type":"ListItem","position":3,"name":"Synchroniser avec iCloud"}]}]}</script>
+<script src="/site.js"></script>
+</body>
+</html>

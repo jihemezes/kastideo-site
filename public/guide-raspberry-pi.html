@@ -36,27 +36,53 @@
   <img src="/backdrop.webp" alt="" width="256" height="256">
 </div>
 
-<div class="wrap">
-  <header class="top" id="haut">
+<header class="top" id="haut">
+  <div class="top-in">
     <a class="brand" href="/">
-      <img src="/icon-112.png" alt="Icône de Kastideo" width="56" height="56">
+      <img src="/icon-112.png" alt="Icône de Kastideo" width="40" height="40">
       <div>
         <strong>Kastideo</strong>
-        <span>Vos chaînes, vos films et vos séries au même endroit</span>
+        <span class="tagline">Lecteur IPTV et médias</span>
       </div>
     </a>
     <nav class="main" aria-label="Navigation principale">
       <a href="/#fonctions">Fonctions</a>
       <a href="/#versions">Versions</a>
-      <a href="/telecharger">Télécharger</a>
+      <div class="dd">
+        <a class="dd-link" href="/guides">Guides</a><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-menu" aria-label="Afficher les guides"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-menu" id="dd-menu">
+          <div class="dd-cols"><div class="dd-col"><p class="dd-title">Installer</p><ul><li><a href="/guide-android-tv">Android TV</a></li><li><a href="/guide-fire-tv">Fire TV</a></li><li><a href="/guide-raspberry-pi">Raspberry Pi</a></li><li><a href="/ios">iPhone et iPad (test)</a></li><li><a href="/apple-tv">Apple TV (test)</a></li></ul></div><div class="dd-col"><p class="dd-title">Configurer</p><ul><li><a href="/guide-m3u">Playlist M3U</a></li><li><a href="/guide-xtream-codes">Xtream Codes</a></li><li><a href="/guide-icloud">Synchro iCloud</a></li><li><a href="/guide-films-series">Fiches films et séries (TMDB)</a></li></ul></div><div class="dd-col"><p class="dd-title">Utiliser</p><ul><li><a href="/guide-epg-replay">Guide TV et replay</a></li><li><a href="/guide-enregistrer">Enregistrer une émission</a></li></ul></div></div>
+          <a class="dd-all" href="/guides">Tous les guides</a>
+        </div>
+      </div>
       <a href="/nouveautes">Nouveautés</a>
       <a href="/faq">FAQ</a>
+    </nav>
+    <div class="top-actions">
       <button class="search-btn" id="search-open" type="button" hidden aria-label="Rechercher / Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
       <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
-      <a class="lang" id="lang" href="/en/guide-raspberry-pi" hreflang="en" lang="en" aria-label="Changer de langue : English">English</a>
-    </nav>
-  </header>
-  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page">L'IPTV sur Raspberry Pi 4 ou 5</span></nav>
+      <a class="lang" id="lang" href="/en/guide-raspberry-pi" hreflang="en" lang="en" aria-label="Changer de langue : English"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>EN</span></a>
+      <a class="btn primary small dl-top" href="/telecharger">Télécharger</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="m-panel" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div class="m-panel" id="m-panel" hidden>
+    <ul class="m-links"><li><a href="/#fonctions">Fonctions</a></li><li><a href="/#versions">Versions</a></li><li><a href="/nouveautes">Nouveautés</a></li><li><a href="/faq">FAQ</a></li></ul>
+    <details class="m-guides">
+      <summary><span>Guides</span></summary>
+      <div class="dd-cols"><div class="dd-col"><p class="dd-title">Installer</p><ul><li><a href="/guide-android-tv">Android TV</a></li><li><a href="/guide-fire-tv">Fire TV</a></li><li><a href="/guide-raspberry-pi">Raspberry Pi</a></li><li><a href="/ios">iPhone et iPad (test)</a></li><li><a href="/apple-tv">Apple TV (test)</a></li></ul></div><div class="dd-col"><p class="dd-title">Configurer</p><ul><li><a href="/guide-m3u">Playlist M3U</a></li><li><a href="/guide-xtream-codes">Xtream Codes</a></li><li><a href="/guide-icloud">Synchro iCloud</a></li><li><a href="/guide-films-series">Fiches films et séries (TMDB)</a></li></ul></div><div class="dd-col"><p class="dd-title">Utiliser</p><ul><li><a href="/guide-epg-replay">Guide TV et replay</a></li><li><a href="/guide-enregistrer">Enregistrer une émission</a></li></ul></div></div>
+      <a class="dd-all" href="/guides">Tous les guides</a>
+    </details>
+    <div class="m-foot">
+      <a class="btn primary small" href="/telecharger">Télécharger</a>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
+      <a class="lang" href="/en/guide-raspberry-pi" hreflang="en" lang="en" aria-label="Changer de langue : English"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>EN</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> <a href="/guides">Guides</a> <span aria-hidden="true">›</span> <span aria-current="page">L'IPTV sur Raspberry Pi 4 ou 5</span></nav>
 
   <main class="doc" id="contenu">
     <h1>Regarder l'IPTV sur Raspberry Pi 4 ou 5</h1>
@@ -93,17 +119,17 @@
   <section class="related" aria-labelledby="t-related">
     <h2 id="t-related" class="sec">Voir aussi</h2>
     <div class="cards">
-      <a class="card link" href="/guide-m3u">
-        <h3>Lire une playlist M3U</h3>
-        <p>Ajouter une adresse ou un fichier M3U dans Kastideo (Mac, Windows, Linux, Android), en cinq minutes.</p>
+      <a class="card link" href="/guide-epg-replay">
+        <h3>Régler le guide TV et revoir un programme</h3>
+        <p>Adresse du guide, guide de secours, grille, replay jusqu'à 14 jours.</p>
       </a>
-      <a class="card link" href="/guide-xtream-codes">
-        <h3>Ajouter un abonnement Xtream Codes</h3>
-        <p>Serveur, identifiant, mot de passe : tout ce qu'il faut savoir.</p>
+      <a class="card link" href="/guide-enregistrer">
+        <h3>Enregistrer une émission</h3>
+        <p>Enregistrer le direct, programmer, télécharger la nuit, retrouver ses fichiers.</p>
       </a>
-      <a class="card link" href="/guide-android-tv">
-        <h3>Installer Kastideo sur Android TV</h3>
-        <p>APK, Downloader, clé USB et télécommande, sans désactiver la sécurité.</p>
+      <a class="card link" href="/guide-icloud">
+        <h3>Synchroniser avec iCloud</h3>
+        <p>Mac, iPhone et iPad à l'identique, avec phrase secrète pour les mots de passe.</p>
       </a>
     </div>
   </section>
@@ -161,6 +187,10 @@
         <li><a href="/guide-android-tv">Installer Kastideo sur Android TV</a></li>
         <li><a href="/guide-fire-tv">Installer Kastideo sur Fire TV</a></li>
         <li><a href="/guide-raspberry-pi">L'IPTV sur Raspberry Pi 4 ou 5</a></li>
+        <li><a href="/guide-epg-replay">Régler le guide TV et revoir un programme</a></li>
+        <li><a href="/guide-enregistrer">Enregistrer une émission</a></li>
+        <li><a href="/guide-icloud">Synchroniser avec iCloud</a></li>
+        <li><a href="/guide-films-series">Des fiches complètes pour vos films et séries</a></li>
       </ul></div>
       <div><p class="small-title">Comparer</p>
       <ul>
@@ -186,7 +216,7 @@
   </footer>
   <a class="to-top" href="#haut" aria-label="Remonter en haut de la page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kastideo.com/guide-raspberry-pi#page","url":"https://kastideo.com/guide-raspberry-pi","name":"IPTV sur Raspberry Pi 4 ou 5 : installer Kastideo (AppImage)","description":"Télécharger l'AppImage ARM 64 bits, la rendre exécutable, ajouter votre source et profiter de l'interface TV au salon.","inLanguage":"fr","isPartOf":{"@id":"https://kastideo.com/#site"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://kastideo.com/"},{"@type":"ListItem","position":2,"name":"L'IPTV sur Raspberry Pi 4 ou 5"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kastideo.com/guide-raspberry-pi#page","url":"https://kastideo.com/guide-raspberry-pi","name":"IPTV sur Raspberry Pi 4 ou 5 : installer Kastideo (AppImage)","description":"Télécharger l'AppImage ARM 64 bits, la rendre exécutable, ajouter votre source et profiter de l'interface TV au salon.","inLanguage":"fr","isPartOf":{"@id":"https://kastideo.com/#site"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://kastideo.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://kastideo.com/guides"},{"@type":"ListItem","position":3,"name":"L'IPTV sur Raspberry Pi 4 ou 5"}]}]}</script>
 <script src="/site.js"></script>
 </body>
 </html>

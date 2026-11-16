@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Enregistrer une émission de TV avec Kastideo | Kastideo</title>
+<meta name="description" content="Enregistrer le direct, programmer une émission, télécharger un film la nuit et retrouver vos fichiers dans Kastideo.">
+<meta name="theme-color" content="#0F0524">
+<link rel="canonical" href="https://kastideo.com/guide-enregistrer">
+<link rel="alternate" hreflang="fr" href="https://kastideo.com/guide-enregistrer">
+<link rel="alternate" hreflang="en" href="https://kastideo.com/en/guide-enregistrer">
+<link rel="alternate" hreflang="x-default" href="https://kastideo.com/guide-enregistrer">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kastideo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://kastideo.com/guide-enregistrer">
+<meta property="og:title" content="Enregistrer une émission de TV avec Kastideo | Kastideo">
+<meta property="og:description" content="Enregistrer le direct, programmer une émission, télécharger un film la nuit et retrouver vos fichiers dans Kastideo.">
+<meta property="og:image" content="https://kastideo.com/og-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kastideo, lecteur IPTV pour Mac, Windows, Linux, Android, iPhone et iPad">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Enregistrer une émission de TV avec Kastideo | Kastideo">
+<meta name="twitter:description" content="Enregistrer le direct, programmer une émission, télécharger un film la nuit et retrouver vos fichiers dans Kastideo.">
+<meta name="twitter:image" content="https://kastideo.com/og-fr.jpg">
+<link rel="preload" href="/fonts/nunito-latin-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="backdrop" aria-hidden="true">
+  <img src="/backdrop.webp" alt="" width="256" height="256">
+</div>
+
+<header class="top" id="haut">
+  <div class="top-in">
+    <a class="brand" href="/">
+      <img src="/icon-112.png" alt="Icône de Kastideo" width="40" height="40">
+      <div>
+        <strong>Kastideo</strong>
+        <span class="tagline">Lecteur IPTV et médias</span>
+      </div>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="/#fonctions">Fonctions</a>
+      <a href="/#versions">Versions</a>
+      <div class="dd">
+        <a class="dd-link" href="/guides">Guides</a><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-menu" aria-label="Afficher les guides"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dd-menu" id="dd-menu">
+          <div class="dd-cols"><div class="dd-col"><p class="dd-title">Installer</p><ul><li><a href="/guide-android-tv">Android TV</a></li><li><a href="/guide-fire-tv">Fire TV</a></li><li><a href="/guide-raspberry-pi">Raspberry Pi</a></li><li><a href="/ios">iPhone et iPad (test)</a></li><li><a href="/apple-tv">Apple TV (test)</a></li></ul></div><div class="dd-col"><p class="dd-title">Configurer</p><ul><li><a href="/guide-m3u">Playlist M3U</a></li><li><a href="/guide-xtream-codes">Xtream Codes</a></li><li><a href="/guide-icloud">Synchro iCloud</a></li><li><a href="/guide-films-series">Fiches films et séries (TMDB)</a></li></ul></div><div class="dd-col"><p class="dd-title">Utiliser</p><ul><li><a href="/guide-epg-replay">Guide TV et replay</a></li><li><a href="/guide-enregistrer">Enregistrer une émission</a></li></ul></div></div>
+          <a class="dd-all" href="/guides">Tous les guides</a>
+        </div>
+      </div>
+      <a href="/nouveautes">Nouveautés</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+    <div class="top-actions">
+      <button class="search-btn" id="search-open" type="button" hidden aria-label="Rechercher / Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 16l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
+      <a class="lang" id="lang" href="/en/guide-enregistrer" hreflang="en" lang="en" aria-label="Changer de langue : English"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>EN</span></a>
+      <a class="btn primary small dl-top" href="/telecharger">Télécharger</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="m-panel" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div class="m-panel" id="m-panel" hidden>
+    <ul class="m-links"><li><a href="/#fonctions">Fonctions</a></li><li><a href="/#versions">Versions</a></li><li><a href="/nouveautes">Nouveautés</a></li><li><a href="/faq">FAQ</a></li></ul>
+    <details class="m-guides">
+      <summary><span>Guides</span></summary>
+      <div class="dd-cols"><div class="dd-col"><p class="dd-title">Installer</p><ul><li><a href="/guide-android-tv">Android TV</a></li><li><a href="/guide-fire-tv">Fire TV</a></li><li><a href="/guide-raspberry-pi">Raspberry Pi</a></li><li><a href="/ios">iPhone et iPad (test)</a></li><li><a href="/apple-tv">Apple TV (test)</a></li></ul></div><div class="dd-col"><p class="dd-title">Configurer</p><ul><li><a href="/guide-m3u">Playlist M3U</a></li><li><a href="/guide-xtream-codes">Xtream Codes</a></li><li><a href="/guide-icloud">Synchro iCloud</a></li><li><a href="/guide-films-series">Fiches films et séries (TMDB)</a></li></ul></div><div class="dd-col"><p class="dd-title">Utiliser</p><ul><li><a href="/guide-epg-replay">Guide TV et replay</a></li><li><a href="/guide-enregistrer">Enregistrer une émission</a></li></ul></div></div>
+      <a class="dd-all" href="/guides">Tous les guides</a>
+    </details>
+    <div class="m-foot">
+      <a class="btn primary small" href="/telecharger">Télécharger</a>
+      <a class="kofi-btn" href="https://ko-fi.com/jihemezes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="steam s1" d="M8 2.5c-.9.9.9 1.6 0 2.5"/><path class="steam s2" d="M11.5 2c-.9.9.9 1.6 0 2.5"/><path class="steam s3" d="M15 2.5c-.9.9.9 1.6 0 2.5"/><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9.5h1.6a2.4 2.4 0 0 1 0 4.8H16.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 21.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Offrir un café</span></a>
+      <a class="lang" href="/en/guide-enregistrer" hreflang="en" lang="en" aria-label="Changer de langue : English"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>EN</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> <a href="/guides">Guides</a> <span aria-hidden="true">›</span> <span aria-current="page">Enregistrer une émission</span></nav>
+
+  <main class="doc" id="contenu">
+    <h1>Enregistrer une émission</h1>
+    <p class="page-lead">Enregistrer le direct, programmer une émission à venir, télécharger un film pour la nuit : tout se retrouve dans la section Enregistrements.</p>
+
+    <h2 id="maintenant">1. Enregistrer maintenant</h2>
+    <ul>
+      <li>Pendant la lecture d'une chaîne, cliquez sur le bouton rond rouge du lecteur, ou utilisez le raccourci (<b>⇧⌘R</b> sur Mac, <b>R</b> sous Windows et Linux).</li>
+      <li>Autre possibilité : clic droit sur une chaîne &gt; <b>Enregistrer maintenant</b>.</li>
+      <li>L'enregistrement utilise <b>la même connexion</b> que la lecture : rien de plus n'est consommé sur votre abonnement.</li>
+    </ul>
+    <p>Sur Mac, l'enregistrement démarre tout de suite, puis un bandeau propose de choisir l'arrêt : dans 15 minutes, 1 heure, à une heure précise ou sans limite. Sans choix, il s'arrête à la fin du programme d'après le guide TV (marge comprise), sinon après la durée par défaut des réglages.</p>
+
+    <h2 id="programmer">2. Programmer un enregistrement</h2>
+    <ul>
+      <li>Dans le guide TV, ouvrez un programme à venir puis <b>Programmer l'enregistrement</b>. Un point rouge le marque dans la grille.</li>
+      <li>Clic droit sur une chaîne &gt; <b>Programmer un enregistrement…</b> : choisissez un programme du guide, ou des horaires libres pour une chaîne sans guide.</li>
+      <li>Des <b>marges</b> avant et après (réglables) évitent de rater le début ou la fin.</li>
+      <li>Sous Windows et Linux, une <b>répétition</b> est possible : tous les jours, du lundi au vendredi ou chaque semaine.</li>
+    </ul>
+    <div class="callout"><b class="label">Important</b><p>Kastideo doit rester ouvert et l'ordinateur allumé à l'heure prévue. Sur Windows, vous pouvez activer « Lancer Kastideo à l'ouverture de session » dans les réglages.</p></div>
+
+    <h2 id="telecharger">3. Télécharger un film ou une série</h2>
+    <p>Clic droit sur un film ou un épisode &gt; <b>Télécharger</b> ou <b>Télécharger cette nuit</b>. Pour une série, le bouton de la fiche propose la saison affichée ou toute la série. Les téléchargements passent l'un après l'autre et peuvent être mis en pause, repris ou annulés dans la section Enregistrements.</p>
+
+    <h2 id="priorite">4. Une seule connexion : qui passe en premier ?</h2>
+    <p>Votre abonnement n'autorise souvent qu'une connexion. Kastideo vous demande toujours avant d'interrompre quelque chose : changer de chaîne pendant un enregistrement propose de l'arrêter, lancer une lecture pendant un téléchargement le met en pause jusqu'à la fin de la lecture.</p>
+
+    <h2 id="fichiers">5. Retrouver vos fichiers</h2>
+    <ul>
+      <li>Section <b>Enregistrements</b> de la barre latérale (<b>⌘6</b> sur Mac) : en cours, programmés, téléchargements et fichiers terminés. Un clic lit un fichier, un clic droit l'affiche dans le dossier ou le supprime.</li>
+      <li>Dossier par défaut : <b>Films/Kastideo</b> sur Mac, <b>Vidéos/Kastideo</b> sous Windows. Modifiable dans <b>Réglages &gt; Enregistrements</b>.</li>
+      <li>À la fin, l'enregistrement est converti sans perte en MP4 (Mac) ou en MKV (Windows et Linux) pour se lire partout.</li>
+      <li>Comptez environ 1 à 3 Go par heure selon la chaîne.</li>
+    </ul>
+    <p>Sur Mac, vous pouvez aussi nettoyer la liste : retirer un enregistrement, une sélection ou tout, avec ou sans suppression des fichiers, et un bouton Annuler pendant quelques secondes.</p>
+
+    <h2 id="droits">Droits de copie</h2>
+    <p>Les droits dépendent des conditions de votre fournisseur : Kastideo enregistre, pour votre usage privé, ce que votre abonnement vous donne déjà.</p>
+    <p>Voir aussi : <a href="/enregistrer">Enregistrer et télécharger</a>, <a href="/guide-epg-replay">Régler le guide TV et revoir un programme</a>.</p>
+  </main>
+
+  <section class="related" aria-labelledby="t-related">
+    <h2 id="t-related" class="sec">Voir aussi</h2>
+    <div class="cards">
+      <a class="card link" href="/guide-icloud">
+        <h3>Synchroniser avec iCloud</h3>
+        <p>Mac, iPhone et iPad à l'identique, avec phrase secrète pour les mots de passe.</p>
+      </a>
+      <a class="card link" href="/guide-films-series">
+        <h3>Des fiches complètes pour vos films et séries</h3>
+        <p>Clé TMDB gratuite, correction des fiches, nommage des fichiers.</p>
+      </a>
+      <a class="card link" href="/guide-m3u">
+        <h3>Lire une playlist M3U</h3>
+        <p>Ajouter une adresse ou un fichier M3U dans Kastideo (Mac, Windows, Linux, Android), en cinq minutes.</p>
+      </a>
+    </div>
+  </section>
+  <aside class="cta-band" aria-label="Télécharger">
+    <div><strong>Prêt à essayer ?</strong><span>Kastideo est gratuit et sans compte.</span></div>
+    <div class="actions"><a class="btn primary" href="/telecharger">Télécharger Kastideo</a><a class="btn ghost" href="/soutenir">Soutenir le projet</a></div>
+  </aside>
+  <footer>
+    <div class="legal">
+      <h2 class="small-title">Avertissement</h2>
+      <p>Kastideo est un lecteur multimédia. Il ne fournit, n'héberge ni ne vend aucune chaîne, aucun film, aucune liste de lecture ni aucun abonnement. Vous devez fournir vos propres sources et vérifier qu'elles sont légales.</p>
+      <p>Kastideo n'est affilié à aucun fournisseur de contenus ou d'abonnements IPTV, ni à YouTube, Google, TMDB, Plex, Jellyfin, Emby, Apple ou Microsoft. Les marques citées appartiennent à leurs propriétaires.</p>
+      <p>Les enregistrements, les téléchargements et la diffusion vers un téléviseur sont réservés à un usage privé, dans les limites de la loi de votre pays.</p>
+
+      <div class="attrib">
+        <img class="tmdb-logo" src="/TMDB-blue_square_1.svg" alt="Logo TMDB" width="150" height="64">
+        <p style="margin:0">Ce produit utilise l'API TMDB mais n'est ni approuvé ni certifié par TMDB.</p>
+      </div>
+
+      <p class="credits">Logiciels libres : VLC / VLCKit (VideoLAN, LGPL 2.1+), Sparkle (MIT), Flutter (BSD), mpv via media_kit (LGPL / MIT), FFmpeg (Cast, licence GPL), polices Nunito et Inter (OFL). Les conditions de YouTube s'appliquent à la section YouTube.</p>
+
+      <div class="contact">
+        <span>Contact :</span>
+        <code>contact@kastideo.com</code>
+        <button class="copy" type="button" data-copy="contact@kastideo.com">Copier</button>
+      </div>
+      <nav class="sitemap" aria-label="Plan du site">
+      <div><p class="small-title">Fonctions</p>
+      <ul>
+        <li><a href="/direct">Regarder le direct</a></li>
+        <li><a href="/guide-tv">Guide TV et thèmes</a></li>
+        <li><a href="/interfaces">Interfaces et personnalisation</a></li>
+        <li><a href="/multivue">MultiVue</a></li>
+        <li><a href="/enregistrer">Enregistrer et télécharger</a></li>
+        <li><a href="/cast">Envoyer à la télévision</a></li>
+        <li><a href="/replay">Replay des programmes</a></li>
+        <li><a href="/films-series">Films et séries</a></li>
+        <li><a href="/sources">Vos sources</a></li>
+        <li><a href="/fiabilite">Rapide, stable et sobre</a></li>
+      </ul></div>
+      <div><p class="small-title">Versions</p>
+      <ul>
+        <li><a href="/mac">Kastideo pour Mac</a></li>
+        <li><a href="/windows">Kastideo pour Windows</a></li>
+        <li><a href="/linux">Kastideo pour Linux</a></li>
+        <li><a href="/android">Kastideo pour Android et Android TV</a></li>
+        <li><a href="/ios">Kastideo pour iPhone et iPad</a></li>
+        <li><a href="/apple-tv">Kastideo pour Apple TV</a></li>
+        <li><a href="/telecharger">Télécharger</a></li>
+      </ul></div>
+      <div><p class="small-title">Guides</p>
+      <ul>
+        <li><a href="/guide-m3u">Lire une playlist M3U</a></li>
+        <li><a href="/guide-xtream-codes">Ajouter un abonnement Xtream Codes</a></li>
+        <li><a href="/guide-android-tv">Installer Kastideo sur Android TV</a></li>
+        <li><a href="/guide-fire-tv">Installer Kastideo sur Fire TV</a></li>
+        <li><a href="/guide-raspberry-pi">L'IPTV sur Raspberry Pi 4 ou 5</a></li>
+        <li><a href="/guide-epg-replay">Régler le guide TV et revoir un programme</a></li>
+        <li><a href="/guide-enregistrer">Enregistrer une émission</a></li>
+        <li><a href="/guide-icloud">Synchroniser avec iCloud</a></li>
+        <li><a href="/guide-films-series">Des fiches complètes pour vos films et séries</a></li>
+      </ul></div>
+      <div><p class="small-title">Comparer</p>
+      <ul>
+        <li><a href="/lecteur-video-ou-lecteur-iptv">Lecteur vidéo ou lecteur IPTV ?</a></li>
+        <li><a href="/application-tv-ou-multi-appareils">Boîtier TV ou multi-appareils ?</a></li>
+        <li><a href="/application-fournisseur-ou-independant">Application du fournisseur ou indépendante ?</a></li>
+        <li><a href="/faq">Questions fréquentes</a></li>
+      </ul></div>
+      <div><p class="small-title">Projet</p>
+      <ul>
+        <li><a href="/nouveautes">Nouveautés</a></li>
+        <li><a href="/soutenir">Soutenir le projet</a></li>
+        <li><a href="/confidentialite">Politique de confidentialité</a></li>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+      </ul></div>
+    </nav>
+      <p class="fine">
+        <a href="/confidentialite">Confidentialité</a> ·
+        <a href="/mentions-legales">Mentions légales</a> ·
+        Kastideo <span data-ver="mac">1.9.1</span>
+      </p>
+    </div>
+  </footer>
+  <a class="to-top" href="#haut" aria-label="Remonter en haut de la page" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kastideo.com/guide-enregistrer#page","url":"https://kastideo.com/guide-enregistrer","name":"Enregistrer une émission de TV avec Kastideo","description":"Enregistrer le direct, programmer une émission, télécharger un film la nuit et retrouver vos fichiers dans Kastideo.","inLanguage":"fr","isPartOf":{"@id":"https://kastideo.com/#site"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://kastideo.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://kastideo.com/guides"},{"@type":"ListItem","position":3,"name":"Enregistrer une émission"}]}]}</script>
+<script src="/site.js"></script>
+</body>
+</html>

@@ -55,3 +55,9 @@ Cloudflare sert les pages sans `.html` (`/direct`, `/en/direct`) : les adresses 
 ## Recherche
 
 Loupe dans le menu (raccourci `/` ou Ctrl/Cmd+K). `tools/build_pages.py` génère `public/search-fr.json` et `public/search-en.json` (une entrée par section h1/h2 de chaque page, avec ancre) ; `public/site.js` (`initSearch`) les charge à l'ouverture. Ces fichiers sont régénérés à chaque `python3 tools/build_pages.py` : ne pas les éditer à la main.
+
+## Bandeau, guides et aperçu interactif
+
+- Le bandeau (`top_header()` dans `tools/build_pages.py`) est commun à toutes les pages, accueil compris (`<!--@@HEADER@@-->` dans `tools/src/index.body.html`) : verre dépoli collant, menu Guides (colonnes Installer / Configurer / Utiliser générées depuis `GUIDES` et `MENU_NAMES`), panneau mobile, bouton Télécharger. Comportement dans `initHeader()` de `public/site.js`.
+- Chaque guide de `tools/pages_guides.py` / `tools/pages_guides2.py` porte une clé `cat` (`install`, `setup`, `use`) ; la page `/guides` est générée par `_guides_index()`. Pour ajouter un guide : l'ajouter à la liste, puis lui donner un nom court dans `MENU_NAMES` et une entrée dans `tools/seo.py`.
+- L'aperçu interactif de l'accueil est du HTML dans `tools/src/index.body.html` + `public/demo.js` (contenus fictifs, aucune source réelle, aucune bibliothèque externe).

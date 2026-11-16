@@ -436,22 +436,25 @@ FIRE_EN = """    <h1>Install Kastideo on Fire TV</h1>
 """
 
 GUIDES = [
-    {"slug": "guide-m3u", "title_fr": "Lire une playlist M3U", "title_en": "Play an M3U playlist",
+    {"slug": "guide-m3u", "cat": "setup", "title_fr": "Lire une playlist M3U", "title_en": "Play an M3U playlist",
      "blurb_fr": "Ajouter une adresse ou un fichier M3U dans Kastideo (Mac, Windows, Linux, Android), en cinq minutes.",
      "blurb_en": "Add an M3U address or file in Kastideo (Mac, Windows, Linux, Android), in five minutes.", "fr": M3U_FR, "en": M3U_EN},
-    {"slug": "guide-xtream-codes", "title_fr": "Ajouter un abonnement Xtream Codes", "title_en": "Add an Xtream Codes subscription",
+    {"slug": "guide-xtream-codes", "cat": "setup", "title_fr": "Ajouter un abonnement Xtream Codes", "title_en": "Add an Xtream Codes subscription",
      "blurb_fr": "Serveur, identifiant, mot de passe : tout ce qu'il faut savoir.",
      "blurb_en": "Server, username, password: everything you need to know.", "fr": XT_FR, "en": XT_EN},
-    {"slug": "guide-android-tv", "title_fr": "Installer Kastideo sur Android TV", "title_en": "Install Kastideo on Android TV",
+    {"slug": "guide-android-tv", "cat": "install", "title_fr": "Installer Kastideo sur Android TV", "title_en": "Install Kastideo on Android TV",
      "blurb_fr": "APK, Downloader, clé USB et télécommande, sans désactiver la sécurité.",
      "blurb_en": "APK, Downloader, USB stick and remote, without disabling security.", "fr": ATV_FR, "en": ATV_EN},
-    {"slug": "guide-fire-tv", "title_fr": "Installer Kastideo sur Fire TV", "title_en": "Install Kastideo on Fire TV",
+    {"slug": "guide-fire-tv", "cat": "install", "title_fr": "Installer Kastideo sur Fire TV", "title_en": "Install Kastideo on Fire TV",
      "blurb_fr": "Downloader, autorisation et APK universal, pas à pas.",
      "blurb_en": "Downloader, permission and universal APK, step by step.", "fr": FIRE_FR, "en": FIRE_EN},
-    {"slug": "guide-raspberry-pi", "title_fr": "L'IPTV sur Raspberry Pi 4 ou 5", "title_en": "IPTV on a Raspberry Pi 4 or 5",
+    {"slug": "guide-raspberry-pi", "cat": "install", "title_fr": "L'IPTV sur Raspberry Pi 4 ou 5", "title_en": "IPTV on a Raspberry Pi 4 or 5",
      "blurb_fr": "L'AppImage ARM 64 bits, de l'installation au salon.",
      "blurb_en": "The 64-bit ARM AppImage, from installation to the living room.", "fr": PI_FR, "en": PI_EN},
 ]
+
+from pages_guides2 import GUIDES2  # noqa: E402
+GUIDES += GUIDES2
 
 # ------------------------------------------------------------------- Nouveautés
 from history import history_html  # noqa: E402

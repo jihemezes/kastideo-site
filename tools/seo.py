@@ -5,6 +5,36 @@ Description : environ 155 caractères au plus.
 """
 
 META = {
+    "guides": {
+        "fr": ("Guides Kastideo : installer, configurer, utiliser",
+               "Guides pas à pas pour Kastideo : installation sur Android TV et Fire TV, playlist M3U, Xtream Codes, guide TV, replay, enregistrement, iCloud."),
+        "en": ("Kastideo guides: install, set up, use",
+               "Step-by-step Kastideo guides: Android TV and Fire TV install, M3U playlist, Xtream Codes, TV guide, replay, recording, iCloud."),
+    },
+    "guide-epg-replay": {
+        "fr": ("Régler le guide TV et revoir un programme (replay)",
+               "Configurer le guide TV XMLTV et le guide de secours dans Kastideo, lire la grille et revoir une émission jusqu'à 14 jours en arrière."),
+        "en": ("Set up the TV guide and watch a past programme (replay)",
+               "Set up the XMLTV TV guide and backup guide in Kastideo, read the grid and watch a programme up to 14 days back."),
+    },
+    "guide-enregistrer": {
+        "fr": ("Enregistrer une émission de TV avec Kastideo",
+               "Enregistrer le direct, programmer une émission, télécharger un film la nuit et retrouver vos fichiers dans Kastideo."),
+        "en": ("Record a TV programme with Kastideo",
+               "Record live TV, schedule a programme, download a film overnight and find your files in Kastideo."),
+    },
+    "guide-icloud": {
+        "fr": ("Synchroniser Kastideo avec iCloud (Mac, iPhone, iPad)",
+               "Synchroniser sources, favoris, historique et reprise de lecture entre Mac, iPhone et iPad via un dossier iCloud Drive, avec phrase secrète."),
+        "en": ("Sync Kastideo with iCloud (Mac, iPhone, iPad)",
+               "Sync sources, favourites, history and playback position between Mac, iPhone and iPad through an iCloud Drive folder, with a passphrase."),
+    },
+    "guide-films-series": {
+        "fr": ("Fiches de films et séries avec une clé TMDB gratuite",
+               "Obtenir une clé TMDB gratuite, l'ajouter dans Kastideo, corriger une mauvaise fiche et nommer vos fichiers pour de belles affiches."),
+        "en": ("Film and series details with a free TMDB key",
+               "Get a free TMDB key, add it in Kastideo, fix a wrong match and name your files for good posters."),
+    },
     "index": {
         "fr": ("Kastideo, lecteur IPTV gratuit pour Mac, Windows, Linux et Android",
                "Kastideo lit votre abonnement IPTV et vos films sur Mac, Windows, Linux, Android, iPhone et iPad (test). Guide TV, replay, enregistrement. Gratuit."),
