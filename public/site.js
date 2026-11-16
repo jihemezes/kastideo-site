@@ -432,8 +432,57 @@
     }
   }
 
+  /* ---------- Bouton « Retour où vous étiez » ---------- */
+  function initBack() {
+    var txt = lang === 'en' ? 'Back to where you were' : 'Retour où vous étiez';
+    var sameSite = false;
+    try { sameSite = !!document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1; } catch (e) {}
+
+    // 1. Page atteinte depuis une autre page du site : bouton en fin de page.
+    var row = document.querySelector('.back-prev');
+    if (row && sameSite) {
+      row.hidden = false;
+      row.addEventListener('click', function (ev) { ev.preventDefault(); history.back(); });
+    }
+
+    // 2. Saut vers une section de la même page, ou arrivée directe sur une section d'une autre page.
+    function sectionOf(id) {
+      var t = id && document.getElementById(id);
+      if (!t) return null;
+      if (t.tagName === 'SECTION') return t;
+      return t.closest ? t.closest('section[id]') : null;
+    }
+    function makeBtn(sec, action) {
+      var b = sec.querySelector(':scope > .back-jump');
+      if (!b) {
+        b = document.createElement('button');
+        b.type = 'button'; b.className = 'back-jump';
+        b.textContent = '↩ ' + txt;
+        sec.appendChild(b);
+      }
+      b.hidden = false;
+      b.onclick = function () { b.hidden = true; action(); };
+      return b;
+    }
+    var from = null;
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest ? ev.target.closest('a[href*="#"]') : null;
+      if (!a || a.classList.contains('to-top') || a.classList.contains('top-link') || a.classList.contains('skip')) return;
+      if (a.origin !== location.origin || a.pathname.replace(/\/$/, '') !== location.pathname.replace(/\/$/, '') || !a.hash) return;
+      var sec = sectionOf(a.hash.slice(1));
+      if (!sec || sec.id === 'haut') return;
+      var y = window.pageYOffset;
+      var prev = document.querySelectorAll('.back-jump');
+      for (var i = 0; i < prev.length; i++) prev[i].hidden = true;
+      makeBtn(sec, function () { window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' }); });
+    });
+    var hs = sectionOf(location.hash.slice(1));
+    if (hs && sameSite) makeBtn(hs, function () { history.back(); });
+  }
+
   loadReleases();
   loadNews();
   initSearch();
   initHeader();
+  initBack();
 })();

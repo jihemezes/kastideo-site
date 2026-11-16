@@ -519,6 +519,7 @@ def subpage(p, group, siblings, footer, lang):
     out = h + with_lang(header(slug), slug, lang)
     out += crumbs_html(items)
     out += f'\n  <main class="doc" id="contenu">\n{with_figure(p, lang)}  </main>\n\n'
+    out += f'  <p class="back-row">{bi("Retour où vous étiez", "Back to where you were", "a", " class=" + chr(34) + "back-prev" + chr(34) + " href=" + chr(34) + "index.html" + chr(34) + " hidden")}</p>\n\n'
     if siblings:
         out += related(siblings, slug)
     if group in ("features", "versions", "compare", "guides"):

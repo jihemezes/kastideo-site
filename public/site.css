@@ -430,3 +430,11 @@ html { scroll-padding-top: 84px; }
 .promo .actions { margin-top: 16px; }
 .promo .tag { display: inline-block; }
 .hero + .app-shot { margin-top: clamp(28px, 5vh, 48px); }
+
+/* Retour discret vers l'endroit d'où l'on vient */
+.back-row { margin: 28px 0 0; }
+.back-prev, .back-jump { display: inline-flex; align-items: center; gap: 6px; font: 500 13px "Inter", sans-serif; color: var(--faint); text-decoration: none; background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.back-prev[hidden], .back-jump[hidden] { display: none; }
+.back-prev::before { content: "↩"; }
+.back-prev:hover, .back-jump:hover { color: var(--fg); background: var(--card); }
+section > .back-jump { margin-top: 22px; }
