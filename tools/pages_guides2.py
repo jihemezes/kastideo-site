@@ -4,7 +4,7 @@ Contenu tiré de l'aide de l'application (docs/help/aide-fr.md, aide-en.md, iOS/
 """
 
 EPG_FR = """    <h1>Régler le guide TV et revoir un programme</h1>
-    <p class="page-lead">Un guide TV complet, la possibilité de remonter dans le temps et de revoir une émission : voici comment tout mettre en route dans Kastideo.</p>
+    <p class="page-lead">Un guide TV complet, la possibilité de remonter dans le temps et de revoir une émission (le replay, ou « catch-up ») : voici comment tout mettre en route dans Kastideo.</p>
 
     <h2 id="guide">1. Un guide pour chaque chaîne</h2>
     <p>Chaque source peut avoir une adresse de guide au format XMLTV (<code>.xml</code> ou <code>.xml.gz</code>). Si vous la laissez vide, Kastideo utilise celle du serveur Xtream Codes ou celle annoncée dans la playlist M3U. Le guide couvre de 6 h en arrière à 48 h en avant et se recharge tout seul.</p>
@@ -25,7 +25,7 @@ EPG_FR = """    <h1>Régler le guide TV et revoir un programme</h1>
       <li>Un clic sur un programme ouvre sa fiche : <b>Regarder</b>, <b>Enregistrer</b> ou <b>Programmer l'enregistrement</b>.</li>
     </ul>
 
-    <h2 id="replay">4. Revoir un programme (replay)</h2>
+    <h2 id="replay">4. Revoir un programme (replay, catch-up)</h2>
     <p>Certains abonnements conservent les chaînes jusqu'à 14 jours, selon le fournisseur et la chaîne. Kastideo le détecte tout seul : les chaînes concernées portent l'icône <b>↺</b> dans les listes et dans le guide.</p>
     <ol>
       <li>Ouvrez le guide TV et choisissez un jour passé dans le menu de la date (section <b>Revoir</b>), ou cliquez directement sur un programme marqué ↺.</li>
@@ -47,7 +47,7 @@ EPG_FR = """    <h1>Régler le guide TV et revoir un programme</h1>
 """
 
 EPG_EN = """    <h1>Set up the TV guide and watch a past programme</h1>
-    <p class="page-lead">A complete TV guide, the ability to go back in time and watch something that already aired: here is how to set it all up in Kastideo.</p>
+    <p class="page-lead">A complete TV guide, the ability to go back in time and watch something that already aired (replay, or catch-up): here is how to set it all up in Kastideo.</p>
 
     <h2 id="guide">1. A guide for every channel</h2>
     <p>Each source can have a guide address in XMLTV format (<code>.xml</code> or <code>.xml.gz</code>). If you leave it empty, Kastideo uses the one from the Xtream Codes server or the one announced in the M3U playlist. The guide covers 6 hours back to 48 hours ahead and reloads by itself.</p>
@@ -68,7 +68,7 @@ EPG_EN = """    <h1>Set up the TV guide and watch a past programme</h1>
       <li>Click a programme to open its details: <b>Watch</b>, <b>Record</b> or <b>Schedule recording</b>.</li>
     </ul>
 
-    <h2 id="replay">4. Watch a past programme (replay)</h2>
+    <h2 id="replay">4. Watch a past programme (replay, catch-up)</h2>
     <p>Some subscriptions keep channels for up to 14 days, depending on the provider and the channel. Kastideo detects it by itself: the channels concerned carry the <b>↺</b> icon in lists and in the guide.</p>
     <ol>
       <li>Open the TV guide and choose a past day in the date menu (<b>Watch again</b> section), or click a programme marked ↺ directly.</li>

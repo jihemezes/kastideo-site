@@ -442,7 +442,7 @@ FEATURES = [
         "blurb_en": "Watch a programme that already aired using your provider's archive, from the TV guide.",
         "desc": "Le replay dans Kastideo : revoir un programme déjà diffusé grâce à l'archive de votre fournisseur IPTV, depuis le guide TV.",
         "fr": """    <h1>Replay des programmes</h1>
-    <p class="page-lead">Beaucoup de fournisseurs IPTV conservent les programmes des jours passés. Kastideo place cette archive directement dans le guide TV : vous retrouvez l'émission manquée et vous la lancez.</p>
+    <p class="page-lead">Le replay, aussi appelé « catch-up » : beaucoup de fournisseurs IPTV conservent les programmes des jours passés. Kastideo place cette archive directement dans le guide TV : vous retrouvez l'émission manquée et vous la lancez.</p>
     <div class="callout"><b class="label">Une condition</b><p>Le replay dépend de votre abonnement : votre fournisseur doit proposer une archive pour la chaîne, et sa durée varie d'un fournisseur à l'autre. Quand c'est le cas, un petit ↺ apparaît à côté de la chaîne.</p></div>
 
     <h2 id="guide">Dans le guide TV</h2>
@@ -469,7 +469,7 @@ FEATURES = [
     <p>Le replay compte comme une connexion : il ferme la chaîne en cours, comme un changement de chaîne. S'il ne démarre pas, le Journal de lecture indique l'adresse d'archive composée et le décalage utilisé. Le guide du fournisseur doit contenir les programmes passés : rechargez-le après avoir augmenté le nombre de jours conservés.</p>
 """,
         "en": """    <h1>Programme replay</h1>
-    <p class="page-lead">Many IPTV providers keep the programmes of past days. Kastideo puts this archive right into the TV guide: you find the show you missed and play it.</p>
+    <p class="page-lead">Replay, also known as catch-up: many IPTV providers keep the programmes of past days. Kastideo puts this archive right into the TV guide: you find the show you missed and play it.</p>
     <div class="callout"><b class="label">One condition</b><p>Replay depends on your subscription: your provider must offer an archive for the channel, and its length varies from one provider to another. When it does, a small ↺ appears next to the channel.</p></div>
 
     <h2 id="guide">In the TV guide</h2>

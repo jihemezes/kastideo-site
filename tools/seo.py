@@ -12,9 +12,9 @@ META = {
                "Step-by-step Kastideo guides: Android TV and Fire TV install, M3U playlist, Xtream Codes, TV guide, replay, recording, iCloud."),
     },
     "guide-epg-replay": {
-        "fr": ("Régler le guide TV et revoir un programme (replay)",
+        "fr": ("Guide TV et replay (catch-up) : revoir un programme",
                "Configurer le guide TV XMLTV et le guide de secours dans Kastideo, lire la grille et revoir une émission jusqu'à 14 jours en arrière."),
-        "en": ("Set up the TV guide and watch a past programme (replay)",
+        "en": ("TV guide and replay (catch-up): watch a past programme",
                "Set up the XMLTV TV guide and backup guide in Kastideo, read the grid and watch a programme up to 14 days back."),
     },
     "guide-enregistrer": {
@@ -78,10 +78,10 @@ META = {
                "Cast a channel, movie, series or YouTube from Kastideo to Chromecast, Google TV, Android TV, or Apple TV via screen mirroring."),
     },
     "replay": {
-        "fr": ("Replay IPTV : revoir un programme passé depuis le guide TV",
-               "Le replay de Kastideo utilise l'archive de votre fournisseur IPTV : retrouvez l'émission manquée dans le guide TV et lancez-la."),
-        "en": ("IPTV replay: watch a past programme from the TV guide",
-               "Kastideo's replay uses your IPTV provider's archive: find the show you missed in the TV guide and play it."),
+        "fr": ("Replay IPTV (catch-up) : revoir un programme passé",
+               "Le replay (catch-up) de Kastideo utilise l'archive de votre fournisseur IPTV : retrouvez l'émission manquée dans le guide TV et lancez-la."),
+        "en": ("IPTV replay (catch-up): watch a past programme",
+               "Kastideo's replay (catch-up) uses your IPTV provider's archive: find the show you missed in the TV guide and play it."),
     },
     "films-series": {
         "fr": ("Films et séries : fiches, saisons, reprise de lecture",
